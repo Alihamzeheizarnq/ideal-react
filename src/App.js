@@ -35,8 +35,8 @@ function App() {
                 {`enable-page-overlay
                 sidebar-r side-scroll
                  page-header-fixed main-content-narrow
-                rtl-support ${enable ? 'side-trans-enabled sidebar-o' : ''}
-                  ${!enableLeft ? 'side-trans-enabled side-overlay-o' : ''}
+                rtl-support ${enable ? 'side-trans-enabled sidebar-o sidebar-o-xs' : 'side-trans-enabled'}
+                  ${!enableLeft ? 'side-trans-enabled side-overlay-o ' : ''}
                   ${!DarkAndWhithSideBar ? 'sidebar-dark' : 'page-header-dark'}`}
 
             >

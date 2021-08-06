@@ -64,7 +64,9 @@ function SideBar(props) {
                             {/* END Toggle Sidebar Style */}
                             {/* Close Sidebar, Visible only on mobile screens */}
                             {/* Layout API, functionality initialized in Template._uiApiLayout() */}
-                            <a className="d-lg-none text-white ml-2" data-toggle="layout" data-action="sidebar_close" href="javascript:void(0)">
+                            <a className="d-lg-none text-white ml-2"
+                                onClick={e => props.btn('RightSideBar')}
+                            data-toggle="layout" data-action="sidebar_close" href="javascript:void(0)">
                                 <i className="fa fa-times-circle" />
                             </a>
                             {/* END Close Sidebar */}
