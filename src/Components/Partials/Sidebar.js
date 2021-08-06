@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 function SideBar(props) {
 
-    let [SideBarToggle , setSideBarToggle] = useState(false);
+    let [SideBarToggle, setSideBarToggle] = useState(false);
 
     let HandleActiveSidebar = (e) => {
         e.preventDefault();
@@ -58,7 +58,7 @@ function SideBar(props) {
                             {/* Layout API, functionality initialized in Template._uiApiLayout() */}
                             {/* Class Toggle, functionality initialized in Helpers.coreToggleClass() */}
                             <a className="js-class-toggle text-white-75" data-target="#sidebar-style-toggler" data-class="fa-toggle-off fa-toggle-on"
-                                onClick={e => {setSideBarToggle(! SideBarToggle); props.btn('DarkAndWhithSideBar')} } href="javascript:void(0)">
+                                onClick={e => { setSideBarToggle(!SideBarToggle); props.btn('DarkAndWhithSideBar') }} href="javascript:void(0)">
                                 <i className={`fa fa-toggle-${SideBarToggle ? 'on' : 'off'}`} id="sidebar-style-toggler" />
                             </a>
                             {/* END Toggle Sidebar Style */}

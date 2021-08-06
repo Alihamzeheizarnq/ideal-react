@@ -3,7 +3,6 @@ import './Admin.css';
 import SideBar from './Components/Partials/Sidebar';
 import Header from './Components/Partials/Header';
 import Aside from './Components/Partials/Aside';
-import Breadcrumb from './Components/Partials/Breadcrumb';
 import Footer from './Components/Partials/Footer';
 import Index from './Components'
 import { useState } from 'react';
@@ -46,10 +45,7 @@ function App() {
                 <SideBar btn={enableSideBar} />
                 <Header btn={enableSideBar} />
                 <main id="main-container">
-                    <Breadcrumb />
-                    <div className="content">
-                        <Index />
-                    </div>
+                    <Index />
                 </main>
                 <Footer />
             </div>

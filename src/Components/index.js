@@ -1,10 +1,12 @@
-import { Route, Router, Switch } from 'react-router';
-import Dashboard from './Dashboard'
-function Index(){
+import { Route, Switch } from 'react-router';
+import Users from './Users'
+import CreateUsers from './Users/Create';
+function Index() {
     return (
         <>
             <Switch>
-                <Route path="/users/create" component={Dashboard} />
+                <Route path="/users/create" component={CreateUsers} />
+                <Route path="/users" component={Users} />
             </Switch>
         </>
     )
