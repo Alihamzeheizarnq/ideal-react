@@ -12,10 +12,8 @@ function Users() {
             { title: 'لیست کاربران', link: '#', active: true },
         ]
     })
-
-
-
-
+        
+    )
     const styles = {
         bounce: {
             animation: 'x 1s',
@@ -28,30 +26,142 @@ function Users() {
 
             <StyleRoot>
                 <div className="content" >
-
                     <div className="block block-rounded" style={styles.bounce}>
                         <div className="block-header block-header-default">
-                            <h3 className="block-title">
-                                Title <small>Get Started</small>
-                            </h3>
-                            <div className="block-options pl-0 pr-3">
-                                <button type="button" className="btn-block-option" data-toggle="block-option" data-action="fullscreen_toggle" />
-                                <button type="button" className="btn-block-option" data-toggle="block-option" data-action="pinned_toggle">
-                                    <i className="si si-pin" />
-                                </button>
-                                <button type="button" className="btn-block-option" data-toggle="block-option" data-action="state_toggle" data-action-mode="demo">
-                                    <i className="si si-refresh" />
-                                </button>
-                                <button type="button" className="btn-block-option" data-toggle="block-option" data-action="content_toggle" />
-                                <button type="button" className="btn-block-option" data-toggle="block-option" data-action="close">
-                                    <i className="si si-close" />
-                                </button>
+                            <h3 className="block-title">Bordered Table</h3>
+                            <div className="block-options">
+                                <div className="block-options-item">
+                                    <code>.table-bordered</code>
+                                </div>
                             </div>
                         </div>
                         <div className="block-content">
-                            <p>
-                                لیست کاربران
-                            </p>
+                            <table className="table table-bordered table-vcenter">
+                                <thead>
+                                    <tr>
+                                        <th className="text-center" style={{ width: 50 }}>#</th>
+                                        <th>Name</th>
+                                        <th className="d-none d-sm-table-cell" style={{ width: '15%' }}>Access</th>
+                                        <th className="text-center" style={{ width: 100 }}>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th className="text-center" scope="row">1</th>
+                                        <td className="font-w600">
+                                            <a href="be_pages_generic_profile.html">Alice Moore</a>
+                                        </td>
+                                        <td className="d-none d-sm-table-cell">
+                                            <span className="badge badge-danger">Disabled</span>
+                                        </td>
+                                        <td className="text-center">
+                                            <div className="btn-group">
+                                                <button type="button" className="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title data-original-title="Edit">
+                                                    <i className="fa fa-pencil-alt" />
+                                                </button>
+                                                <button type="button" className="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title data-original-title="Delete">
+                                                    <i className="fa fa-times" />
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th className="text-center" scope="row">2</th>
+                                        <td className="font-w600">
+                                            <a href="be_pages_generic_profile.html">Ryan Flores</a>
+                                        </td>
+                                        <td className="d-none d-sm-table-cell">
+                                            <span className="badge badge-danger">Disabled</span>
+                                        </td>
+                                        <td className="text-center">
+                                            <div className="btn-group">
+                                                <button type="button" className="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title data-original-title="Edit">
+                                                    <i className="fa fa-pencil-alt" />
+                                                </button>
+                                                <button type="button" className="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title data-original-title="Delete">
+                                                    <i className="fa fa-times" />
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th className="text-center" scope="row">3</th>
+                                        <td className="font-w600">
+                                            <a href="be_pages_generic_profile.html">Carl Wells</a>
+                                        </td>
+                                        <td className="d-none d-sm-table-cell">
+                                            <span className="badge badge-warning">Trial</span>
+                                        </td>
+                                        <td className="text-center">
+                                            <div className="btn-group">
+                                                <button type="button" className="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title data-original-title="Edit">
+                                                    <i className="fa fa-pencil-alt" />
+                                                </button>
+                                                <button type="button" className="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title data-original-title="Delete">
+                                                    <i className="fa fa-times" />
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th className="text-center" scope="row">4</th>
+                                        <td className="font-w600">
+                                            <a href="be_pages_generic_profile.html">Judy Ford</a>
+                                        </td>
+                                        <td className="d-none d-sm-table-cell">
+                                            <span className="badge badge-warning">Trial</span>
+                                        </td>
+                                        <td className="text-center">
+                                            <div className="btn-group">
+                                                <button type="button" className="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title data-original-title="Edit">
+                                                    <i className="fa fa-pencil-alt" />
+                                                </button>
+                                                <button type="button" className="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title data-original-title="Delete">
+                                                    <i className="fa fa-times" />
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th className="text-center" scope="row">5</th>
+                                        <td className="font-w600">
+                                            <a href="be_pages_generic_profile.html">Lisa Jenkins</a>
+                                        </td>
+                                        <td className="d-none d-sm-table-cell">
+                                            <span className="badge badge-info">Business</span>
+                                        </td>
+                                        <td className="text-center">
+                                            <div className="btn-group">
+                                                <button type="button" className="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title data-original-title="Edit">
+                                                    <i className="fa fa-pencil-alt" />
+                                                </button>
+                                                <button type="button" className="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title data-original-title="Delete">
+                                                    <i className="fa fa-times" />
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th className="text-center" scope="row">6</th>
+                                        <td className="font-w600">
+                                            <a href="be_pages_generic_profile.html">Jesse Fisher</a>
+                                        </td>
+                                        <td className="d-none d-sm-table-cell">
+                                            <span className="badge badge-warning">Trial</span>
+                                        </td>
+                                        <td className="text-center">
+                                            <div className="btn-group">
+                                                <button type="button" className="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title data-original-title="Edit">
+                                                    <i className="fa fa-pencil-alt" />
+                                                </button>
+                                                <button type="button" className="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title data-original-title="Delete">
+                                                    <i className="fa fa-times" />
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
