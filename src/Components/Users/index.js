@@ -13,7 +13,7 @@ function Users() {
         ]
     })
         
-    )
+    
     const styles = {
         bounce: {
             animation: 'x 1s',
