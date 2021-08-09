@@ -6,14 +6,20 @@ import Aside from './Components/Partials/Aside';
 import Footer from './Components/Partials/Footer';
 import Index from './Components'
 import { useState } from 'react';
+import Login from './Components/auth/Login';
+import { useHistory } from "react-router-dom";
+
 
 function App() {
 
-  
+    let history = useHistory();
+
+
     let [enable, setEnableSidebar] = useState(true);
     let [enableLeft, setEnableLeftSidebar] = useState(true);
     let [DarkAndWhithSideBar, setDarkAndWhithSideBar] = useState(true);
-    
+    let [token, setToken] = useState(false);
+
     let enableSideBar = (type) => {
         switch (type) {
             case 'RightSideBar':
@@ -29,11 +35,13 @@ function App() {
 
 
     }
+    if (!token) {
+        history.push('/login')
+        return <Login />
+    }
 
     return (
         <>
-
-        
             <div id="page-container" className=
                 {`enable-page-overlay
                 sidebar-r side-scroll
