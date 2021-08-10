@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Breadcrumb from "../Partials/Breadcrumb";
-import { fadeInUp } from 'react-animations';
+import { bounceInLeft } from 'react-animations';
 import Radium, { StyleRoot } from 'radium';
 function Users() {
 
@@ -17,7 +17,7 @@ function Users() {
     const styles = {
         bounce: {
             animation: 'x 1s',
-            animationName: Radium.keyframes(fadeInUp, 'fadeInUp')
+            animationName: Radium.keyframes(bounceInLeft, 'bounceInLeft')
         }
     }
     return (
