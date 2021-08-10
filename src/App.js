@@ -5,15 +5,18 @@ import Header from './Components/Partials/Header';
 import Aside from './Components/Partials/Aside';
 import Footer from './Components/Partials/Footer';
 import Index from './Components'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Login from './Components/auth/Login';
 import { useHistory } from "react-router-dom";
+import login from './Api/Login';
 
 
 function App() {
 
+    useEffect(() => {
+       console.log( login('allihamzehei' , '12345678'))
+    },[])
     let history = useHistory();
-
 
     let [enable, setEnableSidebar] = useState(true);
     let [enableLeft, setEnableLeftSidebar] = useState(true);
