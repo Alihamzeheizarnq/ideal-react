@@ -8,19 +8,19 @@ function Aside(props) {
                     <div className="bg-primary-op">
                         <div className="content-header">
                             {/* User Avatar */}
-                            <a className="img-link ml-1" href="">
+                            <a className="img-link ml-1" href="#">
                                 <img className="img-avatar img-avatar48" src="assets/media/avatars/avatar10.jpg" alt />
                             </a>
                             {/* END User Avatar */}
                             {/* User Info */}
                             <div className="mr-2">
-                                <a className="text-white font-w600" href="">John Doe</a>
+                                <a className="text-white font-w600" href="#">John Doe</a>
                                 <div className="text-white-75 font-size-sm">Administrator</div>
                             </div>
                             {/* END User Info */}
                             {/* Close Side Overlay */}
                             {/* Layout API, functionality initialized in Template._uiApiLayout() */}
-                            <a onClick={(e) => props.btn('LeftSideBar')} className="mr-auto text-white" href="" data-toggle="layout" data-action="side_overlay_close">
+                            <a onClick={(e) => props.btn(e,'LeftSideBar')} className="mr-auto text-white" href="#" data-toggle="layout" data-action="side_overlay_close">
                                 <i className="fa fa-times-circle" />
                             </a>
                             {/* END Close Side Overlay */}
@@ -115,10 +115,10 @@ function Aside(props) {
                                     <div className="block-content block-content-full">
                                         <div className="row gutters-tiny text-center">
                                             <div className="col-6 mb-1">
-                                                <a className="d-block py-3 bg-body-dark font-w600 text-dark" data-toggle="layout" data-action="sidebar_style_dark" href="">Dark</a>
+                                                <a className="d-block py-3 bg-body-dark font-w600 text-dark" data-toggle="layout" data-action="sidebar_style_dark" href="#">Dark</a>
                                             </div>
                                             <div className="col-6 mb-1">
-                                                <a className="d-block py-3 bg-body-dark font-w600 text-dark" data-toggle="layout" data-action="sidebar_style_light" href="">Light</a>
+                                                <a className="d-block py-3 bg-body-dark font-w600 text-dark" data-toggle="layout" data-action="sidebar_style_light" href="#">Light</a>
                                             </div>
                                         </div>
                                     </div>
@@ -130,16 +130,16 @@ function Aside(props) {
                                     <div className="block-content block-content-full">
                                         <div className="row gutters-tiny text-center">
                                             <div className="col-6 mb-1">
-                                                <a className="d-block py-3 bg-body-dark font-w600 text-dark" data-toggle="layout" data-action="header_style_dark" href="">Dark</a>
+                                                <a className="d-block py-3 bg-body-dark font-w600 text-dark" data-toggle="layout" data-action="header_style_dark" href="#">Dark</a>
                                             </div>
                                             <div className="col-6 mb-1">
-                                                <a className="d-block py-3 bg-body-dark font-w600 text-dark" data-toggle="layout" data-action="header_style_light" href="">Light</a>
+                                                <a className="d-block py-3 bg-body-dark font-w600 text-dark" data-toggle="layout" data-action="header_style_light" href="#">Light</a>
                                             </div>
                                             <div className="col-6 mb-1">
-                                                <a className="d-block py-3 bg-body-dark font-w600 text-dark" data-toggle="layout" data-action="header_mode_fixed" href="">Fixed</a>
+                                                <a className="d-block py-3 bg-body-dark font-w600 text-dark" data-toggle="layout" data-action="header_mode_fixed" href="#">Fixed</a>
                                             </div>
                                             <div className="col-6 mb-1">
-                                                <a className="d-block py-3 bg-body-dark font-w600 text-dark" data-toggle="layout" data-action="header_mode_static" href="">Static</a>
+                                                <a className="d-block py-3 bg-body-dark font-w600 text-dark" data-toggle="layout" data-action="header_mode_static" href="#">Static</a>
                                             </div>
                                         </div>
                                     </div>
@@ -151,13 +151,13 @@ function Aside(props) {
                                     <div className="block-content block-content-full">
                                         <div className="row gutters-tiny text-center">
                                             <div className="col-6 mb-1">
-                                                <a className="d-block py-3 bg-body-dark font-w600 text-dark" data-toggle="layout" data-action="content_layout_boxed" href="">Boxed</a>
+                                                <a className="d-block py-3 bg-body-dark font-w600 text-dark" data-toggle="layout" data-action="content_layout_boxed" href="#">Boxed</a>
                                             </div>
                                             <div className="col-6 mb-1">
-                                                <a className="d-block py-3 bg-body-dark font-w600 text-dark" data-toggle="layout" data-action="content_layout_narrow" href="">Narrow</a>
+                                                <a className="d-block py-3 bg-body-dark font-w600 text-dark" data-toggle="layout" data-action="content_layout_narrow" href="#">Narrow</a>
                                             </div>
                                             <div className="col-12 mb-1">
-                                                <a className="d-block py-3 bg-body-dark font-w600 text-dark" data-toggle="layout" data-action="content_layout_full_width" href="">Full Width</a>
+                                                <a className="d-block py-3 bg-body-dark font-w600 text-dark" data-toggle="layout" data-action="content_layout_full_width" href="#">Full Width</a>
                                             </div>
                                         </div>
                                     </div>

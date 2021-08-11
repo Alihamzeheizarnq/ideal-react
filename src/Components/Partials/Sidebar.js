@@ -59,15 +59,15 @@ function SideBar(props) {
                             {/* Layout API, functionality initialized in Template._uiApiLayout() */}
                             {/* Class Toggle, functionality initialized in Helpers.coreToggleClass() */}
                             <a className="js-class-toggle text-white-75" data-target="#sidebar-style-toggler" data-class="fa-toggle-off fa-toggle-on"
-                                onClick={e => { setSideBarToggle(!SideBarToggle); props.btn('DarkAndWhithSideBar') }} href="">
+                                onClick={e => { setSideBarToggle(!SideBarToggle); props.btn(e,'DarkAndWhithSideBar') }} href="#">
                                 <i className={`fa fa-toggle-${SideBarToggle ? 'on' : 'off'}`} id="sidebar-style-toggler" />
                             </a>
                             {/* END Toggle Sidebar Style */}
                             {/* Close Sidebar, Visible only on mobile screens */}
                             {/* Layout API, functionality initialized in Template._uiApiLayout() */}
                             <a className="d-lg-none text-white ml-2"
-                                onClick={e => props.btn('RightSideBar')}
-                            data-toggle="layout" data-action="sidebar_close" href="">
+                                onClick={e => props.btn(e,'RightSideBar')}
+                            data-toggle="layout" data-action="sidebar_close" href="#">
                                 <i className="fa fa-times-circle" />
                             </a>
                             {/* END Close Sidebar */}
@@ -88,13 +88,13 @@ function SideBar(props) {
                                 </a>
                                 <ul className="nav-main-submenu">
                                     <li className="nav-main-item" >
-                                        <NavLink to="/users/create" className="nav-main-link" href="">
+                                        <NavLink to="/users/create" className="nav-main-link" href="#">
                                             <i className="nav-main-link-icon fa fa-2x fa-chevron-left" />
                                             <span className="nav-main-link-name">ایجاد کاربر</span>
                                         </NavLink>
                                     </li>
                                     <li className="nav-main-item">
-                                        <NavLink to="/users" exact className="nav-main-link" href="">
+                                        <NavLink to="/users" exact className="nav-main-link" href="#">
                                             <i className="nav-main-link-icon fa fa-2x fa-chevron-left" />
                                             <span className="nav-main-link-name">لیست کاربران </span>
                                         </NavLink>
@@ -108,13 +108,13 @@ function SideBar(props) {
                                 </a>
                                 <ul className="nav-main-submenu">
                                     <li className="nav-main-item">
-                                        <NavLink to="/posts/create" className="nav-main-link" href="">
+                                        <NavLink to="/posts/create" className="nav-main-link" href="#">
                                             <i className="nav-main-link-icon fa fa-2x fa-chevron-left" />
                                             <span className="nav-main-link-name">ایجاد مقاله  </span>
                                         </NavLink>
                                     </li>
                                     <li className="nav-main-item">
-                                        <NavLink to="/posts" exact className="nav-main-link" href="">
+                                        <NavLink to="/posts" exact className="nav-main-link" href="#">
                                             <i className="nav-main-link-icon fa fa-2x fa-chevron-left" />
                                             <span className="nav-main-link-name">لیست مقالات </span>
                                         </NavLink>

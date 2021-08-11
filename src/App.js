@@ -7,7 +7,7 @@ import Footer from './Components/Partials/Footer';
 import Index from './Components'
 import { useEffect, useState } from 'react';
 import Login from './Components/auth/Login';
-import { useHistory } from "react-router-dom";
+import { Route, Switch, useHistory } from "react-router-dom";
 import Auth from './Api/Login';
 
 
@@ -15,19 +15,24 @@ import Auth from './Api/Login';
 function App() {
 
     let history = useHistory();
-    let [token, setToken] = useState(true);
+    let [token, setToken] = useState(false);
 
     useEffect(() => {
         Auth.CheckUser((user) => {
+            console.log(user)
+            setToken(true)
+        }, (err) => {
             setToken(false)
+            history.push('/login')
         })
-    },[])
+    }, [])
 
     let [enable, setEnableSidebar] = useState(true);
     let [enableLeft, setEnableLeftSidebar] = useState(true);
     let [DarkAndWhithSideBar, setDarkAndWhithSideBar] = useState(true);
 
-    let enableSideBar = (type) => {
+    let enableSideBar = (e, type) => {
+        e.preventDefault()
         switch (type) {
             case 'RightSideBar':
                 setEnableSidebar(!enable);
@@ -44,25 +49,30 @@ function App() {
     }
 
     let setTok = () => {
-        setToken(false)
-    }
-    if (token) {
-        history.push('/login')
-        return <Login setTok={setTok} />
-    }else{
-        history.push(history.location.pathname)
-
+        setToken(true)
     }
 
-    return (
+
+
+    let render = (
         <>
-            <div id="page-container" className=
+            <Switch>
+                <Route path="/login" exact >
+                    {
+                         (<Login setTok={setTok} token={token} />)
+                    }
+
+                </Route>
+            </Switch>
+            <div id="page-container" style={{ display : token ? '' : 'none' }} className=
                 {`enable-page-overlay
                 sidebar-r side-scroll
                  page-header-fixed main-content-narrow
                 rtl-support ${enable ? 'side-trans-enabled sidebar-o sidebar-o-xs' : 'side-trans-enabled'}
                   ${!enableLeft ? 'side-trans-enabled side-overlay-o ' : ''}
-                  ${DarkAndWhithSideBar ? 'sidebar-dark' : 'page-header-dark'}`}
+                  ${DarkAndWhithSideBar ? 'sidebar-dark' : 'page-header-dark'}`
+                
+                }
 
             >
 
@@ -76,7 +86,12 @@ function App() {
                 <Footer />
             </div>
         </>
-    )
+    );
+
+
+
+
+    return render
 }
 
 export default App;

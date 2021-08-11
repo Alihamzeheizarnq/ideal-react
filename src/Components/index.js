@@ -6,6 +6,7 @@ function Index() {
     return (
         <>
             <Switch>
+                <Route path="/" exact component={CreateUsers} />
                 <Route path="/users/create" component={CreateUsers} />
                 <Route path="/users" component={Users} />
             </Switch>

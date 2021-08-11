@@ -5,17 +5,15 @@ function login(email , password , callback) {
       instance.post('login' , {email , password , device_name : 'mobile'}).then((res) => {
             localStorage.setItem('token', res.data.token);
             callback()
-        }).catch(err => {
-            console.log(err.respons)
         });
 
 }
-function CheckUser(callback) {
+function CheckUser(success , erro) {
 
     instance.get('user').then((res) => {
-          callback(res.data)
+        success(res.data)
       }).catch(err => {
-          console.log(err.respons)
+        erro(err.response)
       });
 
 }

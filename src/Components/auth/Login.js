@@ -3,12 +3,20 @@ import validator from '../fa';
 import { ToastContainer, toast } from 'react-toastify';
 import Auth from '../../Api/Login';
 import 'react-toastify/dist/ReactToastify.css';
+import { useHistory } from 'react-router';
+
 
 
 
 
 function Login(props) {
 
+    
+
+    let history = useHistory()
+    if(props.token){
+       history.push('/')
+    }
     let [user, setUser] = useState('');
     let [password, setPassword] = useState('');
     let [loading, setLoading] = useState(false);
