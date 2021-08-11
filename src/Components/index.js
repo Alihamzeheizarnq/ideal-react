@@ -1,5 +1,4 @@
 import { Route, Switch } from 'react-router';
-import Login from './auth/Login';
 import Users from './Users'
 import CreateUsers from './Users/Create';
 function Index() {
