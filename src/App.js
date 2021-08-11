@@ -8,20 +8,24 @@ import Index from './Components'
 import { useEffect, useState } from 'react';
 import Login from './Components/auth/Login';
 import { useHistory } from "react-router-dom";
-import login from './Api/Login';
+import Auth from './Api/Login';
+
 
 
 function App() {
 
-    useEffect(() => {
-       console.log( login('allihamzehei' , '12345678'))
-    },[])
     let history = useHistory();
+    let [token, setToken] = useState(true);
+
+    useEffect(() => {
+        Auth.CheckUser((user) => {
+            setToken(false)
+        })
+    },[])
 
     let [enable, setEnableSidebar] = useState(true);
     let [enableLeft, setEnableLeftSidebar] = useState(true);
     let [DarkAndWhithSideBar, setDarkAndWhithSideBar] = useState(true);
-    let [token, setToken] = useState(false);
 
     let enableSideBar = (type) => {
         switch (type) {
@@ -38,9 +42,16 @@ function App() {
 
 
     }
-    if (!token) {
+
+    let setTok = () => {
+        setToken(false)
+    }
+    if (token) {
         history.push('/login')
-        return <Login />
+        return <Login setTok={setTok} />
+    }else{
+        history.push(history.location.pathname)
+
     }
 
     return (
@@ -64,8 +75,6 @@ function App() {
                 </main>
                 <Footer />
             </div>
-
-
         </>
     )
 }

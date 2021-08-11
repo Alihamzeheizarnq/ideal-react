@@ -1,17 +1,22 @@
 import instance from "./Ideal"
 
+function login(email , password , callback) {
 
-function Login(username , password ) {
-    console.log(username , password)
-
-        instance.post('login').then((res) => {
-            console.log(res)
-
+      instance.post('login' , {email , password , device_name : 'mobile'}).then((res) => {
+            localStorage.setItem('token', res.data.token);
+            callback()
         }).catch(err => {
             console.log(err.respons)
         });
 
+}
+function CheckUser(callback) {
+
+    instance.get('user').then((res) => {
+          callback(res.data)
+      }).catch(err => {
+          console.log(err.respons)
+      });
 
 }
-
-export default Login;
+export default { login , CheckUser };

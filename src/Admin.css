@@ -31126,3 +31126,8 @@ button {
         /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
         url('./fonts/iransansfanum/ttf/IRANSansWeb(FaNum).ttf') format('truetype');
 }
+.Toastify *{
+    text-align: right;
+    direction: rtl;
+    font-family: IRANSansfanum;
+}
