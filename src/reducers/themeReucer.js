@@ -2,7 +2,7 @@ let initState = {
     token: false,
     sidebarRight: true,
     sidebarLeft: true,
-    sidebarStyle: true
+    sidebarStyle: true,
 }
 
 function reducer(state = initState, action) {
@@ -27,6 +27,7 @@ function reducer(state = initState, action) {
                 ...state,
                 token: action.status
             }
+
         default:
             return state;
     }

@@ -15,6 +15,7 @@ let TokenStatus = (status) => ({
     type : 'TokenStatus',
     status 
 })
+
 // end ui config
 // links and linksGroups
 let CreateGropeLink = (text , id) => ({
@@ -23,10 +24,14 @@ let CreateGropeLink = (text , id) => ({
     text
 })
 
-let SetGropeLink = () => ({
-    type : 'CREATE_GROUPE'
+let SetGropeLink = (data) => ({
+    type : 'SET_LINK_GROUPE',
+    data
 })
-
+let DeleteLink = (id) => ({
+    type : 'DELETE_LINK',
+    id
+})
 //
 export default { 
     RightSideBar, 
@@ -34,5 +39,6 @@ export default {
     DarkAndWhithSideBar , 
     TokenStatus,
     CreateGropeLink,
-    SetGropeLink
+    SetGropeLink,
+    DeleteLink
 }

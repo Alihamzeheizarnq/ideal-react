@@ -31131,3 +31131,7 @@ button {
     direction: rtl;
     font-family: IRANSansfanum;
 }
+ .modal-open {
+     overflow: unset !important;
+     padding-right: unset !important;
+ }

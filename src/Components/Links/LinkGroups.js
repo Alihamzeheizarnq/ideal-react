@@ -1,19 +1,21 @@
 import { connect } from "react-redux";
-import { useState } from "react";
+import { useEffect } from "react";
 import { bounceInLeft } from 'react-animations';
 import Radium, { StyleRoot } from 'radium';
 import Breadcrumb from "../Partials/Breadcrumb";
 import CreateLinkGroup from "./CreateLinkGroup";
-import MapLinkGroup from './MapLinkGroup'
+import MapLinkGroup from './MapLinkGroup';
+import Links from "../../Api/Links";
+import actions from "../../actions";
+import breadcrumb from "../../breadcrub";
 function LinkGroups(props) {
 
-    let [header, setHeader] = useState({
-        title: 'مدیریت سرگروه ها',
-        breadcrumb: [
-            { title: 'صفحه اصلی', link: '#', active: false },
-            { title: ' مدیریت سرگروه ها ', link: '/links/groups', active: true },
-        ]
-    })
+
+    useEffect(() => {
+        Links.linkIndex((data) => {
+            props.dispatch(actions.SetGropeLink(data.data))
+        })
+    } , [])
 
 
     const styles = {
@@ -22,6 +24,9 @@ function LinkGroups(props) {
             animationName: Radium.keyframes(bounceInLeft, 'bounceInLeft')
         }
     }
+
+
+    let header = breadcrumb('links.group');
     return (
         <>
             <Breadcrumb header={header} />
@@ -72,6 +77,6 @@ function LinkGroups(props) {
 }
 
 let MapStateToProps = (state) => ({
-    links : state.links
+    links : state.links,
 })
 export default connect(MapStateToProps)(LinkGroups);

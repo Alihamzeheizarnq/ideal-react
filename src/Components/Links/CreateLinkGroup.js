@@ -23,12 +23,13 @@ function CreateLinkGroup(props) {
                 toast.error(validator.errorMessages[property]);
             }
         }
+
     }
 
     return (
         <form className="form-inline mb-4" onSubmit={e => { handelForm(e) }}>
             <input type="text"
-                className="form-control mb-2 ml-2 mr-sm-2 mb-sm-0"
+                className={`form-control mb-2 ml-2 mr-sm-2 mb-sm-0 ${validator.fieldValid('linkGroup') ? '' : 'is-invalid'}`}
                 id="example-if-email"
                 name="example-if-email"
                 placeholder="نام سرگروه را وارد کنید"

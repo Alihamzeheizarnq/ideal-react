@@ -6,6 +6,17 @@ function linkStore(text , callback) {
         callback(res.data)
     })
 }
+function linkIndex(callback) {
+    instance.get('link/groups').then(res => {
+        callback(res.data)
+    })
+}
+
+function linkDelete(id , callback) {
+    instance.delete(`link/groups/${id}`).then(res => {
+        callback(res.data)
+    })
+}
 
 
-export default { linkStore };
+export default { linkStore , linkIndex , linkDelete};

@@ -1,19 +1,14 @@
-import { useState } from "react";
 import Breadcrumb from "../Partials/Breadcrumb";
 import { bounceInLeft } from 'react-animations';
 import Radium, { StyleRoot } from 'radium';
+import breadcrumb from './../../breadcrub'
 function Users() {
 
-    let [header, setHeader] = useState({
-        title: 'لیست کاربران',
-        breadcrumb: [
-            { title: 'صفحه اصلی', link: '#', active: false },
-            { title: 'مدیریت کاربران', link: '/users', active: false },
-            { title: 'لیست کاربران', link: '#', active: true },
-        ]
-    })
-        
-    
+
+
+
+    let header = breadcrumb('users.index');
+
     const styles = {
         bounce: {
             animation: 'x 1s',

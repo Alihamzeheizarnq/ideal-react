@@ -7,7 +7,12 @@ function reducer(state = [], action) {
                     name : action.text , id : action.id
                 }
             ]
+        case 'SET_LINK_GROUPE':
+
+        return action.data;
                
+        case 'DELETE_LINK':
+             return state.filter(item => item.id != action.id ? item : false)
         default:
             return state;
     }
