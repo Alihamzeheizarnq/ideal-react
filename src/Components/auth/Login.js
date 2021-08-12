@@ -4,6 +4,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import Auth from '../../Api/Login';
 import 'react-toastify/dist/ReactToastify.css';
 import { useHistory } from 'react-router';
+import { connect } from 'react-redux';
+import actions from '../../actions';
 
 
 
@@ -34,7 +36,8 @@ function Login(props) {
                 setTimeout(() => {
                     setBtnEnabel(false)
                     setLoading(false)
-                    props.setTok()
+                    props.dispatch(actions.TokenStatus(true))
+
                 }, 3000)
             })
 
@@ -137,4 +140,8 @@ function Login(props) {
 
     )
 }
-export default Login;
+
+let mapStateToProps = (state) => ({
+    token : state.theme.token
+})
+export default connect(mapStateToProps)(Login);

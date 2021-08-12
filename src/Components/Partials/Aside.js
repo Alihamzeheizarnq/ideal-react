@@ -2,7 +2,6 @@ import  { connect } from 'react-redux';
 import actions from '../../actions';
  
 function Aside(props) {
-    console.log(actions.LeftSideBar())
 
     
     return (

@@ -1,14 +1,13 @@
 
-
+import { connect } from "react-redux";
+import actions from "../../actions";
 
 function Header(props) {
-
 
   
 
     return (
         <>
-
             <header id="page-header">
                 {/* Header Content */}
                 <div className="content-header">
@@ -16,7 +15,7 @@ function Header(props) {
                     <div>
                         {/* Toggle Sidebar */}
                         {/* Layout API, functionality initialized in Template._uiApiLayout()*/}
-                        <button onClick={e => props.btn(e,'RightSideBar')} type="button" className="btn btn-dual mr-1" data-toggle="layout" data-action="sidebar_toggle">
+                        <button onClick={e => props.dispatch(actions.RightSideBar())} type="button" className="btn btn-dual mr-1" data-toggle="layout" data-action="sidebar_toggle">
                             <i className="fa fa-fw fa-bars" />
                         </button>
                         {/* END Toggle Sidebar */}
@@ -144,7 +143,7 @@ function Header(props) {
                         {/* END Notifications Dropdown */}
                         {/* Toggle Side Overlay */}
                         {/* Layout API, functionality initialized in Template._uiApiLayout() */}
-                        <button onClick={(e) => props.btn(e,'LeftSideBar')} type="button" className="btn btn-dual" data-toggle="layout" data-action="side_overlay_toggle">
+                        <button onClick={(e) => props.dispatch(actions.LeftSideBar())} type="button" className="btn btn-dual" data-toggle="layout" data-action="side_overlay_toggle">
                             <i className="far fa-fw fa-list-alt" />
                         </button>
                         {/* END Toggle Side Overlay */}
@@ -184,4 +183,4 @@ function Header(props) {
     )
 }
 
-export default Header;
+export default connect()(Header);

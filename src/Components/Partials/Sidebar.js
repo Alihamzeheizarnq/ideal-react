@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { connect } from 'react-redux';
+import actions from "../../actions";
 
 function SideBar(props) {
 
@@ -59,7 +61,7 @@ function SideBar(props) {
                             {/* Layout API, functionality initialized in Template._uiApiLayout() */}
                             {/* Class Toggle, functionality initialized in Helpers.coreToggleClass() */}
                             <a className="js-class-toggle text-white-75" data-target="#sidebar-style-toggler" data-class="fa-toggle-off fa-toggle-on"
-                                onClick={e => { setSideBarToggle(!SideBarToggle); props.btn(e,'DarkAndWhithSideBar') }} href="#">
+                                onClick={e => { setSideBarToggle(!SideBarToggle); props.dispatch(actions.DarkAndWhithSideBar()) }} href="#">
                                 <i className={`fa fa-toggle-${SideBarToggle ? 'on' : 'off'}`} id="sidebar-style-toggler" />
                             </a>
                             {/* END Toggle Sidebar Style */}
@@ -134,4 +136,4 @@ function SideBar(props) {
 }
 
 
-export default SideBar;
+export default connect()(SideBar);

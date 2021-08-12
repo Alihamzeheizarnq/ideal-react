@@ -15,7 +15,6 @@ instance.defaults.headers.common['Authorization'] = "Bearer "+localStorage.getIt
 instance.interceptors.request.use(function (config) {
   return config;
 }, function (error) {
-  console.log(error)
 
   return Promise.reject(error.response);
 });
@@ -24,7 +23,6 @@ instance.interceptors.response.use(function (response) {
   return response;
 }, function (error) {
 
-  console.log(error)
   return Promise.reject(error.response);
 });
 export default instance;

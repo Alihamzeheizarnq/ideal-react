@@ -11,8 +11,9 @@ let DarkAndWhithSideBar = () => ({
     type : 'DARK_AND_WHITH_SIDEBAR'
 })
 
-let TokenStatus = () => ({
-    type : 'TokenStatus'
+let TokenStatus = (status) => ({
+    type : 'TokenStatus',
+    status 
 })
 
 export default { RightSideBar , LeftSideBar , DarkAndWhithSideBar , TokenStatus}
