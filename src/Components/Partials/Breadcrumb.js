@@ -1,7 +1,5 @@
 import { NavLink } from "react-router-dom"
 function Breadcrumb(props) {
-
-    console.log(props)
     return (
         <>
             <div className="bg-body-light">
@@ -13,7 +11,6 @@ function Breadcrumb(props) {
 
                                 {
                                     props.header.breadcrumb.map(item => {
-                                        console.log(item)
                                         if (!item.active) {
                                             return (
                                                 <li className="breadcrumb-item">

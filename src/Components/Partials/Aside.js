@@ -1,7 +1,12 @@
+import  { connect } from 'react-redux';
+import actions from '../../actions';
+ 
 function Aside(props) {
+    console.log(actions.LeftSideBar())
+
+    
     return (
         <>
-
             <aside id="side-overlay">
                 {/* Side Header */}
                 <div className="bg-image" style={{ backgroundImage: 'url("assets/media/various/bg_side_overlay_header.jpg")' }}>
@@ -20,7 +25,7 @@ function Aside(props) {
                             {/* END User Info */}
                             {/* Close Side Overlay */}
                             {/* Layout API, functionality initialized in Template._uiApiLayout() */}
-                            <a onClick={(e) => props.btn(e,'LeftSideBar')} className="mr-auto text-white" href="#" data-toggle="layout" data-action="side_overlay_close">
+                            <a onClick={(e) => props.dispatch(actions.LeftSideBar())} className="mr-auto text-white" href="#" data-toggle="layout" data-action="side_overlay_close">
                                 <i className="fa fa-times-circle" />
                             </a>
                             {/* END Close Side Overlay */}
@@ -208,4 +213,8 @@ function Aside(props) {
     )
 }
 
-export default Aside;
+let mapStateToProps = (state) => {
+
+} 
+
+export default connect()(Aside);

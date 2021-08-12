@@ -16,7 +16,6 @@ instance.interceptors.request.use(function (config) {
   return config;
 }, function (error) {
   console.log(error)
-  toast.success('ورود با موفقیت انجام شد');
 
   return Promise.reject(error.response);
 });
@@ -24,7 +23,6 @@ instance.interceptors.request.use(function (config) {
 instance.interceptors.response.use(function (response) {
   return response;
 }, function (error) {
-  toast.success('ورود با موفقیت انجام شد');
 
   console.log(error)
   return Promise.reject(error.response);

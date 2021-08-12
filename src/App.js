@@ -9,10 +9,13 @@ import Auth from './Api/Login';
 import Index from './Components'
 import { useEffect, useState } from 'react';
 import { Route, Switch, useHistory } from "react-router-dom";
+import { connect } from 'react-redux';
 
 
 
-function App() {
+function App(props) {
+
+    let theme = props.theme;
 
     let history = useHistory();
     let [token, setToken] = useState(false);
@@ -67,9 +70,9 @@ function App() {
                 {`enable-page-overlay
                 sidebar-r side-scroll
                  page-header-fixed main-content-narrow
-                rtl-support ${enable ? 'side-trans-enabled sidebar-o sidebar-o-xs' : 'side-trans-enabled'}
-                  ${!enableLeft ? 'side-trans-enabled side-overlay-o ' : ''}
-                  ${DarkAndWhithSideBar ? 'sidebar-dark' : 'page-header-dark'}`
+                rtl-support ${theme.sidebarRight ? 'side-trans-enabled sidebar-o sidebar-o-xs' : 'side-trans-enabled'}
+                  ${!theme.sidebarLeft ? 'side-trans-enabled side-overlay-o ' : ''}
+                  ${theme.sidebarStyle ? 'sidebar-dark' : 'page-header-dark'}`
 
                 }
 
@@ -93,4 +96,7 @@ function App() {
     return render
 }
 
-export default App;
+let MapStateToProps = (state) => ({
+    theme : state.theme
+})
+export default connect(MapStateToProps)(App);
