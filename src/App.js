@@ -11,6 +11,10 @@ import Header from './Components/Partials/Header';
 import Aside from './Components/Partials/Aside';
 import Footer from './Components/Partials/Footer';
 import Login from './Components/auth/Login';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
+
+
 
 
 
@@ -61,16 +65,21 @@ function App(props) {
                                 <Index />
                             </main>
                             <Footer />
+                            <ToastContainer
+                                position="bottom-left"
+                                autoClose={5000}
+                                hideProgressBar={false}
+                                pauseOnHover={true}
+                                draggable={true}
+                                progress={undefined}
+                                rtl={true}
+                            />
                         </div>
                     )
             }
 
         </>
     );
-
-
-
-
     return render
 }
 

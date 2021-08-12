@@ -13,7 +13,7 @@ function CheckUser(success , erro) {
     instance.get('user').then((res) => {
         success(res.data)
       }).catch(err => {
-        erro(err.response)
+        erro()
       });
 
 }

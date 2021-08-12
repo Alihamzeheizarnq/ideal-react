@@ -1,4 +1,4 @@
-
+// ui config
 let RightSideBar = () => ({
     type : 'RIGHT_SIDEBAR'
 })
@@ -15,5 +15,24 @@ let TokenStatus = (status) => ({
     type : 'TokenStatus',
     status 
 })
+// end ui config
+// links and linksGroups
+let CreateGropeLink = (text , id) => ({
+    type : 'CREATE_GROUPE',
+    id,
+    text
+})
 
-export default { RightSideBar , LeftSideBar , DarkAndWhithSideBar , TokenStatus}
+let SetGropeLink = () => ({
+    type : 'CREATE_GROUPE'
+})
+
+//
+export default { 
+    RightSideBar, 
+    LeftSideBar , 
+    DarkAndWhithSideBar , 
+    TokenStatus,
+    CreateGropeLink,
+    SetGropeLink
+}

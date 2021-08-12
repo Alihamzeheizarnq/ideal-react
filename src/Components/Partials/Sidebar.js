@@ -68,7 +68,7 @@ function SideBar(props) {
                             {/* Close Sidebar, Visible only on mobile screens */}
                             {/* Layout API, functionality initialized in Template._uiApiLayout() */}
                             <a className="d-lg-none text-white ml-2"
-                                onClick={e => props.btn(e,'RightSideBar')}
+                                onClick={e => props.dispatch(actions.RightSideBar())}
                             data-toggle="layout" data-action="sidebar_close" href="#">
                                 <i className="fa fa-times-circle" />
                             </a>
@@ -86,19 +86,19 @@ function SideBar(props) {
                             <li className={`nav-main-item parent`} id="1">
                                 <a className="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
                                     <i className="nav-main-link-icon fa fa-user" />
-                                    <span className="nav-main-link-name">مدیریت کاربران</span>
+                                    <span className="nav-main-link-name">مدیریت لینک فوتر</span>
                                 </a>
                                 <ul className="nav-main-submenu">
                                     <li className="nav-main-item" >
-                                        <NavLink to="/users/create" className="nav-main-link" href="#">
+                                        <NavLink to="/links/groups" className="nav-main-link" href="#">
                                             <i className="nav-main-link-icon fa fa-2x fa-chevron-left" />
-                                            <span className="nav-main-link-name">ایجاد کاربر</span>
+                                            <span className="nav-main-link-name">مدیریت سرگروه ها</span>
                                         </NavLink>
                                     </li>
                                     <li className="nav-main-item">
-                                        <NavLink to="/users" exact className="nav-main-link" href="#">
+                                        <NavLink to="/links" exact className="nav-main-link" href="#">
                                             <i className="nav-main-link-icon fa fa-2x fa-chevron-left" />
-                                            <span className="nav-main-link-name">لیست کاربران </span>
+                                            <span className="nav-main-link-name">مدیریت لینک ها</span>
                                         </NavLink>
                                     </li>
                                 </ul>

@@ -2,7 +2,6 @@ import { useState } from 'react';
 import validator from '../fa';
 import { ToastContainer, toast } from 'react-toastify';
 import Auth from '../../Api/Login';
-import 'react-toastify/dist/ReactToastify.css';
 import { useHistory } from 'react-router';
 import { connect } from 'react-redux';
 import actions from '../../actions';
