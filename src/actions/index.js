@@ -32,6 +32,11 @@ let DeleteLink = (id) => ({
     type : 'DELETE_LINK',
     id
 })
+let EditLink = (id , name) => ({
+    type : 'EDIT_LINK',
+    id,
+    name
+})
 //
 export default { 
     RightSideBar, 
@@ -40,5 +45,6 @@ export default {
     TokenStatus,
     CreateGropeLink,
     SetGropeLink,
-    DeleteLink
+    DeleteLink,
+    EditLink
 }

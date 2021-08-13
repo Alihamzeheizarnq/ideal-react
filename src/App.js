@@ -29,7 +29,7 @@ function App(props) {
             props.dispatch(actions.TokenStatus(true))
         }, () => {
             props.dispatch(actions.TokenStatus(false))
-            history.push('/login')
+          return  history.push('/login')
         })
     }, [])
 

@@ -17,6 +17,11 @@ function linkDelete(id , callback) {
         callback(res.data)
     })
 }
+function LinkEdit(id , name , callback) {
+    instance.put(`link/groups/${id}` , {name}).then(res => {
+        callback(res.data)
+    })
+}
 
 
-export default { linkStore , linkIndex , linkDelete};
+export default { linkStore , linkIndex , linkDelete , LinkEdit};

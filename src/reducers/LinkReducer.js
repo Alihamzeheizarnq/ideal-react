@@ -13,6 +13,15 @@ function reducer(state = [], action) {
                
         case 'DELETE_LINK':
              return state.filter(item => item.id != action.id ? item : false)
+        case 'EDIT_LINK':
+             return state.filter(item => {
+                    if(item.id == action.id){
+                        item.name = action.name;
+                    }
+                    return item;
+
+             }
+                 )
         default:
             return state;
     }
