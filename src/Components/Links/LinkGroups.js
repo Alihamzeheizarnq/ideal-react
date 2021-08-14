@@ -28,7 +28,6 @@ function LinkGroups(props) {
             Links.LinkSortable(data, (data) => {
             })
         }
-
     }
 
     const styles = {
@@ -75,7 +74,7 @@ function LinkGroups(props) {
                                     loding ?
                                         (
 
-                                            <div className="spinner-border" role="status" style={{padding : '18px' , margin : '5px'}}>
+                                            <div className="spinner-border" role="status" style={{ padding: '18px', margin: '5px' }}>
                                                 <span className="sr-only">Loading...</span>
                                             </div>
 

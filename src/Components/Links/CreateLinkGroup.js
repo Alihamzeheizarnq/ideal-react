@@ -26,6 +26,7 @@ function CreateLinkGroup(props) {
 
     }
 
+    validator.purgeFields();
     return (
         <form className="form-inline mb-4" onSubmit={e => { handelForm(e) }}>
             <input type="text"

@@ -16,6 +16,7 @@ instance.interceptors.request.use(function (config) {
   return config;
 }, function (error) {
 
+  console.log(error.response.status)
   return Promise.reject(error.response);
 });
 
@@ -23,6 +24,11 @@ instance.interceptors.response.use(function (response) {
   return response;
 }, function (error) {
 
+  if(error.response.status == 422){
+    for (const property in error.response.data.errors) {
+      toast.error(error.response.data.errors[property].toString());
+  }
+  }
   return Promise.reject(error.response);
 });
 export default instance;

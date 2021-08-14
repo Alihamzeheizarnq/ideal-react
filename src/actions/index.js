@@ -23,6 +23,13 @@ let CreateGropeLink = (text , id) => ({
     id,
     text
 })
+let CreateLink = (id , link , title , group_id) => ({
+    type : 'CREATE_LINK',
+    id,
+    link,
+    title,
+    group_id
+})
 
 let SetGropeLink = (data) => ({
     type : 'SET_LINK_GROUPE',
@@ -37,6 +44,11 @@ let EditLink = (id , name) => ({
     id,
     name
 })
+let SortChlid = (data) => ({
+    type : 'SORT_CHILD',
+    data
+})
+
 
 export default { 
     RightSideBar, 
@@ -47,5 +59,7 @@ export default {
     SetGropeLink,
     DeleteLink,
     EditLink,
+    CreateLink,
+    SortChlid
     
 }

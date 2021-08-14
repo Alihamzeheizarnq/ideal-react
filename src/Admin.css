@@ -3795,9 +3795,10 @@ input[type=submit].btn-block {
 .btn-group,
 .btn-group-vertical {
     position: relative;
-    display: -ms-inline-flexbox;
     display: inline-flex;
-    vertical-align: middle
+    vertical-align: middle;
+    margin-top: 7px;
+    direction: ltr;
 }
 
 .btn-group-vertical>.btn,
@@ -31126,12 +31127,14 @@ button {
         /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
         url('./fonts/iransansfanum/ttf/IRANSansWeb(FaNum).ttf') format('truetype');
 }
-.Toastify *{
+
+.Toastify * {
     text-align: right;
     direction: rtl;
     font-family: IRANSansfanum;
 }
- .modal-open {
-     overflow: unset !important;
-     padding-right: unset !important;
- }
+
+.modal-open {
+    overflow: unset !important;
+    padding-right: unset !important;
+}

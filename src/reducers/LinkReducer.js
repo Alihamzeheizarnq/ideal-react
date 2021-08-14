@@ -4,9 +4,35 @@ function reducer(state = [], action) {
             return [
                 ...state,
                 {
-                    name: action.text, id: action.id
+                    name: action.text, id: action.id, links: []
                 }
             ]
+        case 'CREATE_LINK':
+
+            let newState = state.filter(item => {
+                if (item.id == action.group_id) {
+                    item.links = [...item.links, { id: action.id, title: action.title, link: action.link, group_id: action.group_id }]
+
+                }
+                return item;
+            })
+            return newState;
+        case 'SORT_CHILD':
+            let newS = state.filter(item => {
+
+                let newGroup = action.data.filter(child => {
+
+                    if (item.id == child.group_id) {
+                        item.links = action.data;
+                    }
+
+                    return item;
+                })
+                return newGroup;
+
+            })
+
+            return newS;
         case 'SET_LINK_GROUPE':
 
             return action.data;
