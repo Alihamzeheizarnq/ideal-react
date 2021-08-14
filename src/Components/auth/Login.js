@@ -80,7 +80,7 @@ function Login(props) {
                                                         placeholder="نام کاربری"
                                                         aria-describedby="login-username-error" />
                                                     <div id="login-username-error" className="invalid-feedback animated fadeIn text-right">
-                                                        {validator.message('user', user, 'required|email|min:20')}
+                                                        {validator.message('user', user, 'required|email')}
                                                     </div>
 
                                                 </div>
