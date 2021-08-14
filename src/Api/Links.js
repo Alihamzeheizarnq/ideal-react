@@ -22,6 +22,11 @@ function LinkEdit(id , name , callback) {
         callback(res.data)
     })
 }
+function LinkSortable(data , callback) {
+    instance.put(`link/sort` , { data}).then(res => {
+        callback(res.data)
+    })
+}
 
 
-export default { linkStore , linkIndex , linkDelete , LinkEdit};
+export default { linkStore , linkIndex , linkDelete , LinkEdit , LinkSortable};

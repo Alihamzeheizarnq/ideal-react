@@ -2,7 +2,7 @@ import './App.css';
 import './Admin.css';
 import Auth from './Api/Login';
 import Index from './Components'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Route, Switch, useHistory } from "react-router-dom";
 import { connect } from 'react-redux';
 import actions from './actions';
@@ -24,12 +24,20 @@ function App(props) {
 
     let history = useHistory();
 
+    let [loding, setLoding] = useState(true);
     useEffect(() => {
         Auth.CheckUser(() => {
-            props.dispatch(actions.TokenStatus(true))
+            props.dispatch(actions.TokenStatus(true));
+
+            setInterval(() => {
+                setLoding(false)
+            }, 500)
         }, () => {
+            setInterval(() => {
+                setLoding(false)
+            }, 500)
             props.dispatch(actions.TokenStatus(false))
-          return  history.push('/login')
+            return history.push('/login')
         })
     }, [])
 
@@ -40,6 +48,8 @@ function App(props) {
 
     let render = (
         <>
+            <div id="page-loader" className={`bg-gd-lake ${loding ? 'show' : ''}`} />
+
             <Switch>
                 <Route path="/login" exact>
                     {
@@ -48,33 +58,35 @@ function App(props) {
                 </Route>
             </Switch>
             {
-                !theme.token ? '' :
+                !theme.token || loding ? '' :
                     (
-                        <div id="page-container" className=
-                            {`enable-page-overlay
+                        <>
+                            <div id="page-container" className=
+                                {`enable-page-overlay
                                 sidebar-r side-scroll
                                 page-header-fixed main-content-narrow
                                 rtl-support ${theme.sidebarRight ? 'side-trans-enabled sidebar-o sidebar-o-xs' : 'side-trans-enabled'}
                                 ${!theme.sidebarLeft ? 'side-trans-enabled side-overlay-o ' : ''}
                                 ${theme.sidebarStyle ? 'sidebar-dark' : 'page-header-dark'}`
-                            }>
-                            <Aside />
-                            <SideBar />
-                            <Header />
-                            <main id="main-container">
-                                <Index />
-                            </main>
-                            <Footer />
-                            <ToastContainer
-                                position="bottom-left"
-                                autoClose={5000}
-                                hideProgressBar={false}
-                                pauseOnHover={true}
-                                draggable={true}
-                                progress={undefined}
-                                rtl={true}
-                            />
-                        </div>
+                                }>
+                                <Aside />
+                                <SideBar />
+                                <Header />
+                                <main id="main-container">
+                                    <Index />
+                                </main>
+                                <Footer />
+                                <ToastContainer
+                                    position="bottom-left"
+                                    autoClose={5000}
+                                    hideProgressBar={false}
+                                    pauseOnHover={true}
+                                    draggable={true}
+                                    progress={undefined}
+                                    rtl={true}
+                                />
+                            </div>
+                        </>
                     )
             }
 

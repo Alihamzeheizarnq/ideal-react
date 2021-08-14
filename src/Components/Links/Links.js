@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { ReactSortable } from "react-sortablejs";
 
-export const BasicFunction: FC = (props) => {
+export const BasicFunction = (props) => {
 
 
   const [state, setState] = useState(props.links);

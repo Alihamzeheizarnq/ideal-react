@@ -37,7 +37,7 @@ let EditLink = (id , name) => ({
     id,
     name
 })
-//
+
 export default { 
     RightSideBar, 
     LeftSideBar , 
@@ -46,5 +46,6 @@ export default {
     CreateGropeLink,
     SetGropeLink,
     DeleteLink,
-    EditLink
+    EditLink,
+    
 }

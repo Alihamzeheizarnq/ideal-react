@@ -33,7 +33,7 @@ function CreateLinkGroup(props) {
                 id="example-if-email"
                 name="example-if-email"
                 placeholder="نام سرگروه را وارد کنید"
-                onChange={e => setlinkGroup(e.target.value.trim())}
+                onChange={e => setlinkGroup(e.target.value)}
                 value={linkGroup}
 
             />

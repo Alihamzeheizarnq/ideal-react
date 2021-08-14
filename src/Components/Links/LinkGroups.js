@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { bounceInLeft } from 'react-animations';
 import Radium, { StyleRoot } from 'radium';
 import Breadcrumb from "../Partials/Breadcrumb";
@@ -8,15 +8,28 @@ import MapLinkGroup from './MapLinkGroup';
 import Links from "../../Api/Links";
 import actions from "../../actions";
 import breadcrumb from "../../breadcrub";
+import { ReactSortable } from "react-sortablejs";
+
 function LinkGroups(props) {
+
+    let [loding, setLoding] = useState(true);
 
 
     useEffect(() => {
         Links.linkIndex((data) => {
-            props.dispatch(actions.SetGropeLink(data.data))
+            props.dispatch(actions.SetGropeLink(data.data));
+            setLoding(false);
         })
-    } , [])
+    }, [])
 
+    let setState = (data) => {
+        if (data) {
+            props.dispatch(actions.SetGropeLink(data));
+            Links.LinkSortable(data, (data) => {
+            })
+        }
+
+    }
 
     const styles = {
         bounce: {
@@ -57,15 +70,29 @@ function LinkGroups(props) {
                                         <th className="text-center" style={{ width: 100 }}>عملیات</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                             {
-                                 props.links.map(item => (
-                                    <MapLinkGroup {...item} />
-                                 ))
-                             }
-                             
-                    
-                                </tbody>
+
+                                {
+                                    loding ?
+                                        (
+
+                                            <div className="spinner-border" role="status" style={{padding : '18px' , margin : '5px'}}>
+                                                <span className="sr-only">Loading...</span>
+                                            </div>
+
+
+                                        )
+                                        :
+                                        <ReactSortable tag="tbody" list={props.links} setList={setState}>
+                                            {props.links.map((item) => (
+                                                <MapLinkGroup {...item} />
+
+                                            ))}
+                                        </ReactSortable>
+                                }
+
+
+
+
                             </table>
                         </div>
                     </div>
@@ -77,6 +104,6 @@ function LinkGroups(props) {
 }
 
 let MapStateToProps = (state) => ({
-    links : state.links,
+    links: state.links,
 })
 export default connect(MapStateToProps)(LinkGroups);
