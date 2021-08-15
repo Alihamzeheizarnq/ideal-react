@@ -1,6 +1,5 @@
 
 import { useState } from 'react';
-import validator from '../fa';
 import { toast } from 'react-toastify';
 import { connect } from 'react-redux';
 import actions from '../../actions';
@@ -12,25 +11,18 @@ function CreateLinkGroup(props) {
 
     let handelForm = (e) => {
         e.preventDefault()
-        if (validator.allValid()) {
             Links.linkStore(linkGroup, (data) => {
                 props.dispatch(actions.CreateGropeLink(data.name, data.id))
                 setlinkGroup('');
                 toast.success('عملیات موفق !')
             })
-        } else {
-            for (const property in validator.errorMessages) {
-                toast.error(validator.errorMessages[property]);
-            }
-        }
 
     }
 
-    validator.purgeFields();
     return (
         <form className="form-inline mb-4" onSubmit={e => { handelForm(e) }}>
             <input type="text"
-                className={`form-control mb-2 ml-2 mr-sm-2 mb-sm-0 ${validator.fieldValid('linkGroup') ? '' : 'is-invalid'}`}
+                className={`form-control mb-2 ml-2 mr-sm-2 mb-sm-0`}
                 id="example-if-email"
                 name="example-if-email"
                 placeholder="نام سرگروه را وارد کنید"
@@ -38,7 +30,6 @@ function CreateLinkGroup(props) {
                 value={linkGroup}
 
             />
-            {validator.message('linkGroup', linkGroup, 'required|min:3')}
             <label className="sr-only" htmlFor="example-if-password">Password</label>
             <button type="submit" className="btn btn-primary">افزودن</button>
         </form>

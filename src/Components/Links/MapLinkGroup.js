@@ -4,7 +4,6 @@ import { useState } from "react";
 import Links from "../../Api/Links";
 import actions from './../../actions';
 import { toast } from 'react-toastify';
-import validators from '../fa'
 
 
 function CreateLinkGroup(props) {
@@ -34,21 +33,13 @@ function CreateLinkGroup(props) {
     }
     let SuccessModalEdit = (e, id) => {
         e.preventDefault();
-
-        validators.purgeFields();
-
-        if (validators.allValid()) {
             Links.LinkEdit(id, name, (data) => {
                 props.dispatch(actions.EditLink(id, name));
                 setEdit(false);
                 toast.success('اطلاعات با موفقیت ویرایش گردید')
 
             })
-        } else {
-            for (const property in validators.errorMessages) {
-                toast.error(validators.errorMessages[property]);
-            }
-        }
+
 
 
     }
@@ -119,7 +110,6 @@ function CreateLinkGroup(props) {
                             onChange={e => setName(e.target.value)}
                             placeholder="نام سرگروه را وارد کنید"
                         />
-                        {validators.message('name', name, 'required|min:3')}
 
                         <Modal.Footer>
                             <Button variant="secondary" onClick={handleCloseEdit}>

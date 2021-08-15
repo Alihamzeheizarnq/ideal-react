@@ -47,6 +47,40 @@ function reducer(state = [], action) {
 
             }
             )
+        case 'EDIT_LINK_ORIGIN':
+            let editLink = state.filter(item => {
+
+                let newItem = item.links.filter(child => {
+                    return child.id != action.id;
+                })
+
+                item.links = newItem;
+
+
+                if (item.id == parseInt(action.group_id)) {
+                    item.links = [...item.links, { id: action.id, title: action.title, link: action.link, group_id: parseInt(action.group_id) }]
+                }
+                return item;
+            }
+            )
+
+
+            return editLink;    
+               case 'DELETE_ORIGIN_LINK':
+            let deleteLink = state.filter(item => {
+
+                let newItem = item.links.filter(child => {
+                    return child.id != action.id;
+                })
+
+                item.links = newItem;
+
+                return item;
+            }
+            )
+
+
+            return deleteLink;
         default:
             return state;
     }

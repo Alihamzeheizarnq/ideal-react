@@ -38,8 +38,18 @@ function LinkOriginStore(data, callback) {
         callback(res.data)
     })
 }
+function linkOriginDelete(id, callback) {
+    instance.delete(`links/${id}`).then(res => {
+        callback(res.data)
+    })
+}
 function LinkSortChild(data, callback) {
     instance.put(`links/child/sort`, { data }).then(res => {
+        callback(res.data)
+    })
+}
+function LinkOriginEdit(id, title, link, group_id, callback) {
+    instance.put(`links/${id}`, { title, link, group_id }).then(res => {
         callback(res.data)
     })
 }
@@ -47,4 +57,15 @@ function LinkSortChild(data, callback) {
 
 
 
-export default { linkStore, linkIndex, linkDelete, LinkEdit, LinkSortable, LinkOrigin, LinkOriginStore, LinkSortChild };
+export default {
+    linkStore,
+    linkIndex,
+    linkDelete,
+    LinkEdit,
+    LinkSortable,
+    LinkOrigin,
+    LinkOriginStore,
+    LinkSortChild,
+    LinkOriginEdit,
+    linkOriginDelete
+};

@@ -4,7 +4,6 @@ import { useState } from "react";
 import Links from "../../Api/Links";
 import actions from '../../actions';
 import { toast } from 'react-toastify';
-import validator from '../fa'
 
 
 function CreateLinkGroup(props) {
@@ -29,35 +28,28 @@ function CreateLinkGroup(props) {
 
 
     let SuccessModal = (id) => {
-        Links.linkDelete(id, (data) => {
-            props.dispatch(actions.DeleteLink(id));
+        Links.linkOriginDelete(id, (data) => {
+            props.dispatch(actions.DeleteOriginLink(id));
             setShow(false);
             toast.warning('اطلاعات با موفقیت حذف گردید')
         })
     }
     let SuccessModalEdit = (e, id) => {
         e.preventDefault();
+        console.log(id)
 
-        if (validator.allValid()) {
-            Links.LinkEdit(id, titleEdit , linkEdit , group_idEdit, (data) => {
-                props.dispatch(actions.EditLink(id, titleEdit));
+            Links.LinkOriginEdit(id, titleEdit , linkEdit , group_idEdit, (data) => {
+                props.dispatch(actions.EditLinkOrigin(id, titleEdit , linkEdit , group_idEdit , props.child.group_id));
                 setEdit(false);
                 toast.success('اطلاعات با موفقیت ویرایش گردید')
 
             })
-        } else {
-            for (const property in validator.errorMessages) {
-                toast.error(validator.errorMessages[property]);
-            }
 
-
-        }
 
 
     }
 
 
-    validator.purgeFields();
 
 
     return (
@@ -104,7 +96,7 @@ function CreateLinkGroup(props) {
                     <Button variant="secondary" onClick={handleClose}>
                         لغو
                     </Button>
-                    <Button variant="primary" onClick={e => SuccessModal(props.id)}>بله</Button>
+                    <Button variant="primary" onClick={e => SuccessModal(props.child.id)}>بله</Button>
                 </Modal.Footer>
             </Modal>
             <Modal
@@ -117,10 +109,8 @@ function CreateLinkGroup(props) {
                     <Modal.Title>ویرایش اطلاعات</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <form onSubmit={e => SuccessModalEdit(e, props.id)}>
-                        {validator.message('titleEdit', titleEdit, 'required|min:3')}
-                        {validator.message('linkEdit', linkEdit, 'required|min:3')}
-                        {validator.message('group_idEdit', group_idEdit, 'required')}
+                    <form onSubmit={e => SuccessModalEdit(e, props.child.id)}>
+    
                         <input type="text"
                             className="form-control mt-1 mb-2 ml-2 mr-sm-2 mb-sm-0 is-invalid"
                             id="example-if-email"
@@ -130,7 +120,7 @@ function CreateLinkGroup(props) {
                             placeholder="نام سرگروه را وارد کنید"
                         />
                         <input type="text"
-                            className={`form-control mt-1 mb-2 ml-2 mr-sm-2 mb-sm-0 ${validator.fieldValid('link') ? '' : 'is-invalid'}`}
+                            className={`form-control mt-1 mb-2 ml-2 mr-sm-2 mb-sm-0 `}
                             id="example-if-email"
                             name="linkEdit"
                             placeholder=" لینک  را وارد کنید"
@@ -140,7 +130,7 @@ function CreateLinkGroup(props) {
                         />
 
                         <select
-                            className={`mb-0 ml-2 mt-1 custom-select ${validator.fieldValid('group_id') ? '' : 'is-invalid'}`}
+                            className={`mb-0 ml-2 mt-1 custom-select `}
                             id="example-if-email"
                             name="group_idEdit"
                             placeholder="سرگروه را وارد کنید"

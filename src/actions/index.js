@@ -39,6 +39,10 @@ let DeleteLink = (id) => ({
     type : 'DELETE_LINK',
     id
 })
+let DeleteOriginLink = (id) => ({
+    type : 'DELETE_ORIGIN_LINK',
+    id
+})
 let EditLink = (id , name) => ({
     type : 'EDIT_LINK',
     id,
@@ -48,7 +52,14 @@ let SortChlid = (data) => ({
     type : 'SORT_CHILD',
     data
 })
-
+let EditLinkOrigin = (id , title , link , group_id , old_group_id) => ({
+    type : 'EDIT_LINK_ORIGIN',
+    id,
+    title,
+    link,
+    group_id,
+    old_group_id
+})
 
 export default { 
     RightSideBar, 
@@ -60,6 +71,8 @@ export default {
     DeleteLink,
     EditLink,
     CreateLink,
-    SortChlid
+    SortChlid,
+    EditLinkOrigin,
+    DeleteOriginLink
     
 }
