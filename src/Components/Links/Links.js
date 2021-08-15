@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { useEffect, useState } from "react";
-import  { StyleRoot } from 'radium';
+import { StyleRoot } from 'radium';
 import Breadcrumb from "../Partials/Breadcrumb";
 import CreateLink from "./CreateLink";
 import Links from "../../Api/Links";
@@ -91,12 +91,22 @@ function LinkGroups(props) {
 
                         </tr>
                       </tbody>
-                      {<ReactSortable tag="tbody" list={item.links ? item.links : []} setList={setState}>
-                        {item.links.map((child) => (
-                          <MapLink child={child} />
+                      {
+                        item.links ?
+                          (
+                            <ReactSortable tag="tbody" list={item.links ? item.links : []} setList={setState}>
+                              {item.links.map((child) => (
 
-                        ))}
-                      </ReactSortable>}
+
+
+                                <MapLink child={child} />
+
+                              ))}
+                            </ReactSortable>
+                          )
+                          : ''
+                      }
+
 
 
 

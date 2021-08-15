@@ -30350,7 +30350,6 @@ a.text-xplay-lighter:hover {
 }
 
 .dropzone {
-    min-height: 200px;
     background-color: #f8f9fc;
     border: .125rem dashed #d4dcec;
     border-radius: .3rem

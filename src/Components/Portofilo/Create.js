@@ -5,6 +5,7 @@ import breadcrumb from "../../breadcrub";
 import CKEditor from 'ckeditor4-react';
 import { useState } from 'react';
 import { Button } from 'react-bootstrap';
+import Upload from '../../Api/UploadFile';
 
 
 
@@ -22,13 +23,33 @@ function Create() {
 
 
 
-
+    const Images = () => {
+        let item=[];
+        for (let i = 0; i < 5; i++) {
+            item[i]=<div className="" >
+            <div className='image-drup'>
+                <img src="https://images.freeimages.com/images/large-previews/560/a-rose-is-just-a-rose-1399719.jpg" />
+                <Button variant="primary" size="sm">
+                    حذف
+                </Button>
+            </div>
+        </div>
+        }
+        return item
+    }
     let imgUpload = (e) => {
-        console.log(e.target.value)
+        console.log(e.target.files[0])
     }
 
     let imagesUpload = (e) => {
-        console.log(e)
+
+        const formData = new FormData();
+
+		formData.append('file', e.target.files[0]);
+        console.log(e.target.files[0].t)
+        Upload.UploadImages(formData  , (data) => {
+            console.log(data)
+        })
     }
 
 
@@ -48,7 +69,7 @@ function Create() {
 
             <StyleRoot>
                 <div className="content content-full content-boxed" style={animate.bounce}>
-                    <form action="be_pages_blog_post_add.html" method="POST" encType="multipart/form-data" onsubmit="return false;">
+                    <form action="be_pages_blog_post_add.html" method="POST" encType="multipart/form-data" >
                         <div className="block">
                             <div className="block-header block-header-default">
                                 <a className="btn btn-light" style={{ fontFamily: 'IRANSansfanum' }} href="be_pages_blog_post_manage.html">
@@ -157,48 +178,8 @@ function Create() {
                                         </div>
 
 
-
-                            
-
-
-                                        <div className="row">
-                                            <div className="col-md-2 col-sm-2" style={{ width: 'unset' }}>
-                                                <div className='image-drup'>
-                                                    <img  src="https://images.freeimages.com/images/large-previews/560/a-rose-is-just-a-rose-1399719.jpg" />
-                                                    <Button variant="primary" size="sm">
-                                                        حذف
-                                                    </Button>
-                                                </div>
-                                            </div> <div className="col-md-2 col-sm-2" style={{ width: 'unset' }}>
-                                                <div className='image-drup'>
-                                                    <img  src="https://images.freeimages.com/images/large-previews/560/a-rose-is-just-a-rose-1399719.jpg" />
-                                                    <Button variant="primary" size="sm">
-                                                        حذف
-                                                    </Button>
-                                                </div>
-                                            </div> <div className="col-md-2 col-sm-2" style={{ width: 'unset' }}>
-                                                <div className='image-drup'>
-                                                    <img  src="https://images.freeimages.com/images/large-previews/560/a-rose-is-just-a-rose-1399719.jpg" />
-                                                    <Button variant="primary" size="sm">
-                                                        حذف
-                                                    </Button>
-                                                </div>
-                                            </div> <div className="col-md-2 col-sm-2 ml-0" style={{ width: 'unset' }}>
-                                                <div className='image-drup'>
-                                                    <img  src="https://images.freeimages.com/images/large-previews/560/a-rose-is-just-a-rose-1399719.jpg" />
-                                                    <Button variant="primary" size="sm">
-                                                        حذف
-                                                    </Button>
-                                                </div>
-                                            </div> <div className="col-md-2 col-sm-2" style={{ width: 'unset' }}>
-                                                <div className='image-drup'>
-                                                    <img  src="https://images.freeimages.com/images/large-previews/560/a-rose-is-just-a-rose-1399719.jpg" />
-                                                    <Button variant="primary" size="sm">
-                                                        حذف
-                                                    </Button>
-                                                </div>
-                                            </div>
-                                 
+                                        <div className="row dropzone p-2">
+                                                {Images()}
                                         </div>
                                     </div>
                                 </div>

@@ -24,7 +24,7 @@ instance.interceptors.response.use(function (response) {
   return response;
 }, function (error) {
 
-  if(error.response.status == 422){
+  if(error.status == 422){
     for (const property in error.response.data.errors) {
       toast.error(error.response.data.errors[property].toString());
   }
