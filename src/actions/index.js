@@ -61,6 +61,8 @@ let EditLinkOrigin = (id , title , link , group_id , old_group_id) => ({
     old_group_id
 })
 
+//end link and link grop footer
+
 export default { 
     RightSideBar, 
     LeftSideBar , 

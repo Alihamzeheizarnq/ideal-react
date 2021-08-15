@@ -24,9 +24,6 @@ function CreateLinkGroup(props) {
         setEdit(true)
     }
 
-
-
-
     let SuccessModal = (id) => {
         Links.linkOriginDelete(id, (data) => {
             props.dispatch(actions.DeleteOriginLink(id));
@@ -44,14 +41,7 @@ function CreateLinkGroup(props) {
                 toast.success('اطلاعات با موفقیت ویرایش گردید')
 
             })
-
-
-
     }
-
-
-
-
     return (
         <>
 

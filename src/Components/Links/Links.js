@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
 import { useEffect, useState } from "react";
-import { bounceInLeft } from 'react-animations';
-import Radium, { StyleRoot } from 'radium';
+import  { StyleRoot } from 'radium';
 import Breadcrumb from "../Partials/Breadcrumb";
 import CreateLink from "./CreateLink";
 import Links from "../../Api/Links";
@@ -9,6 +8,8 @@ import actions from "../../actions";
 import breadcrumb from "../../breadcrub";
 import { ReactSortable } from "react-sortablejs";
 import MapLink from "./MapLink";
+import animate from './../Partials/animate';
+
 
 function LinkGroups(props) {
 
@@ -32,12 +33,6 @@ function LinkGroups(props) {
 
   }
 
-  const styles = {
-    bounce: {
-      animation: 'x 1s',
-      animationName: Radium.keyframes(bounceInLeft, 'bounceInLeft')
-    }
-  }
 
   let handleTable = (e) => {
     if (e.target.tagName == "I") {
@@ -55,7 +50,7 @@ function LinkGroups(props) {
       <StyleRoot>
         <div className="content">
 
-          <div className="block block-rounded" style={styles.bounce}>
+          <div className="block block-rounded" style={animate.bounce}>
 
 
             <div className="block-header block-header-default">

@@ -31138,3 +31138,6 @@ button {
     overflow: unset !important;
     padding-right: unset !important;
 }
+#cke_editor1 *{
+    font-family: IRANSansfanum;
+}

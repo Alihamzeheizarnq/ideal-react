@@ -38,7 +38,7 @@ function SideBar(props) {
 
 
     }
-    
+
     return (
         <>
             <nav id="sidebar" aria-label="Main Navigation">
@@ -69,7 +69,7 @@ function SideBar(props) {
                             {/* Layout API, functionality initialized in Template._uiApiLayout() */}
                             <a className="d-lg-none text-white ml-2"
                                 onClick={e => props.dispatch(actions.RightSideBar())}
-                            data-toggle="layout" data-action="sidebar_close" href="#">
+                                data-toggle="layout" data-action="sidebar_close" href="#">
                                 <i className="fa fa-times-circle" />
                             </a>
                             {/* END Close Sidebar */}
@@ -83,6 +83,21 @@ function SideBar(props) {
                     {/* Side Navigation */}
                     <div className="content-side">
                         <ul className="nav-main" onClick={(e) => HandleActiveSidebar(e)}>
+                            <li className={`nav-main-item parent`} id="1">
+                                <a className="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
+                                    <i className="nav-main-link-icon fa fa-user" />
+                                    <span className="nav-main-link-name">  داشبورد</span>
+                                </a>
+                                <ul className="nav-main-submenu">
+                                    <li className="nav-main-item" >
+                                        <NavLink to="/" className="nav-main-link" href="#">
+                                            <i className="nav-main-link-icon fa fa-2x fa-chevron-left" />
+                                            <span className="nav-main-link-name">صفحه اصلی</span>
+                                        </NavLink>
+                                    </li>
+                  
+                                </ul>
+                            </li>
                             <li className={`nav-main-item parent`} id="1">
                                 <a className="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
                                     <i className="nav-main-link-icon fa fa-user" />
@@ -106,19 +121,19 @@ function SideBar(props) {
                             <li className={`nav-main-item parent`} id="2">
                                 <a className="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
                                     <i className="nav-main-link-icon fa fa-book-open" />
-                                    <span className="nav-main-link-name">مدیریت مقالات</span>
+                                    <span className="nav-main-link-name"> نمونه کارها</span>
                                 </a>
                                 <ul className="nav-main-submenu">
                                     <li className="nav-main-item">
-                                        <NavLink to="/posts/create" className="nav-main-link" href="#">
+                                        <NavLink to="/portofilo/create" className="nav-main-link" href="#">
                                             <i className="nav-main-link-icon fa fa-2x fa-chevron-left" />
-                                            <span className="nav-main-link-name">ایجاد مقاله  </span>
+                                            <span className="nav-main-link-name">ایجاد نمونه کار  </span>
                                         </NavLink>
                                     </li>
                                     <li className="nav-main-item">
-                                        <NavLink to="/posts" exact className="nav-main-link" href="#">
+                                        <NavLink to="/portofilo" exact className="nav-main-link" href="#">
                                             <i className="nav-main-link-icon fa fa-2x fa-chevron-left" />
-                                            <span className="nav-main-link-name">لیست مقالات </span>
+                                            <span className="nav-main-link-name">لیست نمونه کار ها </span>
                                         </NavLink>
                                     </li>
                                 </ul>
