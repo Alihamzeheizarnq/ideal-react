@@ -31142,11 +31142,11 @@ button {
     font-family: IRANSansfanum;
 }
 .image-drup{
-    background: #e2e2e2;
+    background: #f8f9fc;
     padding: 4px;
     width: 108px;
     height: 116px;
-    border: 1px solid #bfbfbf;
+    border: 1px solid #eceff5;
 
 }
 .image-drup img{
