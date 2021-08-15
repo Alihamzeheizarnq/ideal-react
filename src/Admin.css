@@ -31141,3 +31141,20 @@ button {
 #cke_editor1 *{
     font-family: IRANSansfanum;
 }
+.image-drup{
+    background: #e2e2e2;
+    padding: 4px;
+    width: 108px;
+    height: 116px;
+    border: 1px solid #bfbfbf;
+
+}
+.image-drup img{
+    width: 100%;
+    height: auto;
+}
+.image-drup button{
+    width: 100%;
+    margin-top: 2px;
+}
+

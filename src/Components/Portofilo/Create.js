@@ -4,6 +4,8 @@ import Breadcrumb from "../Partials/Breadcrumb";
 import breadcrumb from "../../breadcrub";
 import CKEditor from 'ckeditor4-react';
 import { useState } from 'react';
+import { Button } from 'react-bootstrap';
+
 
 
 
@@ -154,6 +156,50 @@ function Create() {
                                             </div>
                                         </div>
 
+
+
+                            
+
+
+                                        <div className="row">
+                                            <div className="col-md-2 col-sm-2" style={{ width: 'unset' }}>
+                                                <div className='image-drup'>
+                                                    <img  src="https://images.freeimages.com/images/large-previews/560/a-rose-is-just-a-rose-1399719.jpg" />
+                                                    <Button variant="primary" size="sm">
+                                                        حذف
+                                                    </Button>
+                                                </div>
+                                            </div> <div className="col-md-2 col-sm-2" style={{ width: 'unset' }}>
+                                                <div className='image-drup'>
+                                                    <img  src="https://images.freeimages.com/images/large-previews/560/a-rose-is-just-a-rose-1399719.jpg" />
+                                                    <Button variant="primary" size="sm">
+                                                        حذف
+                                                    </Button>
+                                                </div>
+                                            </div> <div className="col-md-2 col-sm-2" style={{ width: 'unset' }}>
+                                                <div className='image-drup'>
+                                                    <img  src="https://images.freeimages.com/images/large-previews/560/a-rose-is-just-a-rose-1399719.jpg" />
+                                                    <Button variant="primary" size="sm">
+                                                        حذف
+                                                    </Button>
+                                                </div>
+                                            </div> <div className="col-md-2 col-sm-2 ml-0" style={{ width: 'unset' }}>
+                                                <div className='image-drup'>
+                                                    <img  src="https://images.freeimages.com/images/large-previews/560/a-rose-is-just-a-rose-1399719.jpg" />
+                                                    <Button variant="primary" size="sm">
+                                                        حذف
+                                                    </Button>
+                                                </div>
+                                            </div> <div className="col-md-2 col-sm-2" style={{ width: 'unset' }}>
+                                                <div className='image-drup'>
+                                                    <img  src="https://images.freeimages.com/images/large-previews/560/a-rose-is-just-a-rose-1399719.jpg" />
+                                                    <Button variant="primary" size="sm">
+                                                        حذف
+                                                    </Button>
+                                                </div>
+                                            </div>
+                                 
+                                        </div>
                                     </div>
                                 </div>
                             </div>
