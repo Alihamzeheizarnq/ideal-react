@@ -10,7 +10,7 @@ function List(props) {
 
 
     useEffect(() => {
-        ApiPortofilo.ListPortofilo(1 , (data) => {
+        ApiPortofilo.ListPortofilo(2 , (data) => {
             console.log(data)
             props.dispatch(actions.ListPortofilo(data))
         })
