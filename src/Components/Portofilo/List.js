@@ -2,21 +2,51 @@ import animate from './../Partials/animate';
 import { StyleRoot } from 'radium';
 import Breadcrumb from "../Partials/Breadcrumb";
 import breadcrumb from "../../breadcrub";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import ApiPortofilo from './../../Api/Portofilo'
 import { connect } from 'react-redux';
 import actions from '../../actions'
 function List(props) {
 
+    let [paginate, setPaginate] = useState({ links: [], status: false });
 
     useEffect(() => {
-        ApiPortofilo.ListPortofilo(2 , (data) => {
-            console.log(data)
+        ApiPortofilo.ListPortofilo(props.location.search, (data) => {
+
+            setPaginate(preve => {
+                return {
+                    ...preve,
+                    links: data.meta.links,
+                    total : data.meta.last_page,
+                    status: true
+                }
+            })
             props.dispatch(actions.ListPortofilo(data))
         })
     }, [])
 
+    let handlePaginate = (url) =>{
+        if(url){
+            let page = url.split("?").slice(-1).pop()
+            props.history.push(props.location.pathname + '?' + page)
+            ApiPortofilo.ListPortofilo(page, (data) => {
+                setPaginate(preve => {
+                    return {
+                        ...preve,
+                        links: data.meta.links,
+                        total : data.meta.last_page,
+                        status: true
+                    }
+                })
+                props.dispatch(actions.ListPortofilo(data))
+            })
+
+        }
+    }
     let header = breadcrumb('portofilo.list');
+
+
+
 
 
     return (
@@ -58,9 +88,9 @@ function List(props) {
                                                 <th className="text-center" scope="row">{index + 1}</th>
                                                 <td className="font-w600">
                                                     <a href="be_pages_generic_profile.html">{item.title}</a>
-                                                </td>  
+                                                </td>
                                                 <td className="d-none d-sm-table-cell">
-                                                <img style={{maxHeight: '60px'}} src={`http://localhost:8000/storage${item.image.url}`} />
+                                                    <img style={{ maxHeight: '60px' }} src={`http://localhost:8000/storage${item.image.url}`} />
                                                 </td>
                                                 <td className="d-none d-sm-table-cell">
                                                     {item.client}
@@ -78,10 +108,10 @@ function List(props) {
                                                 </td>
                                                 <td className="text-center">
                                                     <div className="btn-group">
-                                                        <button type="button" className="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title data-original-title="Edit">
+                                                        <button onClick={e=> props.history.push(`/portofilo/edit/${item.id}`)} type="button" className="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title data-original-title="Edit">
                                                             <i className="fa fa-pencil-alt" />
                                                         </button>
-                                                        <button type="button" className="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title data-original-title="Delete">
+                                                        <button  type="button" className="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title data-original-title="Delete">
                                                             <i className="fa fa-times" />
                                                         </button>
                                                     </div>
@@ -96,10 +126,36 @@ function List(props) {
 
                                 </tbody>
                             </table>
+                            <nav aria-label="Page navigation">
+                                <ul className="pagination pagination-lg">
+
+
+
+                                    {
+                                        paginate.total <= 1 && paginate.status  ? '' :
+                                            paginate.links.map(item => (
+
+                                            
+                                                <li className={`page-item ${item.active ? 'active' : ''}`}>
+                                                    <a onClick={e => handlePaginate(item.url)} class="page-link" href="javascript:void(0)" aria-label="Next">
+                                                        <span aria-hidden="true">
+                                                            {item.label}
+                                                        </span>
+                                                        <span className="sr-only">Next</span>
+                                                    </a>
+                                              </li>
+                                           
+                                           ))
+                                    }
+
+
+                                </ul>
+                            </nav>
                         </div>
                     </div>
 
                 </div>
+
 
 
             </StyleRoot>

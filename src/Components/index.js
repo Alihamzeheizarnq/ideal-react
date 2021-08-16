@@ -6,6 +6,7 @@ import CreateUsers from './Users/Create';
 import Home from './Home/Index';
 import PortofiloCreate from './Portofilo/Create';
 import PortofiloList from './Portofilo/List';
+import PortofiloEdit from './Portofilo/Edit';
 function Index() {
     return (
         <>
@@ -17,6 +18,7 @@ function Index() {
                 <Route path="/links" component={Links} />
                 <Route path="/portofilo" exact component={PortofiloList} />
                 <Route path="/portofilo/create" component={PortofiloCreate} />
+                <Route path="/portofilo/edit/:id" component={PortofiloEdit} />
             </Switch>
         </>
     )

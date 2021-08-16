@@ -3,7 +3,7 @@ import instance from "./Ideal";
 
 
 function ListPortofilo(page,callback) {
-    instance.get(`portofilos?page=${page}`).then(res => {
+    instance.get(`portofilos?${page}`).then(res => {
         callback(res.data)
     })
 }

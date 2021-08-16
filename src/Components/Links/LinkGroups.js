@@ -25,6 +25,7 @@ function LinkGroups(props) {
 
     let setState = (data) => {
         if (data) {
+            console.log(props.links , data)
             props.dispatch(actions.SetGropeLink(data));
             Links.LinkSortable(data, (data) => {
             })

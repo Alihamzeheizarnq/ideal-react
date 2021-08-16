@@ -4,12 +4,12 @@ import { toast } from 'react-toastify';
 
 const instance = axios.create({
   baseURL: ' http://127.0.0.1:8000/api/v1/',
-  Accepted : 'application/json',
-  ContentType : 'application/json'
+  Accepted: 'application/json',
+  ContentType: 'application/json'
 });
 
 instance.defaults.timeout = 2500;
-instance.defaults.headers.common['Authorization'] = "Bearer "+localStorage.getItem('token');
+instance.defaults.headers.common['Authorization'] = "Bearer " + localStorage.getItem('token');
 
 
 instance.interceptors.request.use(function (config) {
@@ -24,18 +24,19 @@ instance.interceptors.response.use(function (response) {
   return response;
 }, function (error) {
 
-  console.log(error.response)
+  if (error && error.response) {
+    switch (error.response.status) {
+      case 422:
+        for (const property in error.response.data.errors) {
+          toast.error(error.response.data.errors[property].toString());
+        }
+        break;
 
-  switch (error.response.status) {
-    case 422:
-      for (const property in error.response.data.errors) {
-        toast.error(error.response.data.errors[property].toString());
+      default:
+        break;
     }
-      break;
-  
-    default:
-      break;
   }
+
   return Promise.reject(error.response);
 });
 export default instance;
