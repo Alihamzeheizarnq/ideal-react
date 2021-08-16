@@ -5,7 +5,7 @@ import breadcrumb from "../../breadcrub";
 import { useEffect, useState } from 'react';
 import ApiPortofilo from './../../Api/Portofilo'
 import { connect } from 'react-redux';
-import actions from '../../actions'
+import actions from '../../actions';
 function List(props) {
 
     let [paginate, setPaginate] = useState({ links: [], status: false });

@@ -31,7 +31,7 @@ function Create(props) {
         setBtn(true)
 
         setTimeout(() => {
-            setBtn(false) 
+            setBtn(false)
         }, 5000);
         let image = '';
         if (props.files.image.length) {
@@ -129,7 +129,7 @@ function Create(props) {
                                 </a>
                                 <div className="block-options">
                                     <div className="custom-control custom-switch custom-control-success">
-                                        <input type="checkbox" onChange={e => setStatus(e.target.checked)} value={status} className="custom-control-input" id="dm-post-add-active" checked={status}/>
+                                        <input type="checkbox" onChange={e => setStatus(e.target.checked)} value={status} className="custom-control-input" id="dm-post-add-active" checked={status} />
                                         <label className="custom-control-label" htmlFor="dm-post-add-active">فعال</label>
                                     </div>
                                 </div>
@@ -211,10 +211,13 @@ function Create(props) {
                                             {
 
                                                 props.files.image.map(item => (
+
                                                     <div key={item.url} className="uploaded-pics" >
                                                         <div className='image-drup'>
-                                                            <img src={`http://localhost:8000/storage${item.url}`} />
-                                                            <Button className="remove-btn" variant="primary" size="sm" onClick={e => DeleteImage(item.url)}>
+                                                            <div className="img-box">
+                                                                <img src={`http://localhost:8000/storage${item.url}`} />
+                                                            </div>
+                                                            <Button className="remove-btn" variant="danger" size="sm" onClick={e => DeleteImage(item.url)}>
                                                                 حذف
                                                             </Button>
                                                         </div>
@@ -245,10 +248,13 @@ function Create(props) {
                                             {
 
                                                 props.files.images.map(item => (
+
                                                     <div key={item.url} className="uploaded-pics" >
                                                         <div className='image-drup'>
-                                                            <img src={`http://localhost:8000/storage${item.url}`} />
-                                                            <Button className="remove-btn" variant="primary" size="sm" onClick={e => DeleteImages(item.id, item.url)}>
+                                                            <div className="img-box">
+                                                                <img src={`http://localhost:8000/storage${item.url}`} />
+                                                            </div>
+                                                            <Button className="remove-btn" variant="danger" size="sm" onClick={e => DeleteImages(item.id, item.url)}>
                                                                 حذف
                                                             </Button>
                                                         </div>

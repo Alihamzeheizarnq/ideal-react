@@ -30,7 +30,8 @@ function Login(props) {
             setBtnEnabel(true)
             setLoading(true)
 
-            Auth.login(user, password, () => {
+            Auth.login(user, password, (tok) => {
+                localStorage.setItem('token', tok);
                 toast.success('ورود با موفقیت انجام شد');
                 setTimeout(() => {
                     setBtnEnabel(false)

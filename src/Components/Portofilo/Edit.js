@@ -7,7 +7,6 @@ import { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import Upload from '../../Api/UploadFile';
 import { connect } from 'react-redux';
-import actions from '../../actions';
 import ApiProtofilo from '../../Api/Portofilo';
 import { toast } from 'react-toastify';
 import ApiPortofilo from '../../Api/Portofilo';
@@ -22,15 +21,16 @@ function Edit(props) {
     let [image, setImages] = useState('');
     let [status, setStatus] = useState(true);
     let [btn, setBtn] = useState(false);
-    let [imageEdit , setImageEdit] = useState([]);
-    let [imagesEdit , setImagesEdit] = useState([]);
+    let [imageEdit, setImageEdit] = useState([]);
+    let [imagesEdit, setImagesEdit] = useState([]);
+    let [listDelete, setListDelete] = useState([]);
 
 
 
-    useEffect(()=> {
+    useEffect(() => {
         let id = props.match.params.id;
 
-        ApiPortofilo.ShowPortofilo(id,data => {
+        ApiPortofilo.ShowPortofilo(id, data => {
             setTitle(data.title);
             setClient(data.client);
             setAddress(data.address);
@@ -39,34 +39,26 @@ function Edit(props) {
             setImageEdit([data.image]);
             setImagesEdit(data.images);
 
-            
+
         })
 
-    } ,[])
+    }, [])
 
     let handleForm = (e) => {
         e.preventDefault();
         setBtn(true)
 
         setTimeout(() => {
-            setBtn(false) 
+            setBtn(false)
         }, 5000);
         let image = '';
-        if (props.files.image.length) {
-            image = props.files.image[0].url;
+        if (imageEdit.length) {
+            image = imageEdit[0].url;
         }
 
-        ApiProtofilo.StorePortofilo({ title, client, address, body, image, images: props.files.images, status }, (data) => {
-            props.dispatch(actions.AddPortofilo(data));
-            props.dispatch(actions.ClearImages());
-            setTitle('');
-            setClient('');
-            setAddress('');
-            setBody('');
-            setStatus(false);
-            toast.success('نمونه کار با موفقیت ایجاد شد .');
-
-
+        ApiProtofilo.UpdatePortofilo(props.match.params.id, { title, client, address, body, image, images: imagesEdit, status, list_delete: listDelete }, (data) => {
+            toast.success('ویرایش با موفقیت انجام شد');
+            props.history.push('/portofilo')
         })
 
     }
@@ -74,14 +66,26 @@ function Edit(props) {
 
 
     let DeleteImages = (id, url) => {
-        Upload.DeleteImages(url, (data) => {
-            props.dispatch(actions.DeleteImage(id));
+        setListDelete(state => {
+            return [
+                ...state,
+                { url }
+            ]
         })
+        setImagesEdit(state => {
+            return state.filter(item => item.url != url)
+        })
+
     }
     let DeleteImage = (url) => {
-
-        Upload.DeleteImages(url, (data) => {
-            props.dispatch(actions.DeleteImg());
+        setListDelete(state => {
+            return [
+                ...state,
+                { url }
+            ]
+        })
+        setImageEdit(state => {
+            return state.filter(item => item.url != url)
         })
     }
     let imgUpload = (e) => {
@@ -96,7 +100,8 @@ function Edit(props) {
                 file.name,
             );
             Upload.UploadImages(formData, (data) => {
-                props.dispatch(actions.ImgPortofilo(data))
+                console.log(data)
+                setImageEdit([data])
             })
         })
 
@@ -119,7 +124,15 @@ function Edit(props) {
                 file.name,
             );
             Upload.UploadImages(formData, (data) => {
-                props.dispatch(actions.ImagesPortofilo(data))
+
+                console.log(data);
+
+                setImagesEdit(state => {
+                    return [
+                        ...state,
+                        { url: data.url }
+                    ]
+                })
             })
         })
         setImages('');
@@ -143,7 +156,7 @@ function Edit(props) {
                                 </a>
                                 <div className="block-options">
                                     <div className="custom-control custom-switch custom-control-success">
-                                        <input type="checkbox" onChange={e => setStatus(e.target.checked)} value={status} className="custom-control-input" id="dm-post-add-active" checked={status}/>
+                                        <input type="checkbox" onChange={e => setStatus(e.target.checked)} value={status} className="custom-control-input" id="dm-post-add-active" checked={status} />
                                         <label className="custom-control-label" htmlFor="dm-post-add-active">فعال</label>
                                     </div>
                                 </div>
@@ -227,8 +240,10 @@ function Edit(props) {
                                                 imageEdit.map(item => (
                                                     <div key={item.url} className="uploaded-pics" >
                                                         <div className='image-drup'>
-                                                            <img src={`http://localhost:8000/storage${item.url}`} />
-                                                            <Button className="remove-btn" variant="primary" size="sm" onClick={e => DeleteImage(item.url)}>
+                                                            <div className="img-box">
+                                                                <img src={`http://localhost:8000/storage${item.url}`} />
+                                                            </div>
+                                                            <Button className="remove-btn" variant="danger" size="sm" onClick={e => DeleteImage(item.url)}>
                                                                 حذف
                                                             </Button>
                                                         </div>
@@ -258,11 +273,13 @@ function Edit(props) {
                                             />
                                             {
 
-                                        imagesEdit.map(item => (
+                                                imagesEdit.map(item => (
                                                     <div key={item.url} className="uploaded-pics" >
                                                         <div className='image-drup'>
-                                                            <img src={`http://localhost:8000/storage${item.url}`} />
-                                                            <Button className="remove-btn" variant="primary" size="sm" onClick={e => DeleteImages(item.id, item.url)}>
+                                                            <div className="img-box">
+                                                                <img src={`http://localhost:8000/storage${item.url}`} />
+                                                            </div>
+                                                            <Button className="remove-btn" variant="danger" size="sm" onClick={e => DeleteImages(item.id, item.url)}>
                                                                 حذف
                                                             </Button>
                                                         </div>

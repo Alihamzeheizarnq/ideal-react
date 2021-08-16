@@ -31147,11 +31147,12 @@ button {
 .image-drup{
     background: #f8f9fc;
     padding: 4px;
-    width: 119px;
-    height: 117px;
     border: 1px solid #6c767f;
     margin: 3px;
-
+}
+.image-drup.master{
+    width: 8rem;
+    height: 8rem;
 }
 .image-drup img{
     width: 100%;
@@ -31175,4 +31176,11 @@ button {
 
 #cke_editor5 *{
     font-family: IRANSansfanum !important ;
+}
+.image-drup .img-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 6rem;
+    height: 6rem;
 }

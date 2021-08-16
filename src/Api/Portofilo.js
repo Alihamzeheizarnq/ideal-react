@@ -20,8 +20,8 @@ function ShowPortofilo(id, callback) {
     })
 }
 function UpdatePortofilo(id, data, callback) {
-    let { title, client, address, body, image, images, status } = data;
-    instance.put(`portofilos/${id}`, { title, client, address, body, image, images, status }).then(res => {
+    let { title, client, address, body, image, images, status , list_delete } = data;
+    instance.put(`portofilos/${id}`, { title, client, address, body, image, images, status , list_delete }).then(res => {
         callback(res.data)
     })
 }
