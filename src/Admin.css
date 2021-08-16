@@ -30350,6 +30350,10 @@ a.text-xplay-lighter:hover {
 }
 
 .dropzone {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    min-height: 145px;
     background-color: #f8f9fc;
     border: .125rem dashed #d4dcec;
     border-radius: .3rem
@@ -31143,9 +31147,10 @@ button {
 .image-drup{
     background: #f8f9fc;
     padding: 4px;
-    width: 108px;
-    height: 116px;
-    border: 1px solid #eceff5;
+    width: 119px;
+    height: 117px;
+    border: 1px solid #6c767f;
+    margin: 3px;
 
 }
 .image-drup img{
@@ -31157,3 +31162,17 @@ button {
     margin-top: 2px;
 }
 
+.dropzone-input{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    opacity: 0;
+}
+.uploaded-pics{
+    z-index: 120;
+}
+
+#cke_editor5 *{
+    font-family: IRANSansfanum !important ;
+}

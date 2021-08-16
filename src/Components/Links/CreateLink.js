@@ -1,6 +1,5 @@
 
 import { useEffect, useState } from 'react';
-import validator from '../fa';
 import { toast } from 'react-toastify';
 import { connect } from 'react-redux';
 import actions from '../../actions';

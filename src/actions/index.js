@@ -62,7 +62,42 @@ let EditLinkOrigin = (id , title , link , group_id , old_group_id) => ({
 })
 
 //end link and link grop footer
+// uploads images
 
+let ImagesPortofilo = (url) => ({
+    type : 'UPLOAD_IMG',
+    url
+})
+let ImgPortofilo = (url) => ({
+    type : 'UPLOAD_IMG_ONE',
+    url
+})
+let DeleteImage = (id) => ({
+    type : 'DELETE_IMAGE',
+    id
+})
+let DeleteImg = () => ({
+    type : 'DELETE_IMAGE_ONE',
+})
+let ClearImages = () => ({
+    type : 'CLEAR_ALL_IMAGE'
+})
+
+
+//end images
+
+
+//PORTOFILO
+
+let AddPortofilo = (data) => ({
+    type : 'ADD_PORTOFILO',
+    data
+})
+
+
+
+
+//END PORTOFILO
 export default { 
     RightSideBar, 
     LeftSideBar , 
@@ -75,6 +110,12 @@ export default {
     CreateLink,
     SortChlid,
     EditLinkOrigin,
-    DeleteOriginLink
+    DeleteOriginLink,
+    ImagesPortofilo,
+    DeleteImage,
+    ImgPortofilo,
+    DeleteImg,
+    AddPortofilo,
+    ClearImages
     
 }

@@ -16,7 +16,7 @@ instance.interceptors.request.use(function (config) {
   return config;
 }, function (error) {
 
-  console.log(error.response.status)
+  console.log(error.response)
   return Promise.reject(error.response);
 });
 
@@ -24,10 +24,17 @@ instance.interceptors.response.use(function (response) {
   return response;
 }, function (error) {
 
-  if(error.status == 422){
-    for (const property in error.response.data.errors) {
-      toast.error(error.response.data.errors[property].toString());
-  }
+  console.log(error.response)
+
+  switch (error.response.status) {
+    case 422:
+      for (const property in error.response.data.errors) {
+        toast.error(error.response.data.errors[property].toString());
+    }
+      break;
+  
+    default:
+      break;
   }
   return Promise.reject(error.response);
 });
