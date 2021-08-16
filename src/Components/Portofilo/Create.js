@@ -11,11 +11,6 @@ import actions from '../../actions';
 import ApiProtofilo from '../../Api/Portofilo';
 import { toast } from 'react-toastify';
 
-
-
-
-
-
 function Create(props) {
 
     let [title, setTitle] = useState('');
@@ -24,7 +19,8 @@ function Create(props) {
     let [body, setBody] = useState('');
     let [img, setImg] = useState('');
     let [image, setImages] = useState('');
-    let [status, setStatus] = useState(1);
+    let [status, setStatus] = useState(true);
+    let [btn, setBtn] = useState(false);
 
 
 
@@ -32,6 +28,11 @@ function Create(props) {
 
     let handleForm = (e) => {
         e.preventDefault();
+        setBtn(true)
+
+        setTimeout(() => {
+            setBtn(false) 
+        }, 5000);
         let image = '';
         if (props.files.image.length) {
             image = props.files.image[0].url;
@@ -128,7 +129,7 @@ function Create(props) {
                                 </a>
                                 <div className="block-options">
                                     <div className="custom-control custom-switch custom-control-success">
-                                        <input type="checkbox" onChange={e => setStatus(e.target.checked)} value={status} className="custom-control-input" id="dm-post-add-active" name="dm-post-add-active" />
+                                        <input type="checkbox" onChange={e => setStatus(e.target.checked)} value={status} className="custom-control-input" id="dm-post-add-active" checked={status}/>
                                         <label className="custom-control-label" htmlFor="dm-post-add-active">فعال</label>
                                     </div>
                                 </div>
@@ -263,7 +264,7 @@ function Create(props) {
                             <div className="block-content bg-body-light">
                                 <div className="row justify-content-center push">
                                     <div className="col-md-10">
-                                        <button type="submit" className="btn btn-alt-primary">
+                                        <button type="submit" className="btn btn-alt-primary" disabled={btn}>
                                             <i className="fa fa-fw fa-check mr-1" />  ایجاد
                                         </button>
                                     </div>

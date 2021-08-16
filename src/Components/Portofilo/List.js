@@ -2,9 +2,19 @@ import animate from './../Partials/animate';
 import { StyleRoot } from 'radium';
 import Breadcrumb from "../Partials/Breadcrumb";
 import breadcrumb from "../../breadcrub";
-function List() {
+import { useEffect } from 'react';
+import ApiPortofilo from './../../Api/Portofilo'
+import { connect } from 'react-redux';
+import actions from '../../actions'
+function List(props) {
 
 
+    useEffect(() => {
+        ApiPortofilo.ListPortofilo(1 , (data) => {
+            console.log(data)
+            props.dispatch(actions.ListPortofilo(data))
+        })
+    }, [])
 
     let header = breadcrumb('portofilo.list');
 
@@ -29,127 +39,61 @@ function List() {
                             <table className="table table-borderless table-vcenter">
                                 <thead>
                                     <tr>
-                                        <th className="text-center" style={{ width: 50 }}>#</th>
-                                        <th>Name</th>
-                                        <th className="d-none d-sm-table-cell" style={{ width: '15%' }}>Access</th>
-                                        <th className="text-center" style={{ width: 100 }}>Actions</th>
+                                        <th className="text-center" style={{ width: 50 }}>ردیف</th>
+                                        <th>عنوان</th>
+                                        <th>عکس</th>
+                                        <th className="d-none d-sm-table-cell" >نام مشتری</th>
+                                        <th className="d-none d-sm-table-cell" >آدرس</th>
+                                        <th className="d-none d-sm-table-cell" >وضعیت</th>
+                                        <th className="text-center" style={{ width: 100 }}>عملیات</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th className="text-center" scope="row">1</th>
-                                        <td className="font-w600">
-                                            <a href="be_pages_generic_profile.html">Jack Greene</a>
-                                        </td>
-                                        <td className="d-none d-sm-table-cell">
-                                            <span className="badge badge-success">VIP</span>
-                                        </td>
-                                        <td className="text-center">
-                                            <div className="btn-group">
-                                                <button type="button" className="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title data-original-title="Edit">
-                                                    <i className="fa fa-pencil-alt" />
-                                                </button>
-                                                <button type="button" className="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title data-original-title="Delete">
-                                                    <i className="fa fa-times" />
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-center" scope="row">2</th>
-                                        <td className="font-w600">
-                                            <a href="be_pages_generic_profile.html">Megan Fuller</a>
-                                        </td>
-                                        <td className="d-none d-sm-table-cell">
-                                            <span className="badge badge-primary">Personal</span>
-                                        </td>
-                                        <td className="text-center">
-                                            <div className="btn-group">
-                                                <button type="button" className="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title data-original-title="Edit">
-                                                    <i className="fa fa-pencil-alt" />
-                                                </button>
-                                                <button type="button" className="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title data-original-title="Delete">
-                                                    <i className="fa fa-times" />
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-center" scope="row">3</th>
-                                        <td className="font-w600">
-                                            <a href="be_pages_generic_profile.html">Lisa Jenkins</a>
-                                        </td>
-                                        <td className="d-none d-sm-table-cell">
-                                            <span className="badge badge-warning">Trial</span>
-                                        </td>
-                                        <td className="text-center">
-                                            <div className="btn-group">
-                                                <button type="button" className="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title data-original-title="Edit">
-                                                    <i className="fa fa-pencil-alt" />
-                                                </button>
-                                                <button type="button" className="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title data-original-title="Delete">
-                                                    <i className="fa fa-times" />
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-center" scope="row">4</th>
-                                        <td className="font-w600">
-                                            <a href="be_pages_generic_profile.html">Albert Ray</a>
-                                        </td>
-                                        <td className="d-none d-sm-table-cell">
-                                            <span className="badge badge-primary">Personal</span>
-                                        </td>
-                                        <td className="text-center">
-                                            <div className="btn-group">
-                                                <button type="button" className="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title data-original-title="Edit">
-                                                    <i className="fa fa-pencil-alt" />
-                                                </button>
-                                                <button type="button" className="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title data-original-title="Delete">
-                                                    <i className="fa fa-times" />
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-center" scope="row">5</th>
-                                        <td className="font-w600">
-                                            <a href="be_pages_generic_profile.html">Barbara Scott</a>
-                                        </td>
-                                        <td className="d-none d-sm-table-cell">
-                                            <span className="badge badge-danger">Disabled</span>
-                                        </td>
-                                        <td className="text-center">
-                                            <div className="btn-group">
-                                                <button type="button" className="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title data-original-title="Edit">
-                                                    <i className="fa fa-pencil-alt" />
-                                                </button>
-                                                <button type="button" className="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title data-original-title="Delete">
-                                                    <i className="fa fa-times" />
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th className="text-center" scope="row">6</th>
-                                        <td className="font-w600">
-                                            <a href="be_pages_generic_profile.html">David Fuller</a>
-                                        </td>
-                                        <td className="d-none d-sm-table-cell">
-                                            <span className="badge badge-success">VIP</span>
-                                        </td>
-                                        <td className="text-center">
-                                            <div className="btn-group">
-                                                <button type="button" className="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title data-original-title="Edit">
-                                                    <i className="fa fa-pencil-alt" />
-                                                </button>
-                                                <button type="button" className="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title data-original-title="Delete">
-                                                    <i className="fa fa-times" />
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
+
+
+
+                                    {
+                                        props.portofilos.portofilo.map((item, index) => (
+                                            <tr>
+                                                <th className="text-center" scope="row">{index + 1}</th>
+                                                <td className="font-w600">
+                                                    <a href="be_pages_generic_profile.html">{item.title}</a>
+                                                </td>  
+                                                <td className="d-none d-sm-table-cell">
+                                                <img style={{maxHeight: '60px'}} src={`http://localhost:8000/storage${item.image.url}`} />
+                                                </td>
+                                                <td className="d-none d-sm-table-cell">
+                                                    {item.client}
+                                                </td>
+                                                <td className="d-none d-sm-table-cell">
+                                                    {item.address}
+                                                </td>
+                                                <td className="d-none d-sm-table-cell">
+                                                    {
+                                                        item.status ?
+                                                            <span className="badge badge-success">فعال</span>
+                                                            : <span className="badge badge-warning">غیر فعال</span>
+
+                                                    }
+                                                </td>
+                                                <td className="text-center">
+                                                    <div className="btn-group">
+                                                        <button type="button" className="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title data-original-title="Edit">
+                                                            <i className="fa fa-pencil-alt" />
+                                                        </button>
+                                                        <button type="button" className="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title data-original-title="Delete">
+                                                            <i className="fa fa-times" />
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        ))
+                                    }
+
+
+
+
+
                                 </tbody>
                             </table>
                         </div>
@@ -164,4 +108,9 @@ function List() {
     );
 }
 
-export default List;
+let mapStateToProps = (state) => {
+    return {
+        portofilos: state.portofilos
+    }
+}
+export default connect(mapStateToProps)(List);

@@ -9,7 +9,10 @@ function reducer(state = initState, action) {
     switch (action.type) {
         case 'LIST_PORTOFILO':
 
-            break;
+           return {
+               ...state,
+               portofilo : action.data.data
+           }
         case 'ADD_PORTOFILO':
             let data = action.data
             return {

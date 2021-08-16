@@ -93,6 +93,10 @@ let AddPortofilo = (data) => ({
     type : 'ADD_PORTOFILO',
     data
 })
+let ListPortofilo = (data) => ({
+    type : 'LIST_PORTOFILO',
+    data
+})
 
 
 
@@ -116,6 +120,7 @@ export default {
     ImgPortofilo,
     DeleteImg,
     AddPortofilo,
-    ClearImages
+    ClearImages,
+    ListPortofilo
     
 }
