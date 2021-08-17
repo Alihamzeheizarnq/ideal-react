@@ -1,4 +1,4 @@
-import instance from "./Ideal";
+import {instance} from "./Ideal";
 
 
 

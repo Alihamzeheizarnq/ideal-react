@@ -13,6 +13,7 @@ import Footer from './Components/Partials/Footer';
 import Login from './Components/auth/Login';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
+import { setHeader } from './Api/Ideal'
 
 
 
@@ -25,6 +26,10 @@ function App(props) {
 
     let history = useHistory();
 
+
+    useEffect(() => {
+        setHeader()
+    })
     let [loding, setLoding] = useState(true);
     useEffect(() => {
         Auth.CheckUser(() => {

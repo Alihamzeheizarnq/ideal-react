@@ -11,6 +11,10 @@ const instance = axios.create({
 instance.defaults.timeout = 2500;
 instance.defaults.headers.common['Authorization'] = "Bearer " + localStorage.getItem('token');
 
+let setHeader = () => {
+  instance.defaults.headers.common['Authorization'] = "Bearer " + localStorage.getItem('token');
+}
+
 
 instance.interceptors.request.use(function (config) {
   return config;
@@ -38,4 +42,4 @@ instance.interceptors.response.use(function (response) {
 
   return Promise.reject(error.response);
 });
-export default instance;
+export  {instance , setHeader};

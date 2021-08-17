@@ -1,12 +1,14 @@
-import instance from "./Ideal"
+import { instance , setHeader } from "./Ideal"
 
 
 function linkStore(text, callback) {
+
     instance.post('link/groups', { text }).then(res => {
         callback(res.data)
     })
 }
 function linkIndex(callback) {
+
     instance.get('link/groups').then(res => {
         callback(res.data)
     })
