@@ -32,6 +32,7 @@ function Login(props) {
 
             Auth.login(user, password, (tok) => {
                 localStorage.setItem('token', tok);
+                props.dispatch(actions.setTokenUser(tok))
                 toast.success('ورود با موفقیت انجام شد');
                 setTimeout(() => {
                     setBtnEnabel(false)

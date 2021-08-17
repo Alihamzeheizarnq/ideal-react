@@ -4,7 +4,6 @@ import { StyleRoot } from 'radium';
 function Home() {
 
 
-    console.log(animate.bounceInLeft);
 
 
     return (

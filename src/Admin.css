@@ -31184,3 +31184,8 @@ button {
     width: 6rem;
     height: 6rem;
 }
+.image-portopfilo{
+    width: 100px;
+    /* -webkit-box-shadow: 0 3px 6px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%); */
+    box-shadow: 0 3px 6px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);
+}

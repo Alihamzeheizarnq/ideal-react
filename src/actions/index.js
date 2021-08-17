@@ -15,6 +15,10 @@ let TokenStatus = (status) => ({
     type : 'TokenStatus',
     status 
 })
+let setTokenUser = (token) => ({
+    type : 'SET_TOKEN',
+    token 
+})
 
 // end ui config
 // links and linksGroups
@@ -97,6 +101,10 @@ let ListPortofilo = (data) => ({
     type : 'LIST_PORTOFILO',
     data
 })
+let DeletePortofilo = (id) => ({
+    type : 'DELETE_PORTOFILO',
+    id
+})
 
 
 
@@ -121,6 +129,8 @@ export default {
     DeleteImg,
     AddPortofilo,
     ClearImages,
-    ListPortofilo
+    ListPortofilo,
+    DeletePortofilo,
+    setTokenUser
     
 }

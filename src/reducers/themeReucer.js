@@ -3,6 +3,7 @@ let initState = {
     sidebarRight: true,
     sidebarLeft: true,
     sidebarStyle: true,
+    tokenUer : null
 }
 
 function reducer(state = initState, action) {
@@ -26,6 +27,14 @@ function reducer(state = initState, action) {
             return {
                 ...state,
                 token: action.status
+            }
+
+            case 'SET_TOKEN':
+
+
+            return {
+                ...state,
+                tokenUer : action.token
             }
 
         default:

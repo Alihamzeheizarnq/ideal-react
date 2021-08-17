@@ -33,7 +33,6 @@ function CreateLinkGroup(props) {
     }
     let SuccessModalEdit = (e, id) => {
         e.preventDefault();
-        console.log(id)
 
             Links.LinkOriginEdit(id, titleEdit , linkEdit , group_idEdit, (data) => {
                 props.dispatch(actions.EditLinkOrigin(id, titleEdit , linkEdit , group_idEdit , props.child.group_id));

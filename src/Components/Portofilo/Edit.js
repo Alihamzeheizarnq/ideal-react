@@ -100,7 +100,6 @@ function Edit(props) {
                 file.name,
             );
             Upload.UploadImages(formData, (data) => {
-                console.log(data)
                 setImageEdit([data])
             })
         })
@@ -125,8 +124,6 @@ function Edit(props) {
             );
             Upload.UploadImages(formData, (data) => {
 
-                console.log(data);
-
                 setImagesEdit(state => {
                     return [
                         ...state,
@@ -137,10 +134,7 @@ function Edit(props) {
         })
         setImages('');
     }
-    let header = breadcrumb('portofilo.create');
-
-
-    console.log(imageEdit);
+    let header = breadcrumb('portofilo.edit');
 
     return (
         <>
@@ -152,7 +146,7 @@ function Edit(props) {
                         <div className="block">
                             <div className="block-header block-header-default">
                                 <a className="btn btn-light" style={{ fontFamily: 'IRANSansfanum' }} href="be_pages_blog_post_manage.html">
-                                    <i className="fa fa-arrow-left mr-1" />  ایجاد نمنه کار
+                                    <i className="fa fa-arrow-left mr-1" />    ویرایش
                                 </a>
                                 <div className="block-options">
                                     <div className="custom-control custom-switch custom-control-success">
@@ -296,7 +290,7 @@ function Edit(props) {
                                 <div className="row justify-content-center push">
                                     <div className="col-md-10">
                                         <button type="submit" className="btn btn-alt-primary" disabled={btn}>
-                                            <i className="fa fa-fw fa-check mr-1" />  ایجاد
+                                            <i className="fa fa-fw fa-check mr-1" />  به روزرسانی
                                         </button>
                                     </div>
                                 </div>
