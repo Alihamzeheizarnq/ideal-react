@@ -138,6 +138,33 @@ function SideBar(props) {
                                     </li>
                                 </ul>
                             </li>
+
+                            <li className={`nav-main-item parent`} id="3">
+                                <a className="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
+                                    <i className="nav-main-link-icon fa fa-user" />
+                                    <span className="nav-main-link-name">مدیریت  وبلاگ</span>
+                                </a>
+                                <ul className="nav-main-submenu">
+                                    <li className="nav-main-item" >
+                                        <NavLink to="/posts/categories" className="nav-main-link" href="#">
+                                            <i className="nav-main-link-icon fa fa-2x fa-chevron-left" />
+                                            <span className="nav-main-link-name">دسته بندی</span>
+                                        </NavLink>
+                                    </li> 
+                                            <li className="nav-main-item" >
+                                        <NavLink to="/posts" className="nav-main-link" href="#">
+                                            <i className="nav-main-link-icon fa fa-2x fa-chevron-left" />
+                                            <span className="nav-main-link-name">لیست پست ها</span>
+                                        </NavLink>
+                                    </li>
+                                    <li className="nav-main-item">
+                                        <NavLink to="/posts/create" exact className="nav-main-link" href="#">
+                                            <i className="nav-main-link-icon fa fa-2x fa-chevron-left" />
+                                            <span className="nav-main-link-name">ایجاد پست</span>
+                                        </NavLink>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                     {/* END Side Navigation */}
