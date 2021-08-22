@@ -1,47 +1,48 @@
-function Category(){
+import Nestable from 'react-nestable';
+import 'react-nestable/dist/styles/index.css';
+import ItemCat from './ItemCategory';
+import breadcrumb from './../../breadcrub';
+import Breadcrumb from '../Partials/Breadcrumb';
+import { StyleRoot } from 'radium';
+import animate from './../Partials/animate';
+import CreateCateory from './CreateCategory';
+import { connect } from 'react-redux';
+import PostCategory from '../../Api/PostCategory';
+import actions from '../../actions';
+
+function Category(props) {
+  const renderItem = ({ item }) => <ItemCat key={item.id} {...item} />;
+  const handleItem = ({items}) => { 
+    PostCategory.SortPostCategory(items , data => {
+        props.dispatch(actions.ListPostCategory(data))
+    })
+   };
+
+
+  let header = breadcrumb('posts.category')
+  return (
+    <>
+      <Breadcrumb header={header} />
+      <StyleRoot>
+        <div className="content" style={animate.bounce}>
+          <CreateCateory />
+          <Nestable
+            items={props.post_category}
+            renderItem={renderItem}
+            onChange={handleItem}
+          />
+        </div>
+      </StyleRoot>
+
+    </>
+  );
 
 
 
 
-    return (
-        <>
-
-<div>
-  <div className="container" style={{marginTop: 30}}>
-    <div className="row">
-      <div className="col-md-4">
-      <ul className="tree">
-          <li className="tree-child">XRP
-            <ul>
-              <li>Company Maintenance</li>
-              <li>Employees
-                <ul>
-                  <li>Reports
-                    <ul>
-                      <li>Report1</li>
-                      <li>Report2</li>
-                      <li>Report3</li>
-                    </ul>
-                  </li>
-                  <li>Employee Maint.</li>
-                </ul>
-              </li>
-              <li>Human Resources</li>
-            </ul>
-          </li>
-          <li>ali</li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-
-
-        </>
-    )
 }
 
-
-export default Category;
+let mapStateToProps = state => ({
+    post_category : state.post_category.categories
+})
+export default  connect(mapStateToProps)(Category);

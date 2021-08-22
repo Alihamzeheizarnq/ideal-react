@@ -1,34 +1,34 @@
 // ui config
 let RightSideBar = () => ({
-    type : 'RIGHT_SIDEBAR'
+    type: 'RIGHT_SIDEBAR'
 })
 
 let LeftSideBar = () => ({
-    type : 'LEFT_SIDEBAR'
+    type: 'LEFT_SIDEBAR'
 })
 
 let DarkAndWhithSideBar = () => ({
-    type : 'DARK_AND_WHITH_SIDEBAR'
+    type: 'DARK_AND_WHITH_SIDEBAR'
 })
 
 let TokenStatus = (status) => ({
-    type : 'TokenStatus',
-    status 
+    type: 'TokenStatus',
+    status
 })
 let setTokenUser = (token) => ({
-    type : 'SET_TOKEN',
-    token 
+    type: 'SET_TOKEN',
+    token
 })
 
 // end ui config
 // links and linksGroups
-let CreateGropeLink = (text , id) => ({
-    type : 'CREATE_GROUPE',
+let CreateGropeLink = (text, id) => ({
+    type: 'CREATE_GROUPE',
     id,
     text
 })
-let CreateLink = (id , link , title , group_id) => ({
-    type : 'CREATE_LINK',
+let CreateLink = (id, link, title, group_id) => ({
+    type: 'CREATE_LINK',
     id,
     link,
     title,
@@ -36,28 +36,28 @@ let CreateLink = (id , link , title , group_id) => ({
 })
 
 let SetGropeLink = (data) => ({
-    type : 'SET_LINK_GROUPE',
+    type: 'SET_LINK_GROUPE',
     data
 })
 let DeleteLink = (id) => ({
-    type : 'DELETE_LINK',
+    type: 'DELETE_LINK',
     id
 })
 let DeleteOriginLink = (id) => ({
-    type : 'DELETE_ORIGIN_LINK',
+    type: 'DELETE_ORIGIN_LINK',
     id
 })
-let EditLink = (id , name) => ({
-    type : 'EDIT_LINK',
+let EditLink = (id, name) => ({
+    type: 'EDIT_LINK',
     id,
     name
 })
 let SortChlid = (data) => ({
-    type : 'SORT_CHILD',
+    type: 'SORT_CHILD',
     data
 })
-let EditLinkOrigin = (id , title , link , group_id , old_group_id) => ({
-    type : 'EDIT_LINK_ORIGIN',
+let EditLinkOrigin = (id, title, link, group_id, old_group_id) => ({
+    type: 'EDIT_LINK_ORIGIN',
     id,
     title,
     link,
@@ -69,22 +69,22 @@ let EditLinkOrigin = (id , title , link , group_id , old_group_id) => ({
 // uploads images
 
 let ImagesPortofilo = (url) => ({
-    type : 'UPLOAD_IMG',
+    type: 'UPLOAD_IMG',
     url
 })
 let ImgPortofilo = (url) => ({
-    type : 'UPLOAD_IMG_ONE',
+    type: 'UPLOAD_IMG_ONE',
     url
 })
 let DeleteImage = (id) => ({
-    type : 'DELETE_IMAGE',
+    type: 'DELETE_IMAGE',
     id
 })
 let DeleteImg = () => ({
-    type : 'DELETE_IMAGE_ONE',
+    type: 'DELETE_IMAGE_ONE',
 })
 let ClearImages = () => ({
-    type : 'CLEAR_ALL_IMAGE'
+    type: 'CLEAR_ALL_IMAGE'
 })
 
 
@@ -94,26 +94,39 @@ let ClearImages = () => ({
 //PORTOFILO
 
 let AddPortofilo = (data) => ({
-    type : 'ADD_PORTOFILO',
+    type: 'ADD_PORTOFILO',
     data
 })
 let ListPortofilo = (data) => ({
-    type : 'LIST_PORTOFILO',
+    type: 'LIST_PORTOFILO',
     data
 })
 let DeletePortofilo = (id) => ({
-    type : 'DELETE_PORTOFILO',
+    type: 'DELETE_PORTOFILO',
     id
 })
 
-
-
-
 //END PORTOFILO
-export default { 
-    RightSideBar, 
-    LeftSideBar , 
-    DarkAndWhithSideBar , 
+
+
+
+//CATE GORY POST
+
+
+let CreatePostCategory = (id, name) => ({
+    type: 'CREATE_POST_CATEGORY',
+    id,
+    name
+})
+
+let ListPostCategory = (categories) => ({
+    type: 'LIST_POST_CATEGORY',
+    categories
+})
+export default {
+    RightSideBar,
+    LeftSideBar,
+    DarkAndWhithSideBar,
     TokenStatus,
     CreateGropeLink,
     SetGropeLink,
@@ -131,6 +144,8 @@ export default {
     ClearImages,
     ListPortofilo,
     DeletePortofilo,
-    setTokenUser
-    
+    setTokenUser,
+    CreatePostCategory,
+    ListPostCategory
+
 }

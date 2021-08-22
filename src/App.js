@@ -13,6 +13,7 @@ import Footer from './Components/Partials/Footer';
 import Login from './Components/auth/Login';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
+import { setHeader } from './Api/Ideal';
 
 
 
@@ -29,18 +30,19 @@ function App(props) {
         Auth.CheckUser(() => {
             props.dispatch(actions.TokenStatus(true));
 
-            setInterval(() => {
                 setLoding(false)
-            }, 500)
         }, () => {
-            setInterval(() => {
                 setLoding(false)
-            }, 500)
             props.dispatch(actions.TokenStatus(false))
             return history.push('/login')
         })
     }, [])
 
+    useEffect(() => {
+     setHeader();
+     console.log('IS')
+
+    })
 
 
     let theme = props.theme;
