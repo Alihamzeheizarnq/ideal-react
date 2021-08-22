@@ -95,7 +95,7 @@ function SideBar(props) {
                                             <span className="nav-main-link-name">صفحه اصلی</span>
                                         </NavLink>
                                     </li>
-                  
+
                                 </ul>
                             </li>
                             <li className={`nav-main-item parent`} id="1">
@@ -150,8 +150,8 @@ function SideBar(props) {
                                             <i className="nav-main-link-icon fa fa-2x fa-chevron-left" />
                                             <span className="nav-main-link-name">دسته بندی</span>
                                         </NavLink>
-                                    </li> 
-                                            <li className="nav-main-item" >
+                                    </li>
+                                    <li className="nav-main-item" >
                                         <NavLink to="/posts" className="nav-main-link" href="#">
                                             <i className="nav-main-link-icon fa fa-2x fa-chevron-left" />
                                             <span className="nav-main-link-name">لیست پست ها</span>
@@ -164,6 +164,36 @@ function SideBar(props) {
                                         </NavLink>
                                     </li>
                                 </ul>
+                                <li className={`nav-main-item parent`} id="4">
+                                    <a className="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
+                                        <i className="nav-main-link-icon fa fa-user" />
+                                        <span className="nav-main-link-name">مدیریت  منو ها</span>
+                                    </a>
+                                    <ul className="nav-main-submenu">
+                                        <li className="nav-main-item" >
+                                            <NavLink to="/menus" className="nav-main-link" href="#">
+                                                <i className="nav-main-link-icon fa fa-2x fa-chevron-left" />
+                                                <span className="nav-main-link-name">لیست و ایجاد منو</span>
+                                            </NavLink>
+
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li className={`nav-main-item parent`} id="5">
+                                    <a className="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
+                                        <i className="nav-main-link-icon fa fa-user" />
+                                        <span className="nav-main-link-name">تنظیمات</span>
+                                    </a>
+                                    <ul className="nav-main-submenu">
+                                        <li className="nav-main-item" >
+                                            <NavLink to="/setting" className="nav-main-link" href="#">
+                                                <i className="nav-main-link-icon fa fa-2x fa-chevron-left" />
+                                                <span className="nav-main-link-name">مدیریت تنظیمات</span>
+                                            </NavLink>
+
+                                        </li>
+                                    </ul>
+                                </li>
                             </li>
                         </ul>
                     </div>

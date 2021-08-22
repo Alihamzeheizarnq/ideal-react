@@ -9,33 +9,45 @@ import CreateCateory from './CreateCategory';
 import { connect } from 'react-redux';
 import PostCategory from '../../Api/PostCategory';
 import actions from '../../actions';
+import { useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 function Category(props) {
-  const renderItem = ({ item }) => <ItemCat key={item.id} {...item} />;
-  const handleItem = ({items}) => { 
-    PostCategory.SortPostCategory(items , data => {
-        props.dispatch(actions.ListPostCategory(data))
-    })
-   };
+
+    useEffect(() => {
+        PostCategory.ListPostCategory(data => {
+            props.dispatch(actions.ListPostCategory(data))
+
+        })
+    }, []);
+    const renderItem = ({ item }) => <ItemCat key={item.id} {...item} />;
+    const handleItem = ({ items }) => {
+        PostCategory.SortPostCategory(items, data => {
+            props.dispatch(actions.ListPostCategory(data))
+        })
+        toast.success('ویرایش موفق!')
+
+    };
 
 
-  let header = breadcrumb('posts.category')
-  return (
-    <>
-      <Breadcrumb header={header} />
-      <StyleRoot>
-        <div className="content" style={animate.bounce}>
-          <CreateCateory />
-          <Nestable
-            items={props.post_category}
-            renderItem={renderItem}
-            onChange={handleItem}
-          />
-        </div>
-      </StyleRoot>
+    let header = breadcrumb('posts.category')
+    return (
+        <>
+            <Breadcrumb header={header} />
+            <StyleRoot>
 
-    </>
-  );
+                <div className="content" style={animate.bounce}>
+                    <CreateCateory />
+                    <Nestable
+                        items={props.post_category}
+                        renderItem={renderItem}
+                        onChange={handleItem}
+                    />
+                </div>
+            </StyleRoot>
+
+        </>
+    );
 
 
 
@@ -43,6 +55,6 @@ function Category(props) {
 }
 
 let mapStateToProps = state => ({
-    post_category : state.post_category.categories
+    post_category: state.post_category.categories
 })
-export default  connect(mapStateToProps)(Category);
+export default connect(mapStateToProps)(Category);

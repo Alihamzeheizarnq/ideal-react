@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import { FaPencilAlt, FaTrash } from 'react-icons/fa';
 import { Modal, Button } from 'react-bootstrap'
+import actions from '../../actions';
+import { connect } from 'react-redux';
+import PostCategory from '../../Api/PostCategory';
+import { toast } from 'react-toastify';
 
 function ItemCat(props) {
 
@@ -12,25 +16,42 @@ function ItemCat(props) {
 
     let handleClose = () => {
         setShow(false);
-    } 
-      let handleCloseEdit = () => {
+    }
+    let handleCloseEdit = () => {
         setEdit(false);
     }
-    let SuccessModal = (id)=> {
-        console.log(id)
+    let SuccessModal = (id) => {
+        PostCategory.DeletePostCategory(id , (data) => {
+
+            props.dispatch(actions.DeletePostCategory(id));
+
+            setShow(false);
+            toast.warning('دسته بندی با موفقیت حذف گردید');
+
+
+        })
     }
 
-    let SuccessModalEdit = (e ,id)=> {
-        e.preventDefault();
+    let SuccessModalEdit = (e, id) => {
         console.log(id)
+        e.preventDefault();
+        PostCategory.EditPostCategory(id, name, (data) => {
+            if (data.status) {
+                props.dispatch(actions.EditPostCategory(id, name));
+                setEdit(false)
+                toast.success('دسته بندی با موفقیت ویرایش گردید');
+
+            }
+
+        })
 
     }
     return (
         <>
             <span>{props.name}</span>
             <div style={{ display: 'inline', float: 'left' }}>
-                <a className="float-right delete-category dd-nodrag"  onClick={e => setEdit(true)}><FaPencilAlt /></a>
-                <a className="float-right delete-category dd-nodrag mr-2 text-danger"  onClick={e => setShow(true)}><FaTrash /></a>
+                <a className="float-right delete-category dd-nodrag" onClick={e => setEdit(true)}><FaPencilAlt /></a>
+                <a className="float-right delete-category dd-nodrag mr-2 text-danger" onClick={e => setShow(true)}><FaTrash /></a>
             </div>
             <Modal
                 show={show}
@@ -89,4 +110,4 @@ function ItemCat(props) {
 }
 
 
-export default ItemCat;
+export default connect()(ItemCat);

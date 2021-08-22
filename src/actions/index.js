@@ -123,6 +123,16 @@ let ListPostCategory = (categories) => ({
     type: 'LIST_POST_CATEGORY',
     categories
 })
+
+let EditPostCategory = (id ,name) => ({
+    type: 'EDIT_POST_CATEGORY',
+    id,
+    name
+});
+let DeletePostCategory = (id) => ({
+    type: 'DELETE_POST_CATEGORY',
+    id
+});
 export default {
     RightSideBar,
     LeftSideBar,
@@ -146,6 +156,8 @@ export default {
     DeletePortofilo,
     setTokenUser,
     CreatePostCategory,
-    ListPostCategory
+    ListPostCategory,
+    EditPostCategory,
+    DeletePostCategory
 
 }

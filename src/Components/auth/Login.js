@@ -31,6 +31,7 @@ function Login(props) {
             setLoading(true)
 
             Auth.login(user, password, (tok) => {
+                console.log(tok)
                 localStorage.setItem('token', tok);
                 toast.success('ورود با موفقیت انجام شد');
                 setTimeout(() => {
@@ -39,6 +40,9 @@ function Login(props) {
                     props.dispatch(actions.TokenStatus(true))
 
                 }, 3000)
+            } , error => {
+                setBtnEnabel(false)
+                setLoading(false)
             })
 
         }

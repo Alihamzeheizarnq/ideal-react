@@ -9,6 +9,12 @@ function ListPostCategory(callback) {
 function CreatePostCategory(name, callback) {
     instance.post('posts/category', { name, type: 'post' }).then(res => callback(res.data));
 }
+function EditPostCategory(id , name, callback) {
+    instance.put(`posts/category/${id}`, { name }).then(res => callback(res.data));
+}
+function DeletePostCategory(id , callback) {
+    instance.delete(`posts/category/${id}`).then(res => callback(res.data));
+}
 function SortPostCategory(categories, callback) {
     instance.post('posts/category/sort', { categories}).then(res => callback(res.data));
 }
@@ -18,6 +24,8 @@ function SortPostCategory(categories, callback) {
 export default {
     ListPostCategory,
     CreatePostCategory,
-    SortPostCategory
+    SortPostCategory,
+    EditPostCategory,
+    DeletePostCategory
 
 }
