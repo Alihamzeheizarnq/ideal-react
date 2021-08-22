@@ -19,6 +19,7 @@ function List(props) {
                     ...preve,
                     links: data.meta.links,
                     total: data.meta.last_page,
+                 
                     status: true
                 }
             })
