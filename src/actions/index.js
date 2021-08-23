@@ -133,6 +133,26 @@ let DeletePostCategory = (id) => ({
     type: 'DELETE_POST_CATEGORY',
     id
 });
+//
+let ListPost = (data) => ({
+    type: 'LIST_POSTS',
+    data
+})
+
+let EditPost = (id ,name) => ({
+    type: 'EDIT_POST',
+    id,
+    name
+});
+let DeletePost = (id) => ({
+    type: 'DELETE_POST',
+    id
+});
+let CreatePost = (data) => ({
+    type: 'ADD_POSTS',
+    data
+});
+
 export default {
     RightSideBar,
     LeftSideBar,
@@ -158,6 +178,10 @@ export default {
     CreatePostCategory,
     ListPostCategory,
     EditPostCategory,
-    DeletePostCategory
+    DeletePostCategory,
+    ListPost,
+    EditPost,
+    DeletePost,
+    CreatePost
 
 }

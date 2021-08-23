@@ -12,6 +12,7 @@ function List(props) {
     let [paginate, setPaginate] = useState({ links: [], status: false });
 
     useEffect(() => {
+        window.scrollX = 0;
         ApiPortofilo.ListPortofilo(props.location.search, (data) => {
 
             setPaginate(preve => {

@@ -131,7 +131,7 @@ function SideBar(props) {
                                         </NavLink>
                                     </li>
                                     <li className="nav-main-item">
-                                        <NavLink to="/portofilo" exact className="nav-main-link" href="#">
+                                        <NavLink to="/portofilo"  exact className="nav-main-link" href="#">
                                             <i className="nav-main-link-icon fa fa-2x fa-chevron-left" />
                                             <span className="nav-main-link-name">لیست نمونه کار ها </span>
                                         </NavLink>
@@ -152,7 +152,7 @@ function SideBar(props) {
                                         </NavLink>
                                     </li>
                                     <li className="nav-main-item" >
-                                        <NavLink to="/posts" className="nav-main-link" href="#">
+                                        <NavLink to="/posts" exact className="nav-main-link" href="#">
                                             <i className="nav-main-link-icon fa fa-2x fa-chevron-left" />
                                             <span className="nav-main-link-name">لیست پست ها</span>
                                         </NavLink>

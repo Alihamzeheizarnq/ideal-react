@@ -31141,50 +31141,58 @@ button {
     overflow: unset !important;
     padding-right: unset !important;
 }
-#cke_editor1 *{
+
+#cke_editor1 * {
     font-family: IRANSansfanum;
 }
-.image-drup{
+
+.image-drup {
     background: #f8f9fc;
     padding: 4px;
     border: 1px solid #6c767f;
     margin: 3px;
 }
-.image-drup.master{
+
+.image-drup.master {
     width: 8rem;
     height: 8rem;
 }
-.image-drup img{
+
+.image-drup img {
     width: 100%;
     height: auto;
 }
-.image-drup button{
+
+.image-drup button {
     width: 100%;
     margin-top: 2px;
 }
 
-.dropzone-input{
+.dropzone-input {
     position: absolute;
     width: 100%;
     top: 0;
     bottom: 0;
     opacity: 0;
 }
-.uploaded-pics{
+
+.uploaded-pics {
     z-index: 120;
 }
 
-#cke_editor5 *{
-    font-family: IRANSansfanum !important ;
+#cke_editor5 * {
+    font-family: IRANSansfanum !important;
 }
-.image-drup .img-box{
+
+.image-drup .img-box {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 6rem;
     height: 6rem;
 }
-.image-portopfilo{
+
+.image-portopfilo {
     width: 100px;
     /* -webkit-box-shadow: 0 3px 6px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%); */
     box-shadow: 0 3px 6px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);
@@ -31203,19 +31211,83 @@ button {
     background: #f6f7f9;
     border-radius: 5px;
     box-sizing: border-box;
-    }
-    .tree li{
-        list-style: none;
-    }
+}
 
-    .nestable-item-name {
-        margin: -3px 0;
-        padding: 5px 20px;
-        color: #333;
-        text-decoration: none;
-        font-weight: 700;
-        border: 1px solid #e4e7ed;
-        background: #f6f7f9;
-        border-radius: 3px;
-        box-sizing: border-box;
+.tree li {
+    list-style: none;
+}
+
+.nestable-item-name {
+    margin: -3px 0;
+    padding: 5px 20px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 700;
+    border: 1px solid #e4e7ed;
+    background: #f6f7f9;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.text-ckeditor * {
+    font-family: IRANSansfanum !important;
+}
+
+.cke_contents html {
+    font-family: inherit !important;
+
+}
+
+.tagClass {
+    border: 1px solid #dedddd;
+    padding: 3px;
+    background: #eee;
+    margin: 5px;
+    position: relative;
+    bottom: 10px;
+    direction: rtl;
+}
+
+.tagClass .removeClass {
+    border: none;
+    background: none;
+}
+
+.select-btn {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ReactTags__tagInput {
+    width: 100%;
+}
+
+.suggestionsClass ul {
+
+    width: 100%;
+    height: 100px;
+    overflow: auto;
+    margin-top: 5px;
+    float: right;
+    border: 1px solid rgb(214, 208, 208);
+
+}
+
+.suggestionsClass ul li {
+    position: relative;
+    display: block;
+    padding: 5px 0px;
+    margin-bottom: -1px;
+}
+
+@media screen and (max-width: 780px) {
+
+    .suggestionsClass ul {
+
+        width: 100%;
     }
+}
+.pagination-lg .page-link{
+    font-size: unset;
+    line-height: unset;
+}

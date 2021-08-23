@@ -47,13 +47,31 @@ function breadcrumb(name) {
                     { title: ' ایجاد نمونه کار', link: '#', active: true },
                 ]
             }
-   case 'posts.category':
+        case 'posts.category':
             return {
                 title: 'ایجاد  دسته بندی',
                 breadcrumb: [
                     { title: 'صفحه اصلی', link: '/', active: false },
                     { title: 'وبلاگ', link: '#', active: false },
                     { title: 'ایجاد دسته بندی', link: '#', active: true },
+                ]
+            }
+        case 'posts.list':
+            return {
+                title: 'لیست پست ها',
+                breadcrumb: [
+                    { title: 'صفحه اصلی', link: '/', active: false },
+                    { title: 'مدیریت وبلاگ', link: '#', active: false },
+                    { title: 'لیست پست ها', link: '#', active: true },
+                ]
+            }
+        case 'posts.create':
+            return {
+                title: 'افزودن پست',
+                breadcrumb: [
+                    { title: 'صفحه اصلی', link: '/', active: false },
+                    { title: 'مدیریت وبلاگ', link: '#', active: false },
+                    { title: 'ایجاد پست', link: '#', active: true },
                 ]
             }
 
