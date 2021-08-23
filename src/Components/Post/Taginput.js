@@ -10,13 +10,15 @@ const delimiters = [...KeyCodes.enter, KeyCodes.comma];
 
 class Input extends React.Component {
     constructor(props) {
-        super(props);
 
-        this.state = props.tags
+        super(props);
+        this.state = this.props.tags;
+
         this.handleDelete = this.handleDelete.bind(this);
         this.handleAddition = this.handleAddition.bind(this);
         this.handleDrag = this.handleDrag.bind(this);
     }
+
 
     handleDelete(i) {
         const { tags } = this.state;

@@ -14,19 +14,19 @@ function StorePost(data, callback) {
     })
 }
 
-function ShowPortofilo(id, callback) {
-    instance.get(`portofilos/${id}`).then(res => {
+function ShowPost(id, callback) {
+    instance.get(`posts/${id}`).then(res => {
         callback(res.data)
     })
 }
-function UpdatePortofilo(id, data, callback) {
-    let { title, client, address, body, image, images, status, list_delete } = data;
-    instance.put(`portofilos/${id}`, { title, client, address, body, image, images, status, list_delete }).then(res => {
+function EditPost(id, data, callback) {
+    let { title, category_id, slug, meta_title, meta_description, body, tags, image, status , listDelete } = data;
+    instance.put(`posts/${id}`, { title, category_id, slug, meta_title, meta_description, body, tags, image, status , listDelete }).then(res => {
         callback(res.data)
     })
 }
-function DeletePortofilo(id, callback) {
-    instance.delete(`portofilos/${id}`).then(res => {
+function DeletePost(id, callback) {
+    instance.delete(`posts/${id}`).then(res => {
         callback(res.data)
     })
 }
@@ -36,8 +36,8 @@ function DeletePortofilo(id, callback) {
 
 export default {
     StorePost,
-    ShowPortofilo,
-    DeletePortofilo,
-    UpdatePortofilo,
+    ShowPost,
+    DeletePost,
+    EditPost,
     ListPost
 };

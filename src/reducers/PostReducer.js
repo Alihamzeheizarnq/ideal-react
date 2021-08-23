@@ -19,12 +19,12 @@ function reducer(state = initState, action) {
                 ...state,
                 posts : [...state.posts , data]
             }
-        case 'DELETE_PORTOFILO':
-            let newState = state.portofilo.filter(item => item.id != action.id);
+        case 'DELETE_POST':
+            let newState = state.posts.filter(item => item.id != action.id);
             
         return {
             ...state,
-            portofilo : newState
+            posts : newState
         };
         case 'EDIT_PORTOFILO':
 

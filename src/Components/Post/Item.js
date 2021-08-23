@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Modal, Button } from 'react-bootstrap';
 import { connect } from "react-redux";
 import actions from "../../actions";
-import ApiPortofilo from '../../Api/Portofilo';
+import Post from '../../Api/Post';
+import { toast } from 'react-toastify';
 
 function Item(props) {
 
@@ -18,8 +19,9 @@ function Item(props) {
         setShow(false)
     }
     let SuccessModal =(id) => {
-        ApiPortofilo.DeletePortofilo(id , (data) => {
-            props.dispatch(actions.DeletePortofilo(id))
+        Post.DeletePost(id , (data) => {
+            props.dispatch(actions.DeletePost(id));
+            toast.warning('پست با موفقیت حذف گردید.');
         })
     }
     return (
@@ -43,7 +45,7 @@ function Item(props) {
                 </td>
                 <td className="text-center">
                     <div className="btn-group">
-                        <button onClick={e => props.history.push(`/portofilo/edit/${props.id}`)} type="button" className="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title data-original-title="Edit">
+                        <button onClick={e => props.history.push(`/posts/edit/${props.id}`)} type="button" className="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title data-original-title="Edit">
                             <i className="fa fa-pencil-alt" />
                         </button>
                         <button type="button" onClick={e => handleDelete(e)} className="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title data-original-title="Delete">

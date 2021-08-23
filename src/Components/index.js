@@ -10,6 +10,7 @@ import PortofiloEdit from './Portofilo/Edit';
 import PostCreate from './Post/Create';
 import PostList from './Post/List';
 import PostsCategory from './Post/Category';
+import PostEdit from './Post/Edit';
 function Index() {
     return (
         <>
@@ -24,6 +25,7 @@ function Index() {
                 <Route path="/portofilo/edit/:id" component={PortofiloEdit} />
                 <Route path="/posts" exact component={PostList} />
                 <Route path="/posts/create" component={PostCreate} />
+                <Route path="/posts/edit/:id" component={PostEdit} />
                 <Route path="/posts/categories" component={PostsCategory} />
             </Switch>
         </>
