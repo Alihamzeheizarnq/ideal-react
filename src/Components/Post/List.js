@@ -12,6 +12,7 @@ function List(props) {
     let [paginate, setPaginate] = useState({ links: [], status: false });
 
     useEffect(() => {
+        window.scroll({top: 0, left: 0, behavior: 'smooth' })
         Post.ListPost(props.location.search, (data) => {
 
             setPaginate(preve => {
@@ -28,7 +29,9 @@ function List(props) {
     }, [])
 
     let handlePaginate = (url) => {
+        
         if (url) {
+             window.scroll({top: 0, left: 0, behavior: 'smooth' })
             let page = url.split("?").slice(-1).pop()
             props.history.push(props.location.pathname + '?' + page)
             Post.ListPost(page, (data) => {
