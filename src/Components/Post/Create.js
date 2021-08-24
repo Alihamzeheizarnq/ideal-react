@@ -30,7 +30,7 @@ function Create(props) {
     let [img, setImg] = useState('');
     let [status, setStatus] = useState(true);
     let [meta_description, setMeta_description] = useState('');
-    let [tags, setTags] = useState({ tags : []});
+    let [tags, setTags] = useState({ tags: [] });
     let [meta_title, setMeta_title] = useState('');
 
     let [btn, setBtn] = useState(false);
@@ -61,7 +61,7 @@ function Create(props) {
             setMeta_description('');
             setMeta_title('');
             setBody('');
-            setTags({tags : []})
+            setTags({ tags: [] })
             setStatus(false);
             props.history.push('/posts');
             toast.success('نمونه کار با موفقیت ایجاد شد .');
@@ -159,10 +159,10 @@ function Create(props) {
                                                     placeholder="عنوان نمونه کار را وراد کنید ..."
                                                 >
                                                     <option selected>انتخاب کنید</option>
-                                                   
-                                                   {
-                                                       props.post_category.map(item => (<option key={item.id} value={item.id} >{item.name}</option>))
-                                                   }
+
+                                                    {
+                                                        props.post_category.map(item => (<option key={item.id} value={item.id} >{item.name}</option>))
+                                                    }
 
                                                 </select>
                                             </div>
@@ -223,6 +223,12 @@ function Create(props) {
                                                 data={body}
                                                 onChange={evt => setBody(evt.editor.getData())}
                                                 config={{
+                                                    filebrowserImageUploadUrl: 'http://127.0.0.1:8000/api/v1/upload/images/ckeditor',
+                                                    fileTools_requestHeaders: {
+                                                        'Authorization': "Bearer " + localStorage.getItem('token'),
+
+                                                    },
+                                                    filebrowserUploadMethod: 'form',
 
                                                     fontFamily: {
                                                         options: [
@@ -302,7 +308,7 @@ function Create(props) {
 let mapStateToProps = (state) => {
     return {
         files: state.files,
-        post_category : state.post_category.categories
+        post_category: state.post_category.categories
     }
 }
 export default connect(mapStateToProps)(Create);
