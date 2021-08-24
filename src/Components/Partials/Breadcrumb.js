@@ -1,7 +1,13 @@
 import { NavLink } from "react-router-dom"
+import { Helmet } from 'react-helmet'
+
 function Breadcrumb(props) {
     return (
         <>
+
+            <Helmet>
+                <title>ایده آل | {props.header.title}</title>
+            </Helmet>
             <div className="bg-body-light">
                 <div className="content content-full">
                     <div className="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center">

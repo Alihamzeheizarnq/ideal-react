@@ -31307,3 +31307,8 @@ button {
         padding: 5px 8px;
     }
 }
+
+.side-trans-enabled{
+    direction: rtl;
+    font-family: IRANSansfanum;
+}

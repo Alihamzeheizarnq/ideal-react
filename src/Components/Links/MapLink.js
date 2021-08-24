@@ -48,7 +48,7 @@ function CreateLinkGroup(props) {
                 <td className="text-center" />
                 <td className="font-w600">{props.child.title}</td>
 
-                <td className=" d-sm-table-cell">
+                <td className=" d-sm-table-cell" dir="ltr">
                     <em className="">{props.child.link}</em>
                 </td>
                 <div className="btn-group">

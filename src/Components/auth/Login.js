@@ -10,6 +10,7 @@ import actions from '../../actions';
 
 
 
+
 function Login(props) {
 
     
@@ -59,7 +60,7 @@ function Login(props) {
     return (
         <>
 
-            <div id="page-container" className="side-trans-enabled" style={{ fontFamily: 'IRANSansfanum', direction: 'rtl' }}>
+            <div id="page-container" className="side-trans-enabled">
                 <main id="main-container">
                     <div className="row no-gutters justify-content-center bg-body-dark">
                         <div className="hero-static col-sm-10 col-md-8 col-xl-6 d-flex align-items-center p-2 px-sm-0">

@@ -1,11 +1,29 @@
 
+import { useState } from "react";
 import { connect } from "react-redux";
+import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import actions from "../../actions";
 
 function Header(props) {
 
-  
 
+    let [profile, setProfile] = useState(false);
+
+
+    let history = useHistory()
+    let Logout = () => {
+
+        toast.success('خروج موفق!');
+        setProfile(false);
+
+        setTimeout(() => {
+            localStorage.removeItem('token');
+            props.dispatch(actions.TokenStatus(false));
+            history.push('/login');
+        }, 2000)
+    }
     return (
         <>
             <header id="page-header">
@@ -30,18 +48,20 @@ function Header(props) {
                     {/* Left Section */}
                     <div>
                         {/* User Dropdown */}
-                        <div className="dropdown d-inline-block">
-                            <button type="button" className="btn btn-dual" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div className={`dropdown d-inline-block ${profile ? 'show' : ''}`}>
+                            <button onClick={e => setProfile(!profile)} type="button" className="btn btn-dual"
+                                id="page-header-user-dropdown" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
                                 <i className="fa fa-fw fa-user d-sm-none" />
-                                <span className="d-none d-sm-inline-block">Admin</span>
+                                <span className="d-none d-sm-inline-block">مدیر</span>
                                 <i className="fa fa-fw fa-angle-down mr-1 d-none d-sm-inline-block" />
                             </button>
-                            <div className="dropdown-menu p-0" aria-labelledby="page-header-user-dropdown">
+                            <div className={`dropdown-menu  ${profile ? 'show' : ''} p-0  aria-labelledby="page-header-user-dropdown`}>
                                 <div className="bg-primary rounded-top font-w600 text-white text-center p-3">
-                                    User Options
+                                    کاربری
                                 </div>
                                 <div className="p-2 text-right">
-                                    <a className="dropdown-item" href="#">
+                                    {/* <a className="dropdown-item" href="#">
                                         <i className="far fa-fw fa-user ml-1" /> Profile
                                     </a>
                                     <a className="dropdown-item d-flex align-items-center justify-content-between" href="#">
@@ -50,18 +70,18 @@ function Header(props) {
                                     </a>
                                     <a className="dropdown-item" href="#">
                                         <i className="far fa-fw fa-file-alt ml-1" /> Invoices
-                                    </a>
-                                    <div role="separator" className="dropdown-divider" />
+                                    </a> */}
+                                    {/* <div role="separator" className="dropdown-divider" /> */}
                                     {/* Toggle Side Overlay */}
                                     {/* Layout API, functionality initialized in Template._uiApiLayout() */}
                                     <a className="dropdown-item" href="#" data-toggle="layout" data-action="side_overlay_toggle">
-                                        <i className="far fa-fw fa-building ml-1" /> Settings
+                                        <i className="far fa-fw fa-building ml-1" /> تنظیمات
                                     </a>
                                     {/* END Side Overlay */}
                                     <div role="separator" className="dropdown-divider" />
-                                    <a className="dropdown-item" href="#">
-                                        <i className="far fa-fw fa-arrow-alt-circle-left ml-1" /> Sign Out
-                                    </a>
+                                    <Link className="dropdown-item" onClick={e => Logout()}>
+                                        <i className="far fa-fw fa-arrow-alt-circle-left ml-1" /> خروج
+                                    </Link>
                                 </div>
                             </div>
                         </div>
