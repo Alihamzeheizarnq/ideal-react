@@ -40,6 +40,7 @@ function Edit(props) {
 
     useEffect(() => {
         Post.ShowPost(props.match.params.id, data => {
+            console.log(data);
             setTitle(data.title);
             setCategory_id(data.category_id);
             setSlug(data.slug);

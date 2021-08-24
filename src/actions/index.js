@@ -124,7 +124,7 @@ let ListPostCategory = (categories) => ({
     categories
 })
 
-let EditPostCategory = (id ,name) => ({
+let EditPostCategory = (id, name) => ({
     type: 'EDIT_POST_CATEGORY',
     id,
     name
@@ -139,7 +139,7 @@ let ListPost = (data) => ({
     data
 })
 
-let EditPost = (id ,name) => ({
+let EditPost = (id, name) => ({
     type: 'EDIT_POST',
     id,
     name
@@ -152,7 +152,33 @@ let CreatePost = (data) => ({
     type: 'ADD_POSTS',
     data
 });
+// menu
 
+
+let CraeteMenu = (id, title, link, status) => ({
+    type: 'CREATE_MENU',
+    id,
+    title,
+    link,
+    status
+})
+let ListMenu = (data) => ({
+    type: 'LIST_MENU',
+    data
+})
+let EditMenu = (id, title, link, status) => ({
+    type: 'EDIT_MENU',
+    id,
+    title,
+    link,
+    status
+})
+let DeleteMenu = (id) => ({
+    type: 'DELETE_MENU',
+    id
+})
+
+// end menu
 export default {
     RightSideBar,
     LeftSideBar,
@@ -182,6 +208,10 @@ export default {
     ListPost,
     EditPost,
     DeletePost,
-    CreatePost
+    CreatePost,
+    CraeteMenu,
+    ListMenu,
+    EditMenu,
+    DeleteMenu
 
 }

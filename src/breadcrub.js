@@ -65,16 +65,24 @@ function breadcrumb(name) {
                     { title: 'لیست پست ها', link: '#', active: true },
                 ]
             }
-        case 'posts.create':
-            return {
-                title: 'افزودن پست',
-                breadcrumb: [
-                    { title: 'صفحه اصلی', link: '/', active: false },
-                    { title: 'مدیریت وبلاگ', link: '#', active: false },
-                    { title: 'ایجاد پست', link: '#', active: true },
-                ]
-            }
-
+            case 'posts.create':
+                return {
+                    title: 'افزودن پست',
+                    breadcrumb: [
+                        { title: 'صفحه اصلی', link: '/', active: false },
+                        { title: 'مدیریت وبلاگ', link: '#', active: false },
+                        { title: 'ایجاد پست', link: '#', active: true },
+                    ]
+                }
+            case 'menus.index':
+                return {
+                    title: 'منو',
+                    breadcrumb: [
+                        { title: 'صفحه اصلی', link: '/', active: false },
+                        { title: 'مدیریت منوها', link: '#', active:  true },
+                    ]
+                }
+            
         default:
             return {
                 title: 'صفحه اصلی',

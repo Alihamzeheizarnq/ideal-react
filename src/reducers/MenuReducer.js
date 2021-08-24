@@ -1,41 +1,41 @@
 let initState = {
-    categories: []
+    menus: []
 }
 
 
 function reducer(state = initState, action) {
     switch (action.type) {
-        case 'CREATE_POST_CATEGORY':
+        case 'CREATE_MENU':
             return {
                 ...state,
-                categories: [
-                    ...state.categories,
-                    { id: action.id, name: action.name, children: [] }
+                menus: [
+                    ...state.menus,
+                    { id: action.id, title: action.title, link: action.link, type: action.status, children: [] }
                 ]
             }
-        case 'LIST_POST_CATEGORY':
+        case 'LIST_MENU':
             return {
                 ...state,
-                categories: action.categories
+                menus: action.data
             }
-        case 'EDIT_POST_CATEGORY':
+        case 'EDIT_MENU':
 
 
-         let newS =  editCategory(state.categories, action);
+            let newS = editCategory(state.menus, action);
 
-         return {
-            ...state,
-            categories: newS
-        }
-        case 'DELETE_POST_CATEGORY':
+            return {
+                ...state,
+                menus : newS
+            }
+        case 'DELETE_MENU':
 
 
-         let newStateDelete =  DeleteCategory(state.categories, action);
+            let newStateDelete = DeleteCategory(state.menus, action);
 
-         return {
-            ...state,
-            categories: newStateDelete
-        }
+            return {
+                ...state,
+                menus: newStateDelete
+            }
         default:
             return state;
     }
@@ -48,7 +48,9 @@ let editCategory = (state, action) => {
     let newState = state.filter(item => {
 
         if (item.id == action.id) {
-            item.name = action.name
+            item.title = action.title;
+            item.link = action.link;
+            item.type = action.status;
         }
 
         if (item.children.length) {

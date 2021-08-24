@@ -31287,7 +31287,23 @@ button {
         width: 100%;
     }
 }
-.pagination-lg .page-link{
+
+.pagination-lg .page-link {
     font-size: unset;
     line-height: unset;
+}
+
+@media screen and (max-width: 500px) {
+    .link-title {
+        display: none;
+
+    }
+
+    .name-menu {
+        font-size: 13px;
+    }
+
+    .nestable-item-name {
+        padding: 5px 8px;
+    }
 }

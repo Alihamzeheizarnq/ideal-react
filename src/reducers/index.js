@@ -5,6 +5,7 @@ import Upload from './Upload';
 import PortofiloReucer from './PortofiloReducer';
 import PostCategory from './CateGoryPost';
 import PostReducer from './PostReducer';
+import MenuReducer from './MenuReducer';
 
 let reducer = combineReducers({
     theme: themeReducer,
@@ -12,7 +13,8 @@ let reducer = combineReducers({
     files: Upload,
     portofilos: PortofiloReucer,
     post_category : PostCategory,
-    posts : PostReducer
+    posts : PostReducer,
+    menus : MenuReducer
 })
 
 export default reducer;

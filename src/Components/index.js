@@ -11,6 +11,7 @@ import PostCreate from './Post/Create';
 import PostList from './Post/List';
 import PostsCategory from './Post/Category';
 import PostEdit from './Post/Edit';
+import Menu from './Menu';
 function Index() {
     return (
         <>
@@ -27,6 +28,8 @@ function Index() {
                 <Route path="/posts/create" component={PostCreate} />
                 <Route path="/posts/edit/:id" component={PostEdit} />
                 <Route path="/posts/categories" component={PostsCategory} />
+                <Route path="/menus" component={Menu} />
+                
             </Switch>
         </>
     )
