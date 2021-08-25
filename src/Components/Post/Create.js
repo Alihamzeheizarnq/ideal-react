@@ -223,6 +223,14 @@ function Create(props) {
                                                 data={body}
                                                 onChange={evt => setBody(evt.editor.getData())}
                                                 config={{
+
+                                                    extraPlugins: 'uploadimage',
+                                                    uploadUrl: 'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
+
+                                                    // Configure your file manager integration. This example uses CKFinder 3 for PHP.
+                                                    filebrowserBrowseUrl: 'https://ckeditor.com/apps/ckfinder/3.4.5/ckfinder.html',
+                                                    filebrowserImageBrowseUrl: 'http://127.0.0.1:3000',
+                                                    filebrowserUploadUrl: 'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Files',
                                                     filebrowserImageUploadUrl: 'http://127.0.0.1:8000/api/v1/upload/images/ckeditor',
                                                     fileTools_requestHeaders: {
                                                         'Authorization': "Bearer " + localStorage.getItem('token'),
