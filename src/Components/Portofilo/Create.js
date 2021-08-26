@@ -12,6 +12,7 @@ import { connect } from 'react-redux';
 import actions from '../../actions';
 import ApiProtofilo from '../../Api/Portofilo';
 import { toast } from 'react-toastify';
+import { ideal } from '../../config';
 
 function Create(props) {
 
@@ -233,7 +234,7 @@ function Create(props) {
                                                     <div key={item.url} className="uploaded-pics" >
                                                         <div className='image-drup'>
                                                             <div className="img-box">
-                                                                <img src={`http://localhost:8000/storage${item.url}`} />
+                                                                <img src={`${ideal.url}/storage${item.url}`} />
                                                             </div>
                                                             <Button className="remove-btn" variant="danger" size="sm" onClick={e => DeleteImage(item.url)}>
                                                                 حذف
@@ -270,7 +271,7 @@ function Create(props) {
                                                     <div key={item.url} className="uploaded-pics" >
                                                         <div className='image-drup'>
                                                             <div className="img-box">
-                                                                <img src={`http://localhost:8000/storage${item.url}`} />
+                                                                <img src={`${ideal.url}/storage${item.url}`} />
                                                             </div>
                                                             <Button className="remove-btn" variant="danger" size="sm" onClick={e => DeleteImages(item.id, item.url)}>
                                                                 حذف

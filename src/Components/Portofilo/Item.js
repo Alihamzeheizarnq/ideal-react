@@ -3,6 +3,7 @@ import { Modal, Button } from 'react-bootstrap';
 import { connect } from "react-redux";
 import actions from "../../actions";
 import ApiPortofilo from '../../Api/Portofilo';
+import { ideal } from '../../config'
 
 function Item(props) {
 
@@ -30,7 +31,7 @@ function Item(props) {
                     <a href="be_pages_generic_profile.html">{props.title}</a>
                 </td>
                 <td className="d-sm-table-cell">
-                    <img className="image-portopfilo" src={`http://localhost:8000/storage${props.image.url}`} />
+                    <img className="image-portopfilo" src={`${ideal.url}/storage${props.image.url}`} />
                 </td>
                 <td className="d-none d-sm-table-cell">
                     {props.client}
