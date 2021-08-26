@@ -10,7 +10,7 @@ function reducer(state = initState, action) {
                 ...state,
                 categories: [
                     ...state.categories,
-                    { id: action.id, name: action.name, children: [] }
+                    { id: action.id, name: action.name, slug : action.slug ,  children: [] }
                 ]
             }
         case 'LIST_POST_CATEGORY':
@@ -49,6 +49,7 @@ let editCategory = (state, action) => {
 
         if (item.id == action.id) {
             item.name = action.name
+            item.slug = action.slug
         }
 
         if (item.children.length) {
