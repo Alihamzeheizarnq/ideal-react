@@ -8,14 +8,16 @@ function CreateCateory(props) {
 
 
     let [category, setCategory] = useState('');
+    let [slug, setSlug] = useState('');
 
 
     let handelForm = (e) => {
         e.preventDefault();
-        PostCategory.CreatePostCategory(category, data => {
-            props.dispatch(actions.CreatePostCategory(data.id, data.name));
+        PostCategory.CreatePostCategory(category, slug, data => {
+            props.dispatch(actions.CreatePostCategory(data.id, data.name, data.slug));
             toast.success('دسته بندی با موفیقت ایجاد شد');
             setCategory('');
+            setSlug('');
 
         })
 
@@ -23,6 +25,7 @@ function CreateCateory(props) {
 
     return (
         <form className="form-inline mb-4" onSubmit={e => { handelForm(e) }}>
+
             <input type="text"
                 className={`form-control mb-2 ml-2 mr-sm-2 mb-sm-0`}
                 id="example-if-email"
@@ -32,7 +35,19 @@ function CreateCateory(props) {
                 value={category}
 
             />
+
+            <input type="text"
+                className={`form-control  mb-2 ml-2 mr-sm-2 mb-sm-0`}
+                id="example-if-email"
+                name="example-if-email"
+                placeholder="آدرس (slug)"
+                onChange={e => setSlug(e.target.value)}
+                value={slug}
+
+            />
+
             <button type="submit" className="btn btn-primary">افزودن</button>
+
         </form>
     )
 }

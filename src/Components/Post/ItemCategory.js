@@ -10,8 +10,9 @@ function ItemCat(props) {
 
     const [show, setShow] = useState(false);
     const [edit, setEdit] = useState(false);
+    
     const [name, setName] = useState(props.name);
-
+    const [slug, setSlug] = useState(props.slug);
 
 
     let handleClose = () => {
@@ -21,7 +22,7 @@ function ItemCat(props) {
         setEdit(false);
     }
     let SuccessModal = (id) => {
-        PostCategory.DeletePostCategory(id , (data) => {
+        PostCategory.DeletePostCategory(id, (data) => {
 
             props.dispatch(actions.DeletePostCategory(id));
 
@@ -35,9 +36,10 @@ function ItemCat(props) {
     let SuccessModalEdit = (e, id) => {
         console.log(id)
         e.preventDefault();
-        PostCategory.EditPostCategory(id, name, (data) => {
+        PostCategory.EditPostCategory(id, name , slug, (data) => {
             if (data.status) {
-                props.dispatch(actions.EditPostCategory(id, name));
+                setSlug(data.slug)
+                props.dispatch(actions.EditPostCategory(id, name , data.slug));
                 setEdit(false)
                 toast.success('دسته بندی با موفقیت ویرایش گردید');
 
@@ -85,11 +87,18 @@ function ItemCat(props) {
                 <Modal.Body>
                     <form onSubmit={e => SuccessModalEdit(e, props.id)}>
                         <input type="text"
-                            className="form-control mb-2 ml-2 mr-sm-2 mb-sm-0 is-invalid"
+                            className="form-control mb-2 ml-2 mr-sm-2  is-invalid"
                             id="example-if-email"
                             value={name}
                             onChange={e => setName(e.target.value)}
                             placeholder="نام سرگروه را وارد کنید"
+                        />
+                        <input type="text"
+                            className="form-control mb-2 ml-2 mr-sm-2 mb-sm-0 is-invalid"
+                            id="example-if-email"
+                            value={slug}
+                            onChange={e => setSlug(e.target.value)}
+                            placeholder="آدرس (slug)"
                         />
 
                         <Modal.Footer>

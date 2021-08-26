@@ -113,10 +113,11 @@ let DeletePortofilo = (id) => ({
 //CATE GORY POST
 
 
-let CreatePostCategory = (id, name) => ({
+let CreatePostCategory = (id, name , slug) => ({
     type: 'CREATE_POST_CATEGORY',
     id,
-    name
+    name,
+    slug
 })
 
 let ListPostCategory = (categories) => ({
@@ -124,10 +125,11 @@ let ListPostCategory = (categories) => ({
     categories
 })
 
-let EditPostCategory = (id, name) => ({
+let EditPostCategory = (id, name , slug) => ({
     type: 'EDIT_POST_CATEGORY',
     id,
-    name
+    name,
+    slug
 });
 let DeletePostCategory = (id) => ({
     type: 'DELETE_POST_CATEGORY',

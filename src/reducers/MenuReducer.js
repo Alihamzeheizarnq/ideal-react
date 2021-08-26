@@ -9,8 +9,9 @@ function reducer(state = initState, action) {
             return {
                 ...state,
                 menus: [
-                    ...state.menus,
-                    { id: action.id, title: action.title, link: action.link, type: action.status, children: [] }
+                    { id: action.id, title: action.title, link: action.link, type: action.status, children: [] },
+                    ...state.menus
+                  
                 ]
             }
         case 'LIST_MENU':
