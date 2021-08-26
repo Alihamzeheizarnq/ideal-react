@@ -173,10 +173,25 @@ let EditMenu = (id, title, link, status) => ({
     link,
     status
 })
-let DeleteMenu = (id) => ({
-    type: 'DELETE_MENU',
-    id
-})
+
+
+
+
+
+
+let DeleteMenu = (id) => {
+    return dispatch => {
+        setTimeout(() => {
+            dispatch((
+                {
+                    type: 'DELETE_MENU',
+                    id
+                }
+            ))
+        }, 3000)
+    }
+}
+
 
 // end menu
 export default {

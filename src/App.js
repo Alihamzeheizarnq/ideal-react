@@ -40,11 +40,6 @@ function App(props) {
         })
     }, [])
 
-    useEffect(() => {
-     setHeader();
-     console.log('IS')
-
-    })
 
 
     let theme = props.theme;
