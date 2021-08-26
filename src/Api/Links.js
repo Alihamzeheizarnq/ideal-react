@@ -1,4 +1,4 @@
-import { instance , setHeader } from "./Ideal"
+import { instance } from "./Ideal"
 
 
 function linkStore(text, callback) {
