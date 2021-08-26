@@ -2,7 +2,6 @@ import animate from './../Partials/animate';
 import { StyleRoot } from 'radium';
 import Breadcrumb from "../Partials/Breadcrumb";
 import breadcrumb from "../../breadcrub";
-import CKEditor from 'ckeditor4-react';
 import { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import Upload from '../../Api/UploadFile';
@@ -12,7 +11,9 @@ import { toast } from 'react-toastify';
 import Input from './Taginput';
 import PostCategory from '../../Api/PostCategory';
 import Post from '../../Api/Post';
-
+import { CKEditor } from '@ckeditor/ckeditor5-react'
+import DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
+import { ckeditor } from './../../config';
 
 function Edit(props) {
 
@@ -229,22 +230,38 @@ function Edit(props) {
                                         <div className="form-group text-ckeditor">
                                             <label htmlFor="dm-post-add-excerpt">توضیحات کلی</label>
 
+                                         
+                                            
                                             <CKEditor
-                                                data={body}
-                                                onChange={evt => setBody(evt.editor.getData())}
-                                                config={{
+                                                onReady={editor => {
 
-                                                    fontFamily: {
-                                                        options: [
-                                                            'IRANSansfanum',
-                                                        ],
-                                                    },
-                                                    fontSize: {
-                                                        options: [9, 11, 13, "default", 17, 19, 21],
-                                                    },
-                                                    language: ['fa']
+                                                   
+                                                    editor.ui.getEditableElement().parentElement.insertBefore(
+                                                        editor.ui.view.toolbar.element,
+                                                        editor.ui.getEditableElement()
+                                                    );
 
+
+                                                    // this.editor = editor;
                                                 }}
+                                                onError={({ willEditorRestart }) => {
+                                                    // If the editor is restarted, the toolbar element will be created once again.
+                                                    // The `onReady` callback will be called again and the new toolbar will be added.
+                                                    // This is why you need to remove the older toolbar.
+                                                    if (willEditorRestart) {
+                                                        // this.editor.ui.view.toolbar.element.remove();
+                                                    }
+                                                }}
+                                                onChange={(event, editor) => {
+                                            
+                                                 
+                                                    setBody(editor.getData());
+                                                    
+                                                }}
+                                                editor={DecoupledEditor}
+                                                config={ckeditor}
+
+                                                data={body}
                                             />
                                             <div className="form-text text-muted font-size-sm font-italic"></div>
                                         </div>

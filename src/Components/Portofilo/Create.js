@@ -2,7 +2,9 @@ import animate from './../Partials/animate';
 import { StyleRoot } from 'radium';
 import Breadcrumb from "../Partials/Breadcrumb";
 import breadcrumb from "../../breadcrub";
-import CKEditor from 'ckeditor4-react';
+import { CKEditor } from '@ckeditor/ckeditor5-react'
+import DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
+import { ckeditor } from './../../config';
 import { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import Upload from '../../Api/UploadFile';
@@ -175,22 +177,38 @@ function Create(props) {
                                         <div className="form-group">
                                             <label htmlFor="dm-post-add-excerpt">توضیحات کلی</label>
 
-                                            <CKEditor
-                                                data={body}
-                                                onChange={evt => setBody(evt.editor.getData())}
-                                                config={{
+                                    
+                                                  <CKEditor
+                                                onReady={editor => {
 
-                                                    fontFamily: {
-                                                        options: [
-                                                            'IRANSansfanum',
-                                                        ],
-                                                    },
-                                                    fontSize: {
-                                                        options: [9, 11, 13, "default", 17, 19, 21],
-                                                    },
-                                                    language: ['fa']
+                                                   
+                                                    // Insert the toolbar before the editable area.
+                                                    editor.ui.getEditableElement().parentElement.insertBefore(
+                                                        editor.ui.view.toolbar.element,
+                                                        editor.ui.getEditableElement()
+                                                    );
 
+
+                                                    // this.editor = editor;
                                                 }}
+                                                onError={({ willEditorRestart }) => {
+                                                    // If the editor is restarted, the toolbar element will be created once again.
+                                                    // The `onReady` callback will be called again and the new toolbar will be added.
+                                                    // This is why you need to remove the older toolbar.
+                                                    if (willEditorRestart) {
+                                                        // this.editor.ui.view.toolbar.element.remove();
+                                                    }
+                                                }}
+                                                onChange={(event, editor) => {
+                                            
+                                                 
+                                                    setBody(editor.getData());
+                                                    
+                                                }}
+                                                editor={DecoupledEditor}
+                                                config={ckeditor}
+
+                                                data="<p></p>"
                                             />
                                             <div className="form-text text-muted font-size-sm font-italic"></div>
                                         </div>
