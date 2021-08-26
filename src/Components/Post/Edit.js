@@ -13,7 +13,7 @@ import PostCategory from '../../Api/PostCategory';
 import Post from '../../Api/Post';
 import { CKEditor } from '@ckeditor/ckeditor5-react'
 import DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
-import { ckeditor } from './../../config';
+import { ckeditor , ideal} from './../../config';
 
 function Edit(props) {
 
@@ -282,7 +282,7 @@ function Edit(props) {
                                                     <div className="uploaded-pics" >
                                                         <div className='image-drup'>
                                                             <div className="img-box">
-                                                                <img src={`http://localhost:8000/storage${image}`} />
+                                                                <img src={`${ideal.url}/storage${image}`} />
                                                             </div>
                                                             <Button className="remove-btn" variant="danger" size="sm" onClick={e => DeleteImage(image)}>
                                                                 حذف

@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import actions from "../../actions";
 import Post from '../../Api/Post';
 import { toast } from 'react-toastify';
+import {ideal} from '../../config';
 
 function Item(props) {
 
@@ -32,7 +33,7 @@ function Item(props) {
                     <a href="be_pages_generic_profile.html">{props.title}</a>
                 </td>
                 <td className="d-sm-table-cell">
-                    <img className="image-portopfilo" src={`http://localhost:8000/storage${props.image}`} />
+                    <img className="image-portopfilo" src={`${ideal.url}/storage${props.image}`} />
                 </td>
            
                 <td className="d-none d-sm-table-cell">
