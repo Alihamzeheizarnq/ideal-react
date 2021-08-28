@@ -48,10 +48,10 @@ function SideBar(props) {
                         {/* Logo */}
                         <a className="font-w600 text-white tracking-wide" href="#">
                             <span className="smini-visible">
-                                D<span className="opacity-75">x</span>
+                                I<span className="opacity-75">T</span>
                             </span>
                             <span className="smini-hidden">
-                                Dash<span className="opacity-75">mix</span>
+                                IDEAL<span className="opacity-75">IT</span>
                             </span>
                         </a>
                         {/* END Logo */}

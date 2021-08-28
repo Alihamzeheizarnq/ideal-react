@@ -7,7 +7,6 @@ import { StyleRoot } from 'radium';
 import animate from '../Partials/animate';
 import CreateMenu from './CreateMenu';
 import { connect } from 'react-redux';
-import PostCategory from '../../Api/PostCategory';
 import actions from '../../actions';
 import { useEffect } from 'react';
 import { toast } from 'react-toastify';

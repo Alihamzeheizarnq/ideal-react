@@ -8,6 +8,8 @@ import { toast } from 'react-toastify';
 
 function CreateLinkGroup(props) {
 
+    console.log(props)
+
 
     const [show, setShow] = useState(false);
     const [edit, setEdit] = useState(false);
