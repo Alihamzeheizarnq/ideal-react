@@ -178,9 +178,6 @@ let EditMenu = (id, title, link, status) => ({
 
 
 
-
-
-
 let DeleteMenu = (id) => {
     return dispatch => {
         setTimeout(() => {
@@ -196,6 +193,16 @@ let DeleteMenu = (id) => {
 
 
 // end menu
+
+//
+let ListTicket = (data) => ({
+    type: 'LIST_TICKET',
+    data
+})
+let EditTicket = (id) => ({
+    type: 'EDIT_TICKET',
+    id
+})
 export default {
     RightSideBar,
     LeftSideBar,
@@ -229,6 +236,8 @@ export default {
     CraeteMenu,
     ListMenu,
     EditMenu,
-    DeleteMenu
+    DeleteMenu,
+    ListTicket,
+    EditTicket
 
 }
