@@ -46,6 +46,24 @@ function List(props) {
 
         }
     }
+
+    let Update = () => {
+        setIsLoding(false);
+
+        ApiTickect.ListTicket(props.location.search, (data) => {
+            setPaginate(preve => {
+                return {
+                    ...preve,
+                    links: data.meta.links,
+                    total: data.meta.last_page,
+
+                    status: true
+                }
+            })
+            setIsLoding(true);
+            props.dispatch(actions.ListTicket(data))
+        })
+    }
     let header = breadcrumb('portofilo.list');
 
 
@@ -61,9 +79,14 @@ function List(props) {
                 <div className="content content-full" style={animate.bounce}>
                     <div className="block block-rounded">
 
+<div className="block-header block-header-default" data-radium="true">
+    <h3 className="block-title"></h3><div className="block-options">
+        <button onClick={e => Update()} type="button" className="btn-block-option" data-toggle="block-option" data-action="state_toggle" data-action-mode="demo">
+            <i className="si si-refresh" />
+            </button>
+            </div></div>
                         <div className="block-content">
                             <div className="table-responsive">
-
                                 <table className="table table-striped table-hover table-vcenter">
                                     <thead>
                                         <tr>
