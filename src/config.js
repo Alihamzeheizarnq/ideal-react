@@ -1,10 +1,16 @@
 
 
+const ideal = {
+    url : 'http://localhost:8000',
+}
+
+
+
 const ckeditor = {
 
     ckfinder:{
 
-        uploadUrl: "http://127.0.0.1:8000/api/v1/upload/images/ckeditor?command=QuickUpload&type=Files&responseType=json",
+        uploadUrl: ideal.url+"/api/v1/upload/images/ckeditor?command=QuickUpload&type=Files&responseType=json",
  
     },
     fontFamily: {
@@ -48,5 +54,6 @@ const ckeditor = {
 };
 
 export {
-    ckeditor
+    ckeditor,
+    ideal
 }

@@ -5,7 +5,6 @@ function login(email , password , callback , error) {
       instance.post('login' , {email , password , device_name : 'mobile'}).then((res) => {
             callback(res.data.token)
         }).catch(err => {
-          error(err.response)
         });
 
 }

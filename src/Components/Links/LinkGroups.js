@@ -13,20 +13,25 @@ import animate from './../Partials/animate';
 
 function LinkGroups(props) {
 
-    let [loding, setLoding] = useState(true);
+    let [loding, setLoding] = useState(false);
 
 
     useEffect(() => {
-        Links.linkIndex((data) => {
-            props.dispatch(actions.SetGropeLink(data.data));
-            setLoding(false);
-        })
+        if (!props.links.length) {
+            Links.linkIndex((data) => {
+                props.dispatch(actions.SetGropeLink(data.data)); 
+                setLoding(true);
+            })
+        }else{
+            setLoding(true);
+        }
     }, [])
 
-    let setState = (data) => {
+    let setState2 = (data) => {
         if (data) {
             props.dispatch(actions.SetGropeLink(data));
             Links.LinkSortable(data, (data) => {
+                setLoding(true);
             })
         }
     }
@@ -64,17 +69,14 @@ function LinkGroups(props) {
                                 </thead>
 
                                 {
-                                    loding ?
-                                        (
-
-                                            <div className="spinner-border" role="status" style={{ padding: '18px', margin: '5px' }}>
-                                                <span className="sr-only">Loading...</span>
+                                    !loding ? (
+                                        <div className='d-flex justify-content-center mt-3 mb-3'>
+                                            <div class="spinner-grow" role="status">
+                                                <span class="sr-only">Loading...</span>
                                             </div>
-
-
-                                        )
-                                        :
-                                        <ReactSortable tag="tbody" list={props.links} setList={setState}>
+                                        </div>
+                                    ) :
+                                        <ReactSortable tag="tbody" list={props.links} setList={setState2}>
                                             {props.links.map((item) => (
                                                 <MapLinkGroup {...item} />
 

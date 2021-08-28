@@ -13,7 +13,6 @@ import animate from './../Partials/animate';
 
 function LinkGroups(props) {
 
-  let [loding, setLoding] = useState(true);
 
 
   useEffect(() => {

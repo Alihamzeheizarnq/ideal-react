@@ -10,22 +10,25 @@ import Item from './Item';
 function List(props) {
 
     let [paginate, setPaginate] = useState({ links: [], status: false });
+    let [isLoding, setIsLoding] = useState(false);
 
     useEffect(() => {
-        window.scrollX = 0;
-        ApiPortofilo.ListPortofilo(props.location.search, (data) => {
-
+                ApiPortofilo.ListPortofilo(props.location.search, (data) => {
             setPaginate(preve => {
                 return {
                     ...preve,
                     links: data.meta.links,
                     total: data.meta.last_page,
-                 
+
                     status: true
                 }
             })
+            setIsLoding(true);
             props.dispatch(actions.ListPortofilo(data))
         })
+     
+    
+
     }, [])
 
     let handlePaginate = (url) => {
@@ -63,6 +66,7 @@ function List(props) {
 
                         <div className="block-content">
                             <div className="table-responsive">
+
                                 <table className="table table-striped table-hover table-vcenter">
                                     <thead>
                                         <tr>
@@ -77,9 +81,15 @@ function List(props) {
                                     </thead>
                                     <tbody>
 
-
-
+                                      
                                         {
+                                              ! isLoding ? (
+                                                <div className='d-flex justify-content-center mt-3'>
+                                                <div class="spinner-grow" role="status">
+                                                    <span class="sr-only">Loading...</span>
+                                                </div>
+                                            </div>
+                                            ) :
                                             props.portofilos.portofilo.map((item, index) => <Item history={props.history} key={item.id} {...item} index={index + 1} />)
                                         }
 

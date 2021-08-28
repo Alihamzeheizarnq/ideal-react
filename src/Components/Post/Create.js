@@ -14,7 +14,7 @@ import PostCategory from '../../Api/PostCategory';
 import Post from '../../Api/Post';
 import { CKEditor } from '@ckeditor/ckeditor5-react'
 import DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
-import { ckeditor } from './../../config';
+import { ckeditor , ideal } from './../../config';
 
 
 
@@ -280,7 +280,7 @@ function Create(props) {
                                                     <div key={item.url} className="uploaded-pics" >
                                                         <div className='image-drup'>
                                                             <div className="img-box">
-                                                                <img src={`http://localhost:8000/storage${item.url}`} />
+                                                                <img src={`${ideal.url}/storage${item.url}`} />
                                                             </div>
                                                             <Button className="remove-btn" variant="danger" size="sm" onClick={e => DeleteImage(item.url)}>
                                                                 حذف
