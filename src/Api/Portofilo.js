@@ -14,10 +14,10 @@ function StorePortofilo(data, callback) {
     })
 }
 
-function ShowPortofilo(id, callback) {
+function ShowPortofilo(id, callback , error) {
     instance.get(`portofilos/${id}`).then(res => {
         callback(res.data)
-    })
+    }).catch(err => error(err))
 }
 function UpdatePortofilo(id, data, callback) {
     let { title, client, address, body, image, images, status , list_delete } = data;

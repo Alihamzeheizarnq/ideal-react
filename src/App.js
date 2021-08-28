@@ -55,6 +55,7 @@ function App(props) {
                         (<Login />)
                     }
                 </Route>
+                
             </Switch>
             {
                 !theme.token || loding ? '' :

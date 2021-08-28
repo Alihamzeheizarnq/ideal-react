@@ -43,6 +43,8 @@ function Edit(props) {
             setImagesEdit(data.images);
 
 
+        } , error => {
+            if(error.status == 404) props.history.push('/404')
         })
 
     }, [])

@@ -14,10 +14,10 @@ function StorePost(data, callback) {
     })
 }
 
-function ShowPost(id, callback) {
+function ShowPost(id, callback , error) {
     instance.get(`posts/${id}`).then(res => {
         callback(res.data)
-    })
+    }).catch(err => error(err))
 }
 function EditPost(id, data, callback) {
     let { title, category_id, slug, meta_title, meta_description, body, tags, image, status , listDelete } = data;

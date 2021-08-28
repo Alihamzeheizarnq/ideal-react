@@ -53,6 +53,9 @@ function Edit(props) {
             setTags({ tags: data.tags });
 
             setLoding(true);
+        } , error => {
+            if(error.status == 404) props.history.push('/404')
+
         })
     }, [])
 
