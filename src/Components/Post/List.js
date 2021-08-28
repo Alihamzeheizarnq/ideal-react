@@ -79,20 +79,24 @@ function List(props) {
                                             <th className="text-center" style={{ width: 100 }}>عملیات</th>
                                         </tr>
                                     </thead>
+                                    {
+                                            !isLoding ? (
+                                                <div className='d-flex justify-content-center mt-3'>
+                                                    <div className="spinner-grow" role="status">
+                                                        <span className="sr-only">Loading...</span>
+                                                    </div>
+                                                </div>
+                                            ) : ''
+                                        }
                                     <tbody>
 
 
 
 
                                         {
-                                            !isLoding ? (
-                                                <div className='d-flex justify-content-center mt-3'>
-                                                    <div class="spinner-grow" role="status">
-                                                        <span class="sr-only">Loading...</span>
-                                                    </div>
-                                                </div>
-                                            ) :
-                                                props.posts.map((item, index) => <Item history={props.history} key={item.id} {...item} index={index + 1} />)
+                                            isLoding ? 
+                                                        props.posts.map((item, index) => <Item history={props.history} key={item.id} {...item} index={index + 1} />)
+                                                        : ''
                                         }
 
 
@@ -116,8 +120,8 @@ function List(props) {
                                     paginate.links.map(item => (
 
 
-                                        <li className={`page-item ${item.active ? 'active' : ''}`}>
-                                            <a onClick={e => { e.pageX = 0; handlePaginate(item.url) }} class="page-link" href="javascript:void(0)" aria-label="Next">
+                                        <li className={`page-item ${item.active ? 'active' : ''}`} key={item.label}>
+                                            <a onClick={e => { e.pageX = 0; handlePaginate(item.url) }} className="page-link" href="#" aria-label="Next">
                                                 <span aria-hidden="true">
                                                     {item.label}
                                                 </span>

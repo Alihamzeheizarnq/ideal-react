@@ -60,7 +60,7 @@ function SideBar(props) {
                             {/* Toggle Sidebar Style */}
                             {/* Layout API, functionality initialized in Template._uiApiLayout() */}
                             {/* Class Toggle, functionality initialized in Helpers.coreToggleClass() */}
-                            <a className="js-class-toggle text-white-75" data-target="#sidebar-style-toggler" data-class="fa-toggle-off fa-toggle-on"
+                            <a className="js-class-toggle text-white-75" data-target="#sidebar-style-toggler" 
                                 onClick={e => { setSideBarToggle(!SideBarToggle); props.dispatch(actions.DarkAndWhithSideBar()) }} href="#">
                                 <i className={`fa fa-toggle-${SideBarToggle ? 'on' : 'off'}`} id="sidebar-style-toggler" />
                             </a>

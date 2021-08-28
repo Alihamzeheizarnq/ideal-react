@@ -19,7 +19,7 @@ function Breadcrumb(props) {
                                     props.header.breadcrumb.map(item => {
                                         if (!item.active) {
                                             return (
-                                                <li className="breadcrumb-item">
+                                                <li className="breadcrumb-item" key={item.title}>
 
                                                     <NavLink to={item.link}>{item.title}</NavLink>
                                                 </li>
@@ -28,7 +28,7 @@ function Breadcrumb(props) {
 
                                         } else {
                                             return (
-                                                <li className="breadcrumb-item active">
+                                                <li className="breadcrumb-item active" key={item.title}>
                                                     {item.title}
                                                 </li>
                                             )

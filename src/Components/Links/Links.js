@@ -77,7 +77,7 @@ function LinkGroups(props) {
                 {
                   props.links.map(item => (
                     <>
-                      <tbody className="js-table-sections-header">
+                      <tbody className="js-table-sections-header" >
                         <tr>
                           <td className="text-center" onClick={e => handleTable(e)}>
                             <i className="fa fa-angle-right text-muted" />
@@ -98,7 +98,7 @@ function LinkGroups(props) {
 
 
 
-                                <MapLink child={child} />
+                                <MapLink key={child.id} child={child} />
 
                               ))}
                             </ReactSortable>
