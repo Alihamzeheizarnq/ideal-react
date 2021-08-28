@@ -42,7 +42,7 @@ function LinkGroups(props) {
       }
     }
   }
-  let header = breadcrumb('links.group');
+  let header = breadcrumb('links.child');
   return (
     <>
       <Breadcrumb header={header} />
@@ -54,7 +54,7 @@ function LinkGroups(props) {
 
             <div className="block-header block-header-default">
               <h3 className="block-title">
-                لیست سرگروه ها
+              لینک های فوتر
               </h3>
               <div className="block-options">
                 <div className="block-options-item">
@@ -77,7 +77,7 @@ function LinkGroups(props) {
                 {
                   props.links.map(item => (
                     <>
-                      <tbody className="js-table-sections-header">
+                      <tbody className="js-table-sections-header" >
                         <tr>
                           <td className="text-center" onClick={e => handleTable(e)}>
                             <i className="fa fa-angle-right text-muted" />
@@ -98,7 +98,7 @@ function LinkGroups(props) {
 
 
 
-                                <MapLink child={child} />
+                                <MapLink key={child.id} child={child} />
 
                               ))}
                             </ReactSortable>

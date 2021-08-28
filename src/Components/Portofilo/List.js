@@ -85,8 +85,8 @@ function List(props) {
                                         {
                                               ! isLoding ? (
                                                 <div className='d-flex justify-content-center mt-3'>
-                                                <div class="spinner-grow" role="status">
-                                                    <span class="sr-only">Loading...</span>
+                                                <div className="spinner-grow" role="status">
+                                                    <span className="sr-only">Loading...</span>
                                                 </div>
                                             </div>
                                             ) :
@@ -110,8 +110,8 @@ function List(props) {
                                             paginate.links.map(item => (
 
 
-                                                <li className={`page-item ${item.active ? 'active' : ''}`}>
-                                                    <a onClick={e => handlePaginate(item.url)} class="page-link" href="javascript:void(0)" aria-label="Next">
+                                                <li className={`page-item ${item.active ? 'active' : ''}`} key={item.label}>
+                                                    <a onClick={e => handlePaginate(item.url)} className="page-link" href="#" aria-label="Next">
                                                         <span aria-hidden="true">
                                                             {item.label}
                                                         </span>

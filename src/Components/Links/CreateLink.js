@@ -68,7 +68,7 @@ function CreateLink(props) {
                 value={group_id}
 
             >
-                <option value="">انتخاب کنید</option>
+                <option>انتخاب کنید</option>
                 {
                     props.links.map(item => (<option className="mr-4" key={item.id} value={item.id}>{item.name}</option>))
                 }

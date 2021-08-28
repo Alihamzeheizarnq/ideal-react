@@ -71,14 +71,14 @@ function LinkGroups(props) {
                                 {
                                     !loding ? (
                                         <div className='d-flex justify-content-center mt-3 mb-3'>
-                                            <div class="spinner-grow" role="status">
-                                                <span class="sr-only">Loading...</span>
+                                            <div className="spinner-grow" role="status">
+                                                <span className="sr-only">Loading...</span>
                                             </div>
                                         </div>
                                     ) :
                                         <ReactSortable tag="tbody" list={props.links} setList={setState2}>
                                             {props.links.map((item) => (
-                                                <MapLinkGroup {...item} />
+                                                <MapLinkGroup key={item.id} {...item} />
 
                                             ))}
                                         </ReactSortable>
