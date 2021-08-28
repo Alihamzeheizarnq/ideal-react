@@ -6,6 +6,7 @@ import PortofiloReucer from './PortofiloReducer';
 import PostCategory from './CateGoryPost';
 import PostReducer from './PostReducer';
 import MenuReducer from './MenuReducer';
+import TicketReducer from './TicketReducer';
 
 let reducer = combineReducers({
     theme: themeReducer,
@@ -14,7 +15,8 @@ let reducer = combineReducers({
     portofilos: PortofiloReucer,
     post_category : PostCategory,
     posts : PostReducer,
-    menus : MenuReducer
+    menus : MenuReducer,
+    tickets : TicketReducer
 })
 
 export default reducer;

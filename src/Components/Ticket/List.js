@@ -1,9 +1,9 @@
-import animate from './../Partials/animate';
+import animate from '../Partials/animate';
 import { StyleRoot } from 'radium';
 import Breadcrumb from "../Partials/Breadcrumb";
 import breadcrumb from "../../breadcrub";
 import { useEffect, useState } from 'react';
-import ApiPortofilo from './../../Api/Portofilo'
+import ApiTickect from '../../Api/Ticket'
 import { connect } from 'react-redux';
 import actions from '../../actions';
 import Item from './Item';
@@ -13,7 +13,7 @@ function List(props) {
     let [isLoding, setIsLoding] = useState(false);
 
     useEffect(() => {
-                ApiPortofilo.ListPortofilo(props.location.search, (data) => {
+        ApiTickect.ListTicket(props.location.search, (data) => {
             setPaginate(preve => {
                 return {
                     ...preve,
@@ -24,18 +24,15 @@ function List(props) {
                 }
             })
             setIsLoding(true);
-            props.dispatch(actions.ListPortofilo(data))
+            props.dispatch(actions.ListTicket(data))
         })
-     
-    
-
     }, [])
 
     let handlePaginate = (url) => {
         if (url) {
             let page = url.split("?").slice(-1).pop()
             props.history.push(props.location.pathname + '?' + page)
-            ApiPortofilo.ListPortofilo(page, (data) => {
+            ApiTickect.ListTicket(page, (data) => {
                 setPaginate(preve => {
                     return {
                         ...preve,
@@ -44,10 +41,28 @@ function List(props) {
                         status: true
                     }
                 })
-                props.dispatch(actions.ListPortofilo(data))
+                props.dispatch(actions.ListTicket(data))
             })
 
         }
+    }
+
+    let Update = () => {
+        setIsLoding(false);
+
+        ApiTickect.ListTicket(props.location.search, (data) => {
+            setPaginate(preve => {
+                return {
+                    ...preve,
+                    links: data.meta.links,
+                    total: data.meta.last_page,
+
+                    status: true
+                }
+            })
+            setIsLoding(true);
+            props.dispatch(actions.ListTicket(data))
+        })
     }
     let header = breadcrumb('portofilo.list');
 
@@ -64,17 +79,22 @@ function List(props) {
                 <div className="content content-full" style={animate.bounce}>
                     <div className="block block-rounded">
 
+<div className="block-header block-header-default" data-radium="true">
+    <h3 className="block-title"></h3><div className="block-options">
+        <button onClick={e => Update()} type="button" className="btn-block-option" data-toggle="block-option" data-action="state_toggle" data-action-mode="demo">
+            <i className="si si-refresh" />
+            </button>
+            </div></div>
                         <div className="block-content">
                             <div className="table-responsive">
-
                                 <table className="table table-striped table-hover table-vcenter">
                                     <thead>
                                         <tr>
                                             <th className="text-center" style={{ width: 50 }}>ردیف</th>
-                                            <th>عنوان</th>
-                                            <th>عکس</th>
-                                            <th className="d-none d-sm-table-cell" >نام مشتری</th>
-                                            <th className="d-none d-sm-table-cell" >آدرس</th>
+                                            <th>نام</th>
+                                            <th>موضوع</th>
+                                            <th className="d-none d-sm-table-cell" >تلفن</th>
+                                         
                                             <th className="d-none d-sm-table-cell" >وضعیت</th>
                                             <th className="text-center" style={{ width: 100 }}>عملیات</th>
                                         </tr>
@@ -89,8 +109,8 @@ function List(props) {
                                                     <span className="sr-only">Loading...</span>
                                                 </div>
                                             </div>
-                                            ) :
-                                            props.portofilos.portofilo.map((item, index) => <Item history={props.history} key={item.id} {...item} index={index + 1} />)
+                                            ) : 
+                                            props.tickets.map((item, index) => <Item history={props.history} key={item.id} {...item} index={index + 1} />)
                                         }
 
 
@@ -140,7 +160,7 @@ function List(props) {
 
 let mapStateToProps = (state) => {
     return {
-        portofilos: state.portofilos
+        tickets: state.tickets.tickets
     }
 }
 export default connect(mapStateToProps)(List);

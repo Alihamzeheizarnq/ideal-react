@@ -60,7 +60,7 @@ function SideBar(props) {
                             {/* Toggle Sidebar Style */}
                             {/* Layout API, functionality initialized in Template._uiApiLayout() */}
                             {/* Class Toggle, functionality initialized in Helpers.coreToggleClass() */}
-                            <a className="js-class-toggle text-white-75" data-target="#sidebar-style-toggler" data-class="fa-toggle-off fa-toggle-on"
+                            <a className="js-class-toggle text-white-75" data-target="#sidebar-style-toggler" 
                                 onClick={e => { setSideBarToggle(!SideBarToggle); props.dispatch(actions.DarkAndWhithSideBar()) }} href="#">
                                 <i className={`fa fa-toggle-${SideBarToggle ? 'on' : 'off'}`} id="sidebar-style-toggler" />
                             </a>
@@ -100,7 +100,7 @@ function SideBar(props) {
                             </li>
                             <li className={`nav-main-item parent`} id="1">
                                 <a className="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
-                                    <i className="nav-main-link-icon fa fa-user" />
+                                    <i className="nav-main-link-icon fa fa-link" />
                                     <span className="nav-main-link-name">مدیریت لینک فوتر</span>
                                 </a>
                                 <ul className="nav-main-submenu">
@@ -120,7 +120,7 @@ function SideBar(props) {
                             </li>
                             <li className={`nav-main-item parent`} id="2">
                                 <a className="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
-                                    <i className="nav-main-link-icon fa fa-book-open" />
+                                    <i className="nav-main-link-icon fa fa-blog" />
                                     <span className="nav-main-link-name"> نمونه کارها</span>
                                 </a>
                                 <ul className="nav-main-submenu">
@@ -141,7 +141,7 @@ function SideBar(props) {
 
                             <li className={`nav-main-item parent`} id="3">
                                 <a className="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
-                                    <i className="nav-main-link-icon fa fa-user" />
+                                    <i className="nav-main-link-icon fa fa-book" />
                                     <span className="nav-main-link-name">مدیریت  وبلاگ</span>
                                 </a>
                                 <ul className="nav-main-submenu">
@@ -166,7 +166,7 @@ function SideBar(props) {
                                 </ul>
                                 <li className={`nav-main-item parent`} id="4">
                                     <a className="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
-                                        <i className="nav-main-link-icon fa fa-user" />
+                                        <i className="nav-main-link-icon fa fa-list" />
                                         <span className="nav-main-link-name">مدیریت  منو ها</span>
                                     </a>
                                     <ul className="nav-main-submenu">
@@ -179,21 +179,24 @@ function SideBar(props) {
                                         </li>
                                     </ul>
                                 </li>
-                                <li className={`nav-main-item parent`} id="5">
+
+                                <li className={`nav-main-item parent`} id="4">
                                     <a className="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
-                                        <i className="nav-main-link-icon fa fa-user" />
-                                        <span className="nav-main-link-name">تنظیمات</span>
+                                        <i className="nav-main-link-icon fa fa-comment" />
+                                        <span className="nav-main-link-name"> تیکت ها</span>
+                                        <span class="nav-main-link-badge badge badge-pill badge-success">3</span>
                                     </a>
                                     <ul className="nav-main-submenu">
                                         <li className="nav-main-item" >
-                                            <NavLink to="/setting" className="nav-main-link" href="#">
+                                            <NavLink to="/tickets" className="nav-main-link" href="#">
                                                 <i className="nav-main-link-icon fa fa-2x fa-chevron-left" />
-                                                <span className="nav-main-link-name">مدیریت تنظیمات</span>
+                                                <span className="nav-main-link-name">درخواست های مشاوره</span>
                                             </NavLink>
 
                                         </li>
                                     </ul>
                                 </li>
+        
                             </li>
                         </ul>
                     </div>

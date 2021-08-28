@@ -13,6 +13,7 @@ import PostsCategory from './Post/Category';
 import PostEdit from './Post/Edit';
 import Menu from './Menu';
 import NotFound from './errors/404';
+import TicketList from './Ticket/List';
 function Index() {
     return (
         <>
@@ -32,6 +33,7 @@ function Index() {
                 <Route path="/menus" component={Menu} />
                 <Route path="/404" component={NotFound} />
                 <Route component={NotFound} />
+                <Route path="/tickets" component={TicketList} />
                 
             </Switch>
         </>

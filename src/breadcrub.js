@@ -11,7 +11,16 @@ function breadcrumb(name) {
                     { title: ' مدیریت سرگروه ها ', link: '/links/groups', active: true },
                 ]
             };
+            case 'links.child':
 
+            return {
+                title: 'مدیریت لینک فوتر ',
+                breadcrumb: [
+                    { title: 'صفحه اصلی', link: '/', active: false },
+                    { title: ' مدیریت لینک های فوتر  ', link: '/links/groups', active: true },
+                ]
+            };
+        
         case 'users.index':
             return {
                 title: 'لیست کاربران',

@@ -39,9 +39,9 @@ function Header(props) {
                         {/* END Toggle Sidebar */}
                         {/* Open Search Section */}
                         {/* Layout API, functionality initialized in Template._uiApiLayout() */}
-                        <button type="button" className="btn btn-dual" data-toggle="layout" data-action="header_search_on">
+                        {/* <button type="button" className="btn btn-dual" data-toggle="layout" data-action="header_search_on">
                             <i className="fa fa-fw fa-search" /> <span className="ml-1 d-none d-sm-inline-block">Search</span>
-                        </button>
+                        </button> */}
                         {/* END Open Search Section */}
                     </div>
                     {/* END Right Section */}
@@ -79,7 +79,7 @@ function Header(props) {
                                     </a>
                                     {/* END Side Overlay */}
                                     <div role="separator" className="dropdown-divider" />
-                                    <Link className="dropdown-item" onClick={e => Logout()}>
+                                    <Link to='#' className="dropdown-item" onClick={e => Logout()}>
                                         <i className="far fa-fw fa-arrow-alt-circle-left ml-1" /> خروج
                                     </Link>
                                 </div>

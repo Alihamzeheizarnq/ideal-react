@@ -19,17 +19,21 @@ function Home() {
     })
     useEffect(() => {
         Vsitor.ListVisitor(data => {
-            setData((state) => ({
-                category: data.category,
-                portofilos: data.portofilo,
-                posts: data.posts,
-                url: data.url,
-                day: data.day,
-                day_7: data.day_7,
-                portofilo_count: data.portofilo_count,
-                post_count: data.post_count,
-                isLoding: true
-            }))
+            setData((state) => {
+                return {
+                    ...state,
+                    category: data.category,
+                    portofilos: data.portofilo,
+                    posts: data.posts,
+                    url: data.url,
+                    day: data.day,
+                    day_7: data.day_7,
+                    portofilo_count: data.portofilo_count,
+                    post_count: data.post_count,
+                    isLoding: true
+                }
+
+            })
         })
     }, [])
 
@@ -58,7 +62,7 @@ function Home() {
                                     </a>
                                 </div>
                                 <div className="col-6 col-lg-3">
-                                    <a className="block block-rounded block-link-shadow text-center" href="javascript:void(0)">
+                                    <a className="block block-rounded block-link-shadow text-center" href="#">
                                         <div className="block-content py-5">
                                             <div className="font-size-h3 font-w600 text-success mb-1">{data.portofilo_count}</div>
                                             <p className="font-w600 font-size-sm text-muted text-uppercase mb-0">
@@ -68,7 +72,7 @@ function Home() {
                                     </a>
                                 </div>
                                 <div className="col-6 col-lg-3">
-                                    <a className="block block-rounded block-link-shadow text-center" href="javascript:void(0)">
+                                    <a className="block block-rounded block-link-shadow text-center" href="#">
                                         <div className="block-content py-5">
                                             <div className="font-size-h3 font-w600 mb-1">{data.day}</div>
                                             <p className="font-w600 font-size-sm text-muted text-uppercase mb-0">
@@ -78,7 +82,7 @@ function Home() {
                                     </a>
                                 </div>
                                 <div className="col-6 col-lg-3">
-                                    <a className="block block-rounded block-link-shadow text-center" href="javascript:void(0)">
+                                    <a className="block block-rounded block-link-shadow text-center" href="#">
                                         <div className="block-content py-5">
                                             <div className="font-size-h3 font-w600 mb-1">{data.day_7}</div>
                                             <p className="font-w600 font-size-sm text-muted text-uppercase mb-0">
@@ -93,7 +97,7 @@ function Home() {
                             <div className="row">
 
 
-                            <div className="col-xl-6">
+                                <div className="col-xl-6">
                                     <div className="block block-rounded">
                                         <div className="block-header block-header-default">
                                             <h3 className="block-title">  نمونه کار های پربازدید </h3>
@@ -109,7 +113,7 @@ function Home() {
 
                                                     {
                                                         data.portofilos.map(item => (
-                                                            <tr>
+                                                            <tr key={item.title + item.url}>
                                                                 <td className="font-w600 text-center">
                                                                     <a href="be_pages_ecom_order.html">{item.title}</a>
                                                                 </td>
@@ -148,7 +152,7 @@ function Home() {
 
                                                     {
                                                         data.posts.map(item => (
-                                                            <tr>
+                                                            <tr key={item.title}>
                                                                 <td className="font-w600 text-center">
                                                                     <a href="be_pages_ecom_order.html">{item.title}</a>
                                                                 </td>
@@ -158,7 +162,7 @@ function Home() {
 
                                                                 <td className="font-w600 text-right">{item.count}</td>
                                                             </tr>
-                                                            
+
                                                         ))
                                                     }
 
@@ -185,7 +189,7 @@ function Home() {
                                                 <tbody>
                                                     {
                                                         data.category.map(item => (
-                                                            <tr>
+                                                            <tr key={item.name}>
 
                                                                 <td className="text-center">
                                                                     <a className="font-w600" href="be_pages_ecom_product_edit.html">{item.name}</a>
@@ -223,12 +227,12 @@ function Home() {
                                                 <tbody>
                                                     {
                                                         data.url.map(item => (
-                                                            <tr>
+                                                            <tr key={item.url}>
                                                                 <td>
-                                                                    <a href="be_pages_ecom_product_edit.html">{item.count}</a>
+                                                                    <a href={item.url}>{item.count}</a>
                                                                 </td>
                                                                 <td className="text-center">
-                                                                    <a className="font-w600" href="be_pages_ecom_product_edit.html">{item.url}</a>
+                                                                    <a className="font-w600" href={item.url}>{item.url}</a>
                                                                 </td>
 
 
@@ -243,7 +247,7 @@ function Home() {
                                         </div>
                                     </div>
                                 </div>
-                  
+
                             </div>
                         </div>
 
