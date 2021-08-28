@@ -229,10 +229,10 @@ function Home() {
                                                         data.url.map(item => (
                                                             <tr key={item.url}>
                                                                 <td>
-                                                                    <a href="be_pages_ecom_product_edit.html">{item.count}</a>
+                                                                    <a href={item.url}>{item.count}</a>
                                                                 </td>
                                                                 <td className="text-center">
-                                                                    <a className="font-w600" href="be_pages_ecom_product_edit.html">{item.url}</a>
+                                                                    <a className="font-w600" href={item.url}>{item.url}</a>
                                                                 </td>
 
 

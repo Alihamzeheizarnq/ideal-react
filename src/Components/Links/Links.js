@@ -42,7 +42,7 @@ function LinkGroups(props) {
       }
     }
   }
-  let header = breadcrumb('links.group');
+  let header = breadcrumb('links.child');
   return (
     <>
       <Breadcrumb header={header} />
@@ -54,7 +54,7 @@ function LinkGroups(props) {
 
             <div className="block-header block-header-default">
               <h3 className="block-title">
-                لیست سرگروه ها
+              لینک های فوتر
               </h3>
               <div className="block-options">
                 <div className="block-options-item">

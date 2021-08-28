@@ -14,21 +14,21 @@ function List(props) {
 
     useEffect(() => {
         window.scroll({ top: 0, left: 0, behavior: 'smooth' })
-            Post.ListPost(props.location.search, (data) => {
+        Post.ListPost(props.location.search, (data) => {
 
-                setPaginate(preve => {
-                    return {
-                        ...preve,
-                        links: data.meta.links,
-                        total: data.meta.last_page,
+            setPaginate(preve => {
+                return {
+                    ...preve,
+                    links: data.meta.links,
+                    total: data.meta.last_page,
 
-                        status: true
-                    }
-                })
-                setIsLoding(true)
-                props.dispatch(actions.ListPost(data))
+                    status: true
+                }
             })
-     
+            setIsLoding(true)
+            props.dispatch(actions.ListPost(data))
+        })
+
     }, [])
 
     let handlePaginate = (url) => {
@@ -68,43 +68,48 @@ function List(props) {
 
                         <div className="block-content">
                             <div className="table-responsive">
-                                <table className="table table-striped table-hover table-vcenter">
-                                    <thead>
-                                        <tr>
-                                            <th className="text-center" style={{ width: 50 }}>ردیف</th>
-                                            <th>عنوان</th>
-                                            <th>عکس</th>
+                                {
+                                    props.posts.length == 0 ? (<div style={{padding : '5px'}}>هیچ پستی وجود ندارد</div>) : (
+                                        <table className="table table-striped table-hover table-vcenter">
+                                            <thead>
+                                                <tr>
+                                                    <th className="text-center" style={{ width: 50 }}>ردیف</th>
+                                                    <th>عنوان</th>
+                                                    <th>عکس</th>
 
-                                            <th className="d-none d-sm-table-cell" >وضعیت</th>
-                                            <th className="text-center" style={{ width: 100 }}>عملیات</th>
-                                        </tr>
-                                    </thead>
-                                    {
-                                            !isLoding ? (
-                                                <div className='d-flex justify-content-center mt-3'>
-                                                    <div className="spinner-grow" role="status">
-                                                        <span className="sr-only">Loading...</span>
+                                                    <th className="d-none d-sm-table-cell" >وضعیت</th>
+                                                    <th className="text-center" style={{ width: 100 }}>عملیات</th>
+                                                </tr>
+                                            </thead>
+                                            {
+                                                !isLoding ? (
+                                                    <div className='d-flex justify-content-center mt-3'>
+                                                        <div className="spinner-grow" role="status">
+                                                            <span className="sr-only">Loading...</span>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            ) : ''
-                                        }
-                                    <tbody>
+                                                ) : ''
+                                            }
+                                            <tbody>
 
 
 
 
-                                        {
-                                            isLoding ? 
+                                                {
+                                                    isLoding ?
                                                         props.posts.map((item, index) => <Item history={props.history} key={item.id} {...item} index={index + 1} />)
                                                         : ''
-                                        }
+                                                }
 
 
 
 
 
-                                    </tbody>
-                                </table>
+                                            </tbody>
+                                        </table>
+                                    )
+                                }
+
                             </div>
 
                         </div>
