@@ -63,8 +63,13 @@ function List(props) {
             setIsLoding(true);
             props.dispatch(actions.ListTicket(data))
         })
+
+
+        ApiTickect.CountTicket(data => {
+            props.dispatch(actions.CountTicket(data));
+        })
     }
-    let header = breadcrumb('portofilo.list');
+    let header = breadcrumb('tickets.index');
 
 
 

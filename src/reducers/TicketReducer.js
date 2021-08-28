@@ -1,6 +1,7 @@
 
 let initState = {
-    tickets: []
+    tickets: [],
+    count : 0
 }
 
 function reducer(state = initState, action) {
@@ -20,6 +21,11 @@ function reducer(state = initState, action) {
             return {
                 ...state,
                 tickets: newState
+            };
+        case 'COUNT_TICKET':
+            return {
+                ...state,
+                count: action.data.count
             };
 
         case 'EDIT_TICKET':

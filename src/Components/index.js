@@ -31,9 +31,9 @@ function Index() {
                 <Route path="/posts/edit/:id" component={PostEdit} />
                 <Route path="/posts/categories" component={PostsCategory} />
                 <Route path="/menus" component={Menu} />
+                <Route path="/tickets" component={TicketList} />
                 <Route path="/404" component={NotFound} />
                 <Route component={NotFound} />
-                <Route path="/tickets" component={TicketList} />
                 
             </Switch>
         </>

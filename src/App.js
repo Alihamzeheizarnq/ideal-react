@@ -13,8 +13,7 @@ import Footer from './Components/Partials/Footer';
 import Login from './Components/auth/Login';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
-import { setHeader } from './Api/Ideal';
-
+import ApiTicket from './Api/Ticket';
 
 
 
@@ -39,6 +38,13 @@ function App(props) {
             return history.push('/login')
         })
     }, [])
+
+    
+    useEffect(() => {
+        ApiTicket.CountTicket(data => {
+            props.dispatch(actions.CountTicket(data));
+        })
+    } , [])
 
 
 

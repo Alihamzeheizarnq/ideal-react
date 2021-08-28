@@ -12,8 +12,13 @@ function UpdateTicket(id, callback) {
     instance.put(`tickets/${id}`).then(res => callback(res.data));
 }
 
+function CountTicket(callback) {
+    instance.get(`view/tickets`).then(res => callback(res.data));
+}
+
 export default {
     ListTicket,
     DeleteTicket,
-    UpdateTicket
+    UpdateTicket,
+    CountTicket
 }

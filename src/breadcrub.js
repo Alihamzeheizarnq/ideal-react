@@ -91,6 +91,14 @@ function breadcrumb(name) {
                         { title: 'مدیریت منوها', link: '#', active:  true },
                     ]
                 }
+            case 'tickets.index':
+                return {
+                    title: 'لیست در خواست ها',
+                    breadcrumb: [
+                        { title: 'صفحه اصلی', link: '/', active: false },
+                        { title: 'مدیریت درخواست ها', link: '#', active:  true },
+                    ]
+                }
             
         default:
             return {

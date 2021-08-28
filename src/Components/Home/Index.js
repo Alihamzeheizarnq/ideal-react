@@ -3,8 +3,11 @@ import { StyleRoot } from 'radium';
 import { useEffect, useState } from 'react';
 import Vsitor from '../../Api/Vsitor';
 import { ideal } from '../../config';
+import ApiTicket from '../../Api/Ticket'
+import { connect } from 'react-redux';
+import actions from '../../actions';
 
-function Home() {
+function Home(props) {
 
     let [data, setData] = useState({
         category: [],
@@ -34,6 +37,9 @@ function Home() {
                 }
 
             })
+        })
+        ApiTicket.CountTicket(data => {
+            props.dispatch(actions.CountTicket(data));
         })
     }, [])
 
@@ -261,4 +267,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default connect()(Home);

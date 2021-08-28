@@ -14,12 +14,7 @@ function Item(props) {
         setView(true);
 
         
-        if (!props.view) {
-            ApiTicket.UpdateTicket(id, data => {
-                props.dispatch(actions.EditTicket(id));
-            })
-
-        }
+    
 
 
     }
@@ -28,11 +23,22 @@ function Item(props) {
 
         setShow(true)
     }
-    let handleClose = (e) => {
+    let handleClose = (e , id = null) => {
 
         setView(false);
 
-        setShow(false)
+        setShow(false);
+
+        if (!props.view && id) {
+            ApiTicket.UpdateTicket(id, data => {
+                props.dispatch(actions.EditTicket(id));
+            })
+
+            ApiTicket.CountTicket(data => {
+                props.dispatch(actions.CountTicket(data));
+            })
+
+        }
     }
     let SuccessModal = (id) => {
         // ApiPortofilo.DeletePortofilo(id, (data) => {
@@ -95,7 +101,7 @@ function Item(props) {
 
             <Modal
                 show={view}
-                onHide={handleClose}
+                onHide={(e) => handleClose(e , props.id)}
                 backdrop="static"
                 keyboard={false}
             >
@@ -138,7 +144,7 @@ function Item(props) {
 
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
+                    <Button variant="secondary" onClick={e => handleClose(e , props.id)}>
                         لغو
                     </Button>
                 </Modal.Footer>

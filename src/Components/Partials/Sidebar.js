@@ -184,7 +184,7 @@ function SideBar(props) {
                                     <a className="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
                                         <i className="nav-main-link-icon fa fa-comment" />
                                         <span className="nav-main-link-name"> تیکت ها</span>
-                                        <span class="nav-main-link-badge badge badge-pill badge-success">3</span>
+                                        <span class="nav-main-link-badge badge badge-pill badge-success">{ props.ticket_count }</span>
                                     </a>
                                     <ul className="nav-main-submenu">
                                         <li className="nav-main-item" >
@@ -210,5 +210,8 @@ function SideBar(props) {
     )
 }
 
+let mapStateToProps = state => ({
+    ticket_count : state.tickets.count
+})
 
-export default connect()(SideBar);
+export default connect(mapStateToProps)(SideBar);

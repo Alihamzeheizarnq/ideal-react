@@ -159,6 +159,7 @@ function Create(props) {
                                                     className="form-control"
                                                     id="dm-post-add-title"
                                                     name="title"
+                                                    style={{fontFamily : 'IRANSansfanum'}}
                                                     value={category_id}
                                                     onChange={e => setCategory_id(e.target.value)}
                                                     placeholder="عنوان نمونه کار را وراد کنید ..."

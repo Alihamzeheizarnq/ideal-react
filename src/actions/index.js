@@ -203,6 +203,10 @@ let EditTicket = (id) => ({
     type: 'EDIT_TICKET',
     id
 })
+let CountTicket = (data) => ({
+    type: 'COUNT_TICKET',
+    data
+})
 export default {
     RightSideBar,
     LeftSideBar,
@@ -238,6 +242,7 @@ export default {
     EditMenu,
     DeleteMenu,
     ListTicket,
-    EditTicket
+    EditTicket,
+    CountTicket
 
 }
