@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 
 
 const instance = axios.create({
-    baseURL: 'http://localhost:8000/api/v1/',
+    baseURL: 'http://ideal-it.test/api/v1/',
     Accepted: 'application/json',
     ContentType: 'application/json'
 });

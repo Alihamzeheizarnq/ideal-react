@@ -1,7 +1,7 @@
 
 
 const ideal = {
-    url : 'http://localhost:8000',
+    url : 'https://ideal-it.test',
 }
 
 
