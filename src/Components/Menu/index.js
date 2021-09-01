@@ -1,5 +1,5 @@
-import Nestable from 'react-nestable';
-import 'react-nestable/dist/styles/index.css';
+import Nestable from 'react-nestable-hamzehei';
+import 'react-nestable-hamzehei/src/styles/index.css';
 import ItemMenu from './ItemMenu';
 import breadcrumb from '../../breadcrub';
 import Breadcrumb from '../Partials/Breadcrumb';

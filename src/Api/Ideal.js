@@ -8,7 +8,7 @@ const instance = axios.create({
     ContentType: 'application/json'
 });
 
-instance.defaults.timeout = 10500;
+instance.defaults.timeout = 20000;
 
 
 instance.interceptors.request.use(function(config) {

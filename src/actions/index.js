@@ -207,6 +207,10 @@ let CountTicket = (data) => ({
     type: 'COUNT_TICKET',
     data
 })
+let DeleteTicket = (id) => ({
+    type: 'DELETE_TICKET',
+    id
+})
 export default {
     RightSideBar,
     LeftSideBar,
@@ -243,6 +247,7 @@ export default {
     DeleteMenu,
     ListTicket,
     EditTicket,
-    CountTicket
+    CountTicket,
+    DeleteTicket
 
 }

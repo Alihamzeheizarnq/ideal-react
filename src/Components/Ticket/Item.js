@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Modal, Button } from 'react-bootstrap';
 import { connect } from "react-redux";
+import { toast } from "react-toastify";
 import actions from "../../actions";
 import ApiTicket from '../../Api/Ticket';
 
@@ -41,9 +42,10 @@ function Item(props) {
         }
     }
     let SuccessModal = (id) => {
-        // ApiPortofilo.DeletePortofilo(id, (data) => {
-        //     props.dispatch(actions.DeletePortofilo(id))
-        // })
+        ApiTicket.DeleteTicket(id, (data) => {
+            props.dispatch(actions.DeleteTicket(id))
+            toast.warning('درخواست با موفقیت حذف گردید')
+        })
     }
     return (
         <>
