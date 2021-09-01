@@ -30356,7 +30356,9 @@ a.text-xplay-lighter:hover {
     min-height: 145px;
     background-color: #f8f9fc;
     border: .125rem dashed #d4dcec;
-    border-radius: .3rem
+    border-radius: .3rem;
+    overflow: scroll;
+
 }
 
 .dropzone .dz-message {
@@ -31149,7 +31151,6 @@ button {
 .image-drup {
     background: #f8f9fc;
     padding: 4px;
-    border: 1px solid #6c767f;
     margin: 3px;
 }
 
@@ -31187,9 +31188,10 @@ button {
 .image-drup .img-box {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     width: 6rem;
     height: 6rem;
+    flex-direction: column;
 }
 
 .image-portopfilo {

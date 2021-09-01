@@ -235,10 +235,10 @@ function Create(props) {
                                                         <div className='image-drup'>
                                                             <div className="img-box">
                                                                 <img src={`${ideal.url}/storage${item.url}`} />
-                                                            </div>
                                                             <Button className="remove-btn" variant="danger" size="sm" onClick={e => DeleteImage(item.url)}>
                                                                 حذف
                                                             </Button>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 ))
