@@ -124,7 +124,7 @@ function Create(props) {
                     <form onSubmit={handleForm} method="POST" encType="multipart/form-data" >
                         <div className="block">
                             <div className="block-header block-header-default">
-                                <a className="btn btn-light" style={{ fontFamily: 'IRANSansfanum' }} href="be_pages_blog_post_manage.html">
+                                <a className="btn btn-light" style={{ fontFamily: 'IRANSansfanum' }} >
                                     <i className="fa fa-arrow-left mr-1" />  ایجاد نمنه کار
                                 </a>
                                 <div className="block-options">

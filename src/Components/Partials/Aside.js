@@ -12,19 +12,19 @@ function Aside(props) {
                     <div className="bg-primary-op">
                         <div className="content-header">
                             {/* User Avatar */}
-                            <a className="img-link ml-1" href="#">
+                            <a className="img-link ml-1">
                                 <img className="img-avatar img-avatar48" src="assets/media/avatars/avatar10.jpg" alt />
                             </a>
                             {/* END User Avatar */}
                             {/* User Info */}
                             <div className="mr-2">
-                                <a className="text-white font-w600" href="#">John Doe</a>
+                                <a className="text-white font-w600" >John Doe</a>
                                 <div className="text-white-75 font-size-sm">Administrator</div>
                             </div>
                             {/* END User Info */}
                             {/* Close Side Overlay */}
                             {/* Layout API, functionality initialized in Template._uiApiLayout() */}
-                            <a onClick={(e) => props.dispatch(actions.LeftSideBar())} className="mr-auto text-white" href="#" data-toggle="layout" data-action="side_overlay_close">
+                            <a onClick={(e) => props.dispatch(actions.LeftSideBar())} className="mr-auto text-white" data-toggle="layout" data-action="side_overlay_close">
                                 <i className="fa fa-times-circle" />
                             </a>
                             {/* END Close Side Overlay */}
@@ -38,17 +38,17 @@ function Aside(props) {
                     <div className="block block-transparent pull-x pull-t">
                         <ul className="nav nav-tabs nav-tabs-block nav-justified pr-0" data-toggle="tabs" role="tablist">
                             <li className="nav-item">
-                                <a className="nav-link active" href="#so-settings">
+                                <a className="nav-link active">
                                     <i className="fa fa-fw fa-cog" />
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#so-people">
+                                <a className="nav-link" >
                                     <i className="far fa-fw fa-user-circle" />
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#so-profile">
+                                <a className="nav-link" >
                                     <i className="far fa-fw fa-edit" />
                                 </a>
                             </li>
@@ -65,47 +65,47 @@ function Aside(props) {
                                     <div className="block-content block-content-full">
                                         <div className="row gutters-tiny text-center">
                                             <div className="col-4 mb-1">
-                                                <a className="d-block py-3 text-white font-size-sm font-w600 bg-default" data-toggle="theme" data-theme="default" href="#">
+                                                <a className="d-block py-3 text-white font-size-sm font-w600 bg-default" data-toggle="theme" data-theme="default">
                                                     Default
                                                 </a>
                                             </div>
                                             <div className="col-4 mb-1">
-                                                <a className="d-block py-3 text-white font-size-sm font-w600 bg-xwork" data-toggle="theme" data-theme="assets/css/themes/xwork.min.css" href="#">
+                                                <a className="d-block py-3 text-white font-size-sm font-w600 bg-xwork" data-toggle="theme" data-theme="assets/css/themes/xwork.min.css">
                                                     xWork
                                                 </a>
                                             </div>
                                             <div className="col-4 mb-1">
-                                                <a className="d-block py-3 text-white font-size-sm font-w600 bg-xmodern" data-toggle="theme" data-theme="assets/css/themes/xmodern.min.css" href="#">
+                                                <a className="d-block py-3 text-white font-size-sm font-w600 bg-xmodern" data-toggle="theme" data-theme="assets/css/themes/xmodern.min.css">
                                                     xModern
                                                 </a>
                                             </div>
                                             <div className="col-4 mb-1">
-                                                <a className="d-block py-3 text-white font-size-sm font-w600 bg-xeco" data-toggle="theme" data-theme="assets/css/themes/xeco.min.css" href="#">
+                                                <a className="d-block py-3 text-white font-size-sm font-w600 bg-xeco" data-toggle="theme" data-theme="assets/css/themes/xeco.min.css">
                                                     xEco
                                                 </a>
                                             </div>
                                             <div className="col-4 mb-1">
-                                                <a className="d-block py-3 text-white font-size-sm font-w600 bg-xsmooth" data-toggle="theme" data-theme="assets/css/themes/xsmooth.min.css" href="#">
+                                                <a className="d-block py-3 text-white font-size-sm font-w600 bg-xsmooth" data-toggle="theme" data-theme="assets/css/themes/xsmooth.min.css">
                                                     xSmooth
                                                 </a>
                                             </div>
                                             <div className="col-4 mb-1">
-                                                <a className="d-block py-3 text-white font-size-sm font-w600 bg-xinspire" data-toggle="theme" data-theme="assets/css/themes/xinspire.min.css" href="#">
+                                                <a className="d-block py-3 text-white font-size-sm font-w600 bg-xinspire" data-toggle="theme" data-theme="assets/css/themes/xinspire.min.css">
                                                     xInspire
                                                 </a>
                                             </div>
                                             <div className="col-4 mb-1">
-                                                <a className="d-block py-3 text-white font-size-sm font-w600 bg-xdream" data-toggle="theme" data-theme="assets/css/themes/xdream.min.css" href="#">
+                                                <a className="d-block py-3 text-white font-size-sm font-w600 bg-xdream" data-toggle="theme" data-theme="assets/css/themes/xdream.min.css">
                                                     xDream
                                                 </a>
                                             </div>
                                             <div className="col-4 mb-1">
-                                                <a className="d-block py-3 text-white font-size-sm font-w600 bg-xpro" data-toggle="theme" data-theme="assets/css/themes/xpro.min.css" href="#">
+                                                <a className="d-block py-3 text-white font-size-sm font-w600 bg-xpro" data-toggle="theme" data-theme="assets/css/themes/xpro.min.css">
                                                     xPro
                                                 </a>
                                             </div>
                                             <div className="col-4 mb-1">
-                                                <a className="d-block py-3 text-white font-size-sm font-w600 bg-xplay" data-toggle="theme" data-theme="assets/css/themes/xplay.min.css" href="#">
+                                                <a className="d-block py-3 text-white font-size-sm font-w600 bg-xplay" data-toggle="theme" data-theme="assets/css/themes/xplay.min.css">
                                                     xPlay
                                                 </a>
                                             </div>
@@ -119,10 +119,10 @@ function Aside(props) {
                                     <div className="block-content block-content-full">
                                         <div className="row gutters-tiny text-center">
                                             <div className="col-6 mb-1">
-                                                <a className="d-block py-3 bg-body-dark font-w600 text-dark" data-toggle="layout" data-action="sidebar_style_dark" href="#">Dark</a>
+                                                <a className="d-block py-3 bg-body-dark font-w600 text-dark" data-toggle="layout" data-action="sidebar_style_dark">Dark</a>
                                             </div>
                                             <div className="col-6 mb-1">
-                                                <a className="d-block py-3 bg-body-dark font-w600 text-dark" data-toggle="layout" data-action="sidebar_style_light" href="#">Light</a>
+                                                <a className="d-block py-3 bg-body-dark font-w600 text-dark" data-toggle="layout" data-action="sidebar_style_light">Light</a>
                                             </div>
                                         </div>
                                     </div>
@@ -134,16 +134,16 @@ function Aside(props) {
                                     <div className="block-content block-content-full">
                                         <div className="row gutters-tiny text-center">
                                             <div className="col-6 mb-1">
-                                                <a className="d-block py-3 bg-body-dark font-w600 text-dark" data-toggle="layout" data-action="header_style_dark" href="#">Dark</a>
+                                                <a className="d-block py-3 bg-body-dark font-w600 text-dark" data-toggle="layout" data-action="header_style_dark">Dark</a>
                                             </div>
                                             <div className="col-6 mb-1">
-                                                <a className="d-block py-3 bg-body-dark font-w600 text-dark" data-toggle="layout" data-action="header_style_light" href="#">Light</a>
+                                                <a className="d-block py-3 bg-body-dark font-w600 text-dark" data-toggle="layout" data-action="header_style_light">Light</a>
                                             </div>
                                             <div className="col-6 mb-1">
-                                                <a className="d-block py-3 bg-body-dark font-w600 text-dark" data-toggle="layout" data-action="header_mode_fixed" href="#">Fixed</a>
+                                                <a className="d-block py-3 bg-body-dark font-w600 text-dark" data-toggle="layout" data-action="header_mode_fixed">Fixed</a>
                                             </div>
                                             <div className="col-6 mb-1">
-                                                <a className="d-block py-3 bg-body-dark font-w600 text-dark" data-toggle="layout" data-action="header_mode_static" href="#">Static</a>
+                                                <a className="d-block py-3 bg-body-dark font-w600 text-dark" data-toggle="layout" data-action="header_mode_static">Static</a>
                                             </div>
                                         </div>
                                     </div>
@@ -155,13 +155,13 @@ function Aside(props) {
                                     <div className="block-content block-content-full">
                                         <div className="row gutters-tiny text-center">
                                             <div className="col-6 mb-1">
-                                                <a className="d-block py-3 bg-body-dark font-w600 text-dark" data-toggle="layout" data-action="content_layout_boxed" href="#">Boxed</a>
+                                                <a className="d-block py-3 bg-body-dark font-w600 text-dark" data-toggle="layout" data-action="content_layout_boxed">Boxed</a>
                                             </div>
                                             <div className="col-6 mb-1">
-                                                <a className="d-block py-3 bg-body-dark font-w600 text-dark" data-toggle="layout" data-action="content_layout_narrow" href="#">Narrow</a>
+                                                <a className="d-block py-3 bg-body-dark font-w600 text-dark" data-toggle="layout" data-action="content_layout_narrow">Narrow</a>
                                             </div>
                                             <div className="col-12 mb-1">
-                                                <a className="d-block py-3 bg-body-dark font-w600 text-dark" data-toggle="layout" data-action="content_layout_full_width" href="#">Full Width</a>
+                                                <a className="d-block py-3 bg-body-dark font-w600 text-dark" data-toggle="layout" data-action="content_layout_full_width">Full Width</a>
                                             </div>
                                         </div>
                                     </div>

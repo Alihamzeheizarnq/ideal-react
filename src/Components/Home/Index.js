@@ -58,7 +58,7 @@ function Home(props) {
                         <div className="content" style={animate.bounce}>
                             <div className="row row-deck" >
                                 <div className="col-6 col-lg-3">
-                                    <a className="block block-rounded block-link-shadow text-center" href="be_pages_ecom_orders.html">
+                                    <a className="block block-rounded block-link-shadow text-center" >
                                         <div className="block-content py-5">
                                             <div className="font-size-h3 font-w600 text-primary mb-1">{data.post_count}</div>
                                             <p className="font-w600 font-size-sm text-muted text-uppercase mb-0">
@@ -68,7 +68,7 @@ function Home(props) {
                                     </a>
                                 </div>
                                 <div className="col-6 col-lg-3">
-                                    <a className="block block-rounded block-link-shadow text-center" href="#">
+                                    <a className="block block-rounded block-link-shadow text-center">
                                         <div className="block-content py-5">
                                             <div className="font-size-h3 font-w600 text-success mb-1">{data.portofilo_count}</div>
                                             <p className="font-w600 font-size-sm text-muted text-uppercase mb-0">
@@ -78,7 +78,7 @@ function Home(props) {
                                     </a>
                                 </div>
                                 <div className="col-6 col-lg-3">
-                                    <a className="block block-rounded block-link-shadow text-center" href="#">
+                                    <a className="block block-rounded block-link-shadow text-center">
                                         <div className="block-content py-5">
                                             <div className="font-size-h3 font-w600 mb-1">{data.day}</div>
                                             <p className="font-w600 font-size-sm text-muted text-uppercase mb-0">
@@ -88,7 +88,7 @@ function Home(props) {
                                     </a>
                                 </div>
                                 <div className="col-6 col-lg-3">
-                                    <a className="block block-rounded block-link-shadow text-center" href="#">
+                                    <a className="block block-rounded block-link-shadow text-center">
                                         <div className="block-content py-5">
                                             <div className="font-size-h3 font-w600 mb-1">{data.day_7}</div>
                                             <p className="font-w600 font-size-sm text-muted text-uppercase mb-0">
@@ -121,7 +121,7 @@ function Home(props) {
                                                         data.portofilos.map(item => (
                                                             <tr key={item.title + item.url}>
                                                                 <td className="font-w600 text-center">
-                                                                    <a href="be_pages_ecom_order.html">{item.title}</a>
+                                                                    <a >{item.title}</a>
                                                                 </td>
                                                                 <td className="d-none d-sm-table-cell">
                                                                     <img style={{ maxHeight: '60px' }} src={ideal.url + '/storage' + item.image} />
@@ -160,7 +160,7 @@ function Home(props) {
                                                         data.posts.map(item => (
                                                             <tr key={item.title}>
                                                                 <td className="font-w600 text-center">
-                                                                    <a href="be_pages_ecom_order.html">{item.title}</a>
+                                                                    <a >{item.title}</a>
                                                                 </td>
                                                                 <td className="d-none d-sm-table-cell">
                                                                     <img style={{ maxHeight: '60px' }} src={ideal.url + '/storage' + item.image} />
@@ -198,10 +198,10 @@ function Home(props) {
                                                             <tr key={item.name}>
 
                                                                 <td className="text-center">
-                                                                    <a className="font-w600" href="be_pages_ecom_product_edit.html">{item.name}</a>
+                                                                    <a className="font-w600">{item.name}</a>
                                                                 </td>
                                                                 <td>
-                                                                    <a href="be_pages_ecom_product_edit.html">{item.count}</a>
+                                                                    <a >{item.count}</a>
                                                                 </td>
 
 

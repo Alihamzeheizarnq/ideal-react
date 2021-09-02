@@ -39,7 +39,11 @@ function SideBar(props) {
 
     }
     
-
+    let handleBox = e => {
+        if(window.innerWidth <= 991){
+                props.dispatch(actions.RightSideBar())
+        }
+    }
     return (
         <>
             <nav id="sidebar" aria-label="Main Navigation">
@@ -47,7 +51,7 @@ function SideBar(props) {
                 <div className="bg-header-dark">
                     <div className="content-header bg-white-10">
                         {/* Logo */}
-                        <a className="font-w600 text-white tracking-wide" href="#">
+                        <a className="font-w600 text-white tracking-wide">
                             <span className="smini-visible">
                                 I<span className="opacity-75">T</span>
                             </span>
@@ -62,7 +66,7 @@ function SideBar(props) {
                             {/* Layout API, functionality initialized in Template._uiApiLayout() */}
                             {/* Class Toggle, functionality initialized in Helpers.coreToggleClass() */}
                             <a className="js-class-toggle text-white-75" data-target="#sidebar-style-toggler" 
-                                onClick={e => { setSideBarToggle(!SideBarToggle); props.dispatch(actions.DarkAndWhithSideBar()) }} href="#">
+                                onClick={e => { setSideBarToggle(!SideBarToggle); props.dispatch(actions.DarkAndWhithSideBar()) }}>
                                 <i className={`fa fa-toggle-${SideBarToggle ? 'on' : 'off'}`} id="sidebar-style-toggler" />
                             </a>
                             {/* END Toggle Sidebar Style */}
@@ -70,7 +74,7 @@ function SideBar(props) {
                             {/* Layout API, functionality initialized in Template._uiApiLayout() */}
                             <a className="d-lg-none text-white ml-2"
                                 onClick={e => props.dispatch(actions.RightSideBar())}
-                                data-toggle="layout" data-action="sidebar_close" href="#">
+                                data-toggle="layout" data-action="sidebar_close">
                                 <i className="fa fa-times-circle" />
                             </a>
                             {/* END Close Sidebar */}
@@ -85,13 +89,13 @@ function SideBar(props) {
                     <div className="content-side">
                         <ul className="nav-main" onClick={(e) => HandleActiveSidebar(e)}>
                             <li className={`nav-main-item parent`} id="1">
-                                <a className="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
+                                <a className="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false">
                                     <i className="nav-main-link-icon fa fa-user" />
                                     <span className="nav-main-link-name">  داشبورد</span>
                                 </a>
                                 <ul className="nav-main-submenu">
                                     <li className="nav-main-item" >
-                                        <NavLink to="/" className="nav-main-link" href="#">
+                                        <NavLink onClick={handleBox} to="/" className="nav-main-link">
                                             <i className="nav-main-link-icon fa fa-2x fa-chevron-left" />
                                             <span className="nav-main-link-name">صفحه اصلی</span>
                                         </NavLink>
@@ -100,19 +104,19 @@ function SideBar(props) {
                                 </ul>
                             </li>
                             <li className={`nav-main-item parent`} id="1">
-                                <a className="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
+                                <a className="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false">
                                     <i className="nav-main-link-icon fa fa-link" />
                                     <span className="nav-main-link-name">مدیریت لینک فوتر</span>
                                 </a>
                                 <ul className="nav-main-submenu">
                                     <li className="nav-main-item" >
-                                        <NavLink to="/links/groups" className="nav-main-link" href="#">
+                                        <NavLink onClick={handleBox} to="/links/groups" className="nav-main-link">
                                             <i className="nav-main-link-icon fa fa-2x fa-chevron-left" />
                                             <span className="nav-main-link-name">مدیریت سرگروه ها</span>
                                         </NavLink>
                                     </li>
                                     <li className="nav-main-item">
-                                        <NavLink to="/links" exact className="nav-main-link" href="#">
+                                        <NavLink onClick={handleBox} to="/links" exact className="nav-main-link">
                                             <i className="nav-main-link-icon fa fa-2x fa-chevron-left" />
                                             <span className="nav-main-link-name">مدیریت لینک ها</span>
                                         </NavLink>
@@ -120,19 +124,19 @@ function SideBar(props) {
                                 </ul>
                             </li>
                             <li className={`nav-main-item parent`} id="2">
-                                <a className="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
+                                <a className="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false">
                                     <i className="nav-main-link-icon fa fa-blog" />
                                     <span className="nav-main-link-name"> نمونه کارها</span>
                                 </a>
                                 <ul className="nav-main-submenu">
                                     <li className="nav-main-item">
-                                        <NavLink to="/portofilo/create" className="nav-main-link" href="#">
+                                        <NavLink onClick={handleBox} to="/portofilo/create" className="nav-main-link">
                                             <i className="nav-main-link-icon fa fa-2x fa-chevron-left" />
                                             <span className="nav-main-link-name">ایجاد نمونه کار  </span>
                                         </NavLink>
                                     </li>
                                     <li className="nav-main-item">
-                                        <NavLink to="/portofilo"  exact className="nav-main-link" href="#">
+                                        <NavLink onClick={handleBox} to="/portofilo"  exact className="nav-main-link">
                                             <i className="nav-main-link-icon fa fa-2x fa-chevron-left" />
                                             <span className="nav-main-link-name">لیست نمونه کار ها </span>
                                         </NavLink>
@@ -141,38 +145,38 @@ function SideBar(props) {
                             </li>
 
                             <li className={`nav-main-item parent`} id="3">
-                                <a className="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
+                                <a className="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false">
                                     <i className="nav-main-link-icon fa fa-book" />
                                     <span className="nav-main-link-name">مدیریت  وبلاگ</span>
                                 </a>
                                 <ul className="nav-main-submenu">
                                     <li className="nav-main-item" >
-                                        <NavLink to="/posts/categories" className="nav-main-link" href="#">
+                                        <NavLink onClick={handleBox} to="/posts/categories" className="nav-main-link">
                                             <i className="nav-main-link-icon fa fa-2x fa-chevron-left" />
                                             <span className="nav-main-link-name">دسته بندی</span>
                                         </NavLink>
                                     </li>
                                     <li className="nav-main-item" >
-                                        <NavLink to="/posts" exact className="nav-main-link" href="#">
+                                        <NavLink onClick={handleBox} to="/posts" exact className="nav-main-link">
                                             <i className="nav-main-link-icon fa fa-2x fa-chevron-left" />
                                             <span className="nav-main-link-name">لیست پست ها</span>
                                         </NavLink>
                                     </li>
                                     <li className="nav-main-item">
-                                        <NavLink to="/posts/create" exact className="nav-main-link" href="#">
+                                        <NavLink onClick={handleBox} to="/posts/create" exact className="nav-main-link">
                                             <i className="nav-main-link-icon fa fa-2x fa-chevron-left" />
                                             <span className="nav-main-link-name">ایجاد پست</span>
                                         </NavLink>
                                     </li>
                                 </ul>
                                 <li className={`nav-main-item parent`} id="4">
-                                    <a className="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
+                                    <a className="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false">
                                         <i className="nav-main-link-icon fa fa-list" />
                                         <span className="nav-main-link-name">مدیریت  منو ها</span>
                                     </a>
                                     <ul className="nav-main-submenu">
                                         <li className="nav-main-item" >
-                                            <NavLink to="/menus" className="nav-main-link" href="#">
+                                            <NavLink onClick={handleBox} to="/menus" className="nav-main-link">
                                                 <i className="nav-main-link-icon fa fa-2x fa-chevron-left" />
                                                 <span className="nav-main-link-name">لیست و ایجاد منو</span>
                                             </NavLink>
@@ -182,14 +186,14 @@ function SideBar(props) {
                                 </li>
 
                                 <li className={`nav-main-item parent`} id="5">
-                                    <a className="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
+                                    <a className="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false">
                                         <i className="nav-main-link-icon fa fa-comment" />
                                         <span className="nav-main-link-name"> تیکت ها</span>
                                         <span class="nav-main-link-badge badge badge-pill badge-success">{ props.ticket_count }</span>
                                     </a>
                                     <ul className="nav-main-submenu">
                                         <li className="nav-main-item" >
-                                            <NavLink to="/tickets" className="nav-main-link" href="#">
+                                            <NavLink onClick={handleBox} to="/tickets" className="nav-main-link">
                                                 <i className="nav-main-link-icon fa fa-2x fa-chevron-left" />
                                                 <span className="nav-main-link-name">درخواست های مشاوره</span>
                                             </NavLink>

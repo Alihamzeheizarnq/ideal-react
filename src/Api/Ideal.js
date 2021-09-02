@@ -1,9 +1,10 @@
 import axios from "axios";
 import { toast } from 'react-toastify';
+import ENV from "../env";
 
 
 const instance = axios.create({
-    baseURL: 'https://ideal-it.test/api/v1/',
+    baseURL: ENV.APP_URL+'/api/v1/',
     Accepted: 'application/json',
     ContentType: 'application/json'
 });
@@ -23,7 +24,7 @@ instance.interceptors.response.use(function(response) {
     return response;
 }, function(error) {
 
-    if (error && error.response) {
+    if (error && error.response && error.response.status) {
         switch (error.response.status) {
             case 422:
                 for (const property in error.response.data.errors) {

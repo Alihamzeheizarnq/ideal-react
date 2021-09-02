@@ -136,7 +136,7 @@ function List(props) {
 
 
                                                 <li className={`page-item ${item.active ? 'active' : ''}`} key={item.label}>
-                                                    <a onClick={e => handlePaginate(item.url)} className="page-link" href="#" aria-label="Next">
+                                                    <a onClick={e => handlePaginate(item.url)} className="page-link"  aria-label="Next">
                                                         <span aria-hidden="true">
                                                             {item.label}
                                                         </span>

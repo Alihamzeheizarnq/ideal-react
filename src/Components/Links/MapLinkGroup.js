@@ -51,7 +51,7 @@ function CreateLinkGroup(props) {
             <tr>
                 <th className="text-center" scope="row">{props.id}</th>
                 <td className="font-w600">
-                    <a href="be_pages_generic_profile.html">{props.name}</a>
+                    <a>{props.name}</a>
                 </td>
                 <td className="text-center">
                     <div className="btn-group">

@@ -28,7 +28,7 @@ function Item(props) {
             <tr>
                 <th className="text-center" scope="row">{props.index}</th>
                 <td className="font-w600">
-                    <a href="be_pages_generic_profile.html">{props.title}</a>
+                    <a >{props.title}</a>
                 </td>
                 <td className="d-sm-table-cell">
                     <img className="image-portopfilo" src={`${ideal.url}/storage${props.image.url}`} />

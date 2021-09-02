@@ -84,7 +84,7 @@ function LinkGroups(props) {
                           </td>
                           <td className="font-w600">
                             <div className="py-1">
-                              <a href="be_pages_generic_profile.html">{item.name}</a>
+                              <a>{item.name}</a>
                             </div>
                           </td>
 

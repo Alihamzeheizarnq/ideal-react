@@ -1,7 +1,7 @@
 
-
+import ENV from "./env";
 const ideal = {
-    url : 'https://ideal-it.test',
+    url : ENV.APP_URL,
 }
 
 
@@ -10,7 +10,7 @@ const ckeditor = {
 
     ckfinder:{
 
-        uploadUrl: ideal.url+"/api/v1/upload/images/ckeditor?command=QuickUpload&type=Files&responseType=json",
+        uploadUrl: ENV.APP_URL+"/api/v1/upload/images/ckeditor?command=QuickUpload&type=Files&responseType=json",
  
     },
     fontFamily: {

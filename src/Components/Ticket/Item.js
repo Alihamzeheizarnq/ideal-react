@@ -52,7 +52,7 @@ function Item(props) {
             <tr>
                 <th className="text-center" scope="row">{props.index}</th>
                 <td className="font-w600">
-                    <a href="be_pages_generic_profile.html">{props.name}</a>
+                    <a >{props.name}</a>
                 </td>
 
                 <td className="d-none d-sm-table-cell">

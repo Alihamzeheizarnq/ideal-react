@@ -61,23 +61,10 @@ function Header(props) {
                                     کاربری
                                 </div>
                                 <div className="p-2 text-right">
-                                    {/* <a className="dropdown-item" href="#">
-                                        <i className="far fa-fw fa-user ml-1" /> Profile
-                                    </a>
-                                    <a className="dropdown-item d-flex align-items-center justify-content-between" href="#">
-                                        <span><i className="far fa-fw fa-envelope mr-1" /> Inbox</span>
-                                        <span className="badge badge-primary badge-pill">3</span>
-                                    </a>
-                                    <a className="dropdown-item" href="#">
-                                        <i className="far fa-fw fa-file-alt ml-1" /> Invoices
-                                    </a> */}
-                                    {/* <div role="separator" className="dropdown-divider" /> */}
-                                    {/* Toggle Side Overlay */}
-                                    {/* Layout API, functionality initialized in Template._uiApiLayout() */}
-                                    <a className="dropdown-item" href="#" data-toggle="layout" data-action="side_overlay_toggle">
+                                  
+                                    <a className="dropdown-item" data-toggle="layout" data-action="side_overlay_toggle">
                                         <i className="far fa-fw fa-building ml-1" /> تنظیمات
                                     </a>
-                                    {/* END Side Overlay */}
                                     <div role="separator" className="dropdown-divider" />
                                     <Link to='#' className="dropdown-item" onClick={e => Logout()}>
                                         <i className="far fa-fw fa-arrow-alt-circle-left ml-1" /> خروج
@@ -98,7 +85,7 @@ function Header(props) {
                                 </div>
                                 <ul className="nav-items my-2 pr-0 text-right">
                                     <li>
-                                        <a className="text-dark media py-2" href="#">
+                                        <a className="text-dark media py-2">
                                             <div className="mx-3">
                                                 <i className="fa fa-fw fa-check-circle text-success" />
                                             </div>
@@ -109,7 +96,7 @@ function Header(props) {
                                         </a>
                                     </li>
                                     <li>
-                                        <a className="text-dark media py-2" href="#">
+                                        <a className="text-dark media py-2">
                                             <div className="mx-3">
                                                 <i className="fa fa-fw fa-user-plus text-info" />
                                             </div>
@@ -120,7 +107,7 @@ function Header(props) {
                                         </a>
                                     </li>
                                     <li>
-                                        <a className="text-dark media py-2" href="#">
+                                        <a className="text-dark media py-2">
                                             <div className="mx-3">
                                                 <i className="fa fa-fw fa-times-circle text-danger" />
                                             </div>
@@ -131,7 +118,7 @@ function Header(props) {
                                         </a>
                                     </li>
                                     <li>
-                                        <a className="text-dark media py-2" href="#">
+                                        <a className="text-dark media py-2">
                                             <div className="mx-3">
                                                 <i className="fa fa-fw fa-exclamation-circle text-warning" />
                                             </div>
@@ -142,7 +129,7 @@ function Header(props) {
                                         </a>
                                     </li>
                                     <li>
-                                        <a className="text-dark media py-2" href="#">
+                                        <a className="text-dark media py-2">
                                             <div className="mx-3">
                                                 <i className="fa fa-fw fa-plus-circle text-primary" />
                                             </div>
@@ -154,7 +141,7 @@ function Header(props) {
                                     </li>
                                 </ul>
                                 <div className="p-2 border-top">
-                                    <a className="btn btn-light btn-block text-center" href="#">
+                                    <a className="btn btn-light btn-block text-center">
                                         <i className="fa fa-fw fa-eye mr-1" /> View All
                                     </a>
                                 </div>
