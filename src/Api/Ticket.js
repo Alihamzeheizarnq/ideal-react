@@ -1,11 +1,11 @@
 import { instance } from "./Ideal";
 
-function ListTicket(page , callback) {
-    instance.get(`tickets?${page}`).then(res => callback(res.data));
+async function ListTicket(page)
+{
+    try { return await instance.get( `tickets?${page}` ) } catch (error) { throw error }
 }
-
-function DeleteTicket(id, callback) {
-    instance.delete(`tickets/${id}`).then(res => callback(res.data));
+function DeleteTicket(id, callback ,  err) {
+    instance.delete(`tickets/${id}`).then(res => callback(res.data)).catch(error => err(error));
 }
 
 function UpdateTicket(id, callback) {

@@ -13,7 +13,7 @@ function List(props) {
     let [isLoding, setIsLoding] = useState(false);
 
     useEffect(() => {
-        ApiTickect.ListTicket(props.location.search, (data) => {
+        ApiTickect.ListTicket(props.location.search).then(({data}) => {
             setPaginate(preve => {
                 return {
                     ...preve,
@@ -25,7 +25,9 @@ function List(props) {
             })
             setIsLoding(true);
             props.dispatch(actions.ListTicket(data))
-        })
+        }).catch(err => {
+            console.log(err)
+        });
     }, [])
 
     let handlePaginate = (url) => {
@@ -50,7 +52,7 @@ function List(props) {
     let Update = () => {
         setIsLoding(false);
 
-        ApiTickect.ListTicket(props.location.search, (data) => {
+        ApiTickect.ListTicket(props.location.search).then(({data}) => {
             setPaginate(preve => {
                 return {
                     ...preve,
@@ -62,7 +64,9 @@ function List(props) {
             })
             setIsLoding(true);
             props.dispatch(actions.ListTicket(data))
-        })
+        }).catch(err => {
+            console.log(err)
+        });
 
 
         ApiTickect.CountTicket(data => {
