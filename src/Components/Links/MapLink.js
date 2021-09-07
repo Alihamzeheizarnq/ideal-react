@@ -1,15 +1,13 @@
 import { connect } from "react-redux";
 import { Modal, Button } from 'react-bootstrap'
 import { useState } from "react";
+import { toast } from 'react-toastify';
+import { IoMdMove } from 'react-icons/io'
 import Links from "../../Api/Links";
 import actions from '../../actions';
-import { toast } from 'react-toastify';
 
 
 function CreateLinkGroup(props) {
-
-    console.log(props)
-
 
     const [show, setShow] = useState(false);
     const [edit, setEdit] = useState(false);
@@ -46,8 +44,8 @@ function CreateLinkGroup(props) {
     return (
         <>
 
-            <tr key={props.child.id} className="tr-link">
-                <td className="text-center" />
+            <tr key={props.child.id} className="tr-link" style={{backgroundColor : 'rgb(226 226 226)'}}> 
+                <td className="text-center"><IoMdMove /></td>
                 <td className="font-w600">{props.child.title}</td>
 
                 <td className=" d-sm-table-cell" dir="ltr">

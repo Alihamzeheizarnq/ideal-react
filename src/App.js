@@ -14,6 +14,7 @@ import Login from './Components/auth/Login';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import ApiTicket from './Api/Ticket';
+import Test from './Test';
 
 
 
@@ -76,6 +77,7 @@ function App(props) {
                                 ${theme.sidebarStyle ? 'sidebar-dark' : 'page-header-dark'}`
                                 }>
                                 <Aside />
+                                <Test test={1379} />
                                 <SideBar />
                                 <Header />
                                 <main id="main-container">

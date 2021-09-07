@@ -1,9 +1,10 @@
 import { connect } from "react-redux";
 import { Modal, Button } from 'react-bootstrap'
 import { useState } from "react";
+import { toast } from 'react-toastify';
+import { IoMdMove } from 'react-icons/io'
 import Links from "../../Api/Links";
 import actions from './../../actions';
-import { toast } from 'react-toastify';
 
 
 function CreateLinkGroup(props) {
@@ -49,7 +50,7 @@ function CreateLinkGroup(props) {
         <>
 
             <tr>
-                <th className="text-center" scope="row">{props.id}</th>
+                <th className="text-center" scope="row"><IoMdMove /></th>
                 <td className="font-w600">
                     <a>{props.name}</a>
                 </td>
