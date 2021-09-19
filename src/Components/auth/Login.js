@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import validator from '../fa';
 import { ToastContainer, toast } from 'react-toastify';
 import Auth from '../../Api/Login';
@@ -148,4 +148,4 @@ function Login(props) {
 let mapStateToProps = (state) => ({
     token : state.theme.token
 })
-export default connect(mapStateToProps)(Login);
+export default connect(mapStateToProps)(memo(Login));

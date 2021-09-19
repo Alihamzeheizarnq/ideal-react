@@ -1,4 +1,4 @@
-import { createStore , compose, applyMiddleware } from "redux";
+import { createStore, compose, applyMiddleware } from "redux";
 import thunk from 'redux-thunk';
 import reducer from '../reducers';
 
@@ -13,9 +13,18 @@ function logger({ getState }) {
     return returnValue
   }
 }
-let ComposeRedux = window.__REDUX_DEVTOOLS_EXTENSION__  || compose;
-let store = createStore(reducer ,[], applyMiddleware(thunk, logger));
 
+
+const composeEnhancers =
+  typeof window === 'object' &&
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+    }) : compose;
+
+const enhancer = composeEnhancers(
+  applyMiddleware(thunk, logger),
+);
+const store = createStore(reducer, enhancer);
 export {
-    store
+  store
 }

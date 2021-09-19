@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import  { connect } from 'react-redux';
 import actions from '../../actions';
  
@@ -216,4 +217,4 @@ let mapStateToProps = (state) => {
 
 } 
 
-export default connect()(Aside);
+export default connect()(memo(Aside));

@@ -11,7 +11,7 @@ function breadcrumb(name) {
                     { title: ' مدیریت سرگروه ها ', link: '/links/groups', active: true },
                 ]
             };
-            case 'links.child':
+        case 'links.child':
 
             return {
                 title: 'مدیریت لینک فوتر ',
@@ -20,7 +20,7 @@ function breadcrumb(name) {
                     { title: ' مدیریت لینک های فوتر  ', link: '/links/groups', active: true },
                 ]
             };
-        
+
         case 'users.index':
             return {
                 title: 'لیست کاربران',
@@ -74,32 +74,40 @@ function breadcrumb(name) {
                     { title: 'لیست پست ها', link: '#', active: true },
                 ]
             }
-            case 'posts.create':
-                return {
-                    title: 'افزودن پست',
-                    breadcrumb: [
-                        { title: 'صفحه اصلی', link: '/', active: false },
-                        { title: 'مدیریت وبلاگ', link: '#', active: false },
-                        { title: 'ایجاد پست', link: '#', active: true },
-                    ]
-                }
-            case 'menus.index':
-                return {
-                    title: 'منو',
-                    breadcrumb: [
-                        { title: 'صفحه اصلی', link: '/', active: false },
-                        { title: 'مدیریت منوها', link: '#', active:  true },
-                    ]
-                }
-            case 'tickets.index':
-                return {
-                    title: 'لیست در خواست ها',
-                    breadcrumb: [
-                        { title: 'صفحه اصلی', link: '/', active: false },
-                        { title: 'مدیریت درخواست ها', link: '#', active:  true },
-                    ]
-                }
-            
+        case 'posts.create':
+            return {
+                title: 'افزودن پست',
+                breadcrumb: [
+                    { title: 'صفحه اصلی', link: '/', active: false },
+                    { title: 'مدیریت وبلاگ', link: '#', active: false },
+                    { title: 'ایجاد پست', link: '#', active: true },
+                ]
+            }
+        case 'menus.index':
+            return {
+                title: 'منو',
+                breadcrumb: [
+                    { title: 'صفحه اصلی', link: '/', active: false },
+                    { title: 'مدیریت منوها', link: '#', active: true },
+                ]
+            }
+        case 'tickets.index':
+            return {
+                title: 'لیست در خواست ها',
+                breadcrumb: [
+                    { title: 'صفحه اصلی', link: '/', active: false },
+                    { title: 'مدیریت درخواست ها', link: '#', active: true },
+                ]
+            }
+        case 'comments.create':
+            return {
+                title: 'لیست نظرات',
+                breadcrumb: [
+                    { title: 'صفحه اصلی', link: '/', active: false },
+                    { title: 'مدیریت نطرات', link: '#', active: true },
+                ]
+            }
+
         default:
             return {
                 title: 'صفحه اصلی',

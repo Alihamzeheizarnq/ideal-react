@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { memo, useState } from "react";
 import { connect } from "react-redux";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
@@ -190,4 +190,4 @@ function Header(props) {
     )
 }
 
-export default connect()(Header);
+export default connect()(memo(Header));

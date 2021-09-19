@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from 'react-redux';
 import actions from "../../actions";
@@ -38,10 +38,10 @@ function SideBar(props) {
 
 
     }
-    
+
     let handleBox = e => {
-        if(window.innerWidth <= 991){
-                props.dispatch(actions.RightSideBar())
+        if (window.innerWidth <= 991) {
+            props.dispatch(actions.RightSideBar())
         }
     }
     return (
@@ -65,7 +65,7 @@ function SideBar(props) {
                             {/* Toggle Sidebar Style */}
                             {/* Layout API, functionality initialized in Template._uiApiLayout() */}
                             {/* Class Toggle, functionality initialized in Helpers.coreToggleClass() */}
-                            <a className="js-class-toggle text-white-75" data-target="#sidebar-style-toggler" 
+                            <a className="js-class-toggle text-white-75" data-target="#sidebar-style-toggler"
                                 onClick={e => { setSideBarToggle(!SideBarToggle); props.dispatch(actions.DarkAndWhithSideBar()) }}>
                                 <i className={`fa fa-toggle-${SideBarToggle ? 'on' : 'off'}`} id="sidebar-style-toggler" />
                             </a>
@@ -136,7 +136,7 @@ function SideBar(props) {
                                         </NavLink>
                                     </li>
                                     <li className="nav-main-item">
-                                        <NavLink onClick={handleBox} to="/portofilo"  exact className="nav-main-link">
+                                        <NavLink onClick={handleBox} to="/portofilo" exact className="nav-main-link">
                                             <i className="nav-main-link-icon fa fa-2x fa-chevron-left" />
                                             <span className="nav-main-link-name">لیست نمونه کار ها </span>
                                         </NavLink>
@@ -189,7 +189,7 @@ function SideBar(props) {
                                     <a className="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false">
                                         <i className="nav-main-link-icon fa fa-comment" />
                                         <span className="nav-main-link-name"> تیکت ها</span>
-                                        <span class="nav-main-link-badge badge badge-pill badge-success">{ props.ticket_count }</span>
+                                        <span class="nav-main-link-badge badge badge-pill badge-success">{props.ticket_count}</span>
                                     </a>
                                     <ul className="nav-main-submenu">
                                         <li className="nav-main-item" >
@@ -201,7 +201,30 @@ function SideBar(props) {
                                         </li>
                                     </ul>
                                 </li>
-        
+
+                                <li className={`nav-main-item parent`} id="6">
+                                    <a  className="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false">
+                                        <i className="nav-main-link-icon fa fa-comment" />
+                                        <span className="nav-main-link-name">نظرات</span>
+                                    </a>
+                                    <ul className="nav-main-submenu">
+                                        <li className="nav-main-item" >
+                                            <NavLink onClick={handleBox} to="/comments" className="nav-main-link">
+                                                <i className="nav-main-link-icon fa fa-2x fa-chevron-left" />
+                                                <span className="nav-main-link-name">لیست نظرات</span>
+                                            </NavLink>
+
+                                        </li>
+                                        <li className="nav-main-item" >
+                                            <NavLink onClick={handleBox} to="/comments/create" className="nav-main-link">
+                                                <i className="nav-main-link-icon fa fa-2x fa-chevron-left" />
+                                                <span className="nav-main-link-name">ایجاد نظر</span>
+                                            </NavLink>
+
+                                        </li>
+                                    </ul>
+                                </li>
+
                             </li>
                         </ul>
                     </div>
@@ -216,7 +239,7 @@ function SideBar(props) {
 }
 
 let mapStateToProps = state => ({
-    ticket_count : state.tickets.count
+    ticket_count: state.tickets.count
 })
 
-export default connect(mapStateToProps)(SideBar);
+export default connect(mapStateToProps)(memo(SideBar));

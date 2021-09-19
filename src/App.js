@@ -77,7 +77,6 @@ function App(props) {
                                 ${theme.sidebarStyle ? 'sidebar-dark' : 'page-header-dark'}`
                                 }>
                                 <Aside />
-                                <Test test={1379} />
                                 <SideBar />
                                 <Header />
                                 <main id="main-container">

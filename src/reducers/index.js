@@ -7,6 +7,7 @@ import PostCategory from './CateGoryPost';
 import PostReducer from './PostReducer';
 import MenuReducer from './MenuReducer';
 import TicketReducer from './TicketReducer';
+import CommentReducer from './CommentReducer';
 
 let reducer = combineReducers({
     theme: themeReducer,
@@ -16,7 +17,8 @@ let reducer = combineReducers({
     post_category : PostCategory,
     posts : PostReducer,
     menus : MenuReducer,
-    tickets : TicketReducer
+    tickets : TicketReducer,
+    comments : CommentReducer
 })
 
 export default reducer;

@@ -113,7 +113,7 @@ let DeletePortofilo = (id) => ({
 //CATE GORY POST
 
 
-let CreatePostCategory = (id, name , slug) => ({
+let CreatePostCategory = (id, name, slug) => ({
     type: 'CREATE_POST_CATEGORY',
     id,
     name,
@@ -125,7 +125,7 @@ let ListPostCategory = (categories) => ({
     categories
 })
 
-let EditPostCategory = (id, name , slug) => ({
+let EditPostCategory = (id, name, slug) => ({
     type: 'EDIT_POST_CATEGORY',
     id,
     name,
@@ -211,6 +211,28 @@ let DeleteTicket = (id) => ({
     type: 'DELETE_TICKET',
     id
 })
+
+
+
+
+let AddComment = (data) => ({
+    type: 'ADD_COMMENT',
+    data
+})
+let ListComment = (data) => ({
+    type: 'LIST_COMMENT',
+    data
+})
+let DeleteComment = (id) => ({
+    type: 'DELETE_COMMENT',
+    id
+})
+let EditComment = (id, data) => ({
+    type: 'EDIT_MENU',
+    id,
+    data
+})
+
 export default {
     RightSideBar,
     LeftSideBar,
@@ -248,6 +270,10 @@ export default {
     ListTicket,
     EditTicket,
     CountTicket,
-    DeleteTicket
+    DeleteTicket,
+    AddComment,
+    ListComment,
+    DeleteComment,
+    EditComment
 
 }
