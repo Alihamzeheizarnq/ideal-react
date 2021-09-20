@@ -13,7 +13,7 @@ function List(props) {
     let [isLoding, setIsLoding] = useState(false);
 
     useEffect(() => {
-        ApiTickect.ListTicket(props.location.search).then(({data}) => {
+        ApiTickect.ListTicket(props.location.search).then(({ data }) => {
             setPaginate(preve => {
                 return {
                     ...preve,
@@ -52,7 +52,7 @@ function List(props) {
     let Update = () => {
         setIsLoding(false);
 
-        ApiTickect.ListTicket(props.location.search).then(({data}) => {
+        ApiTickect.ListTicket(props.location.search).then(({ data }) => {
             setPaginate(preve => {
                 return {
                     ...preve,
@@ -75,10 +75,6 @@ function List(props) {
     }
     let header = breadcrumb('tickets.index');
 
-
-
-
-
     return (
         <>
             <Breadcrumb header={header} />
@@ -88,12 +84,12 @@ function List(props) {
                 <div className="content content-full" style={animate.bounce}>
                     <div className="block block-rounded">
 
-<div className="block-header block-header-default" data-radium="true">
-    <h3 className="block-title"></h3><div className="block-options">
-        <button onClick={e => Update()} type="button" className="btn-block-option" data-toggle="block-option" data-action="state_toggle" data-action-mode="demo">
-            <i className="si si-refresh" />
-            </button>
-            </div></div>
+                        <div className="block-header block-header-default" data-radium="true">
+                            <h3 className="block-title"></h3><div className="block-options">
+                                <button onClick={e => Update()} type="button" className="btn-block-option" data-toggle="block-option" data-action="state_toggle" data-action-mode="demo">
+                                    <i className="si si-refresh" />
+                                </button>
+                            </div></div>
                         <div className="block-content">
                             <div className="table-responsive">
                                 <table className="table table-striped table-hover table-vcenter">
@@ -101,25 +97,24 @@ function List(props) {
                                         <tr>
                                             <th className="text-center" style={{ width: 50 }}>ردیف</th>
                                             <th>نام</th>
-                                            <th>موضوع</th>
                                             <th className="d-none d-sm-table-cell" >تلفن</th>
-                                         
+
                                             <th className="d-none d-sm-table-cell" >وضعیت</th>
                                             <th className="text-center" style={{ width: 100 }}>عملیات</th>
                                         </tr>
                                     </thead>
                                     <tbody>
 
-                                      
+
                                         {
-                                              ! isLoding ? (
+                                            !isLoding ? (
                                                 <div className='d-flex justify-content-center mt-3'>
-                                                <div className="spinner-grow" role="status">
-                                                    <span className="sr-only">Loading...</span>
+                                                    <div className="spinner-grow" role="status">
+                                                        <span className="sr-only">Loading...</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            ) : 
-                                            props.tickets.map((item, index) => <Item history={props.history} key={item.id} {...item} index={index + 1} />)
+                                            ) :
+                                                props.tickets.map((item, index) => <Item history={props.history} key={item.id} {...item} index={index + 1} />)
                                         }
 
 
@@ -140,7 +135,7 @@ function List(props) {
 
 
                                                 <li className={`page-item ${item.active ? 'active' : ''}`} key={item.label}>
-                                                    <a onClick={e => handlePaginate(item.url)} className="page-link"  aria-label="Next">
+                                                    <a onClick={e => handlePaginate(item.url)} className="page-link" aria-label="Next">
                                                         <span aria-hidden="true">
                                                             {item.label}
                                                         </span>

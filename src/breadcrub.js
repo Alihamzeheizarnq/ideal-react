@@ -101,7 +101,15 @@ function breadcrumb(name) {
             }
         case 'comments.create':
             return {
-                title: 'لیست نظرات',
+                title:'ایجاد نظر',
+                breadcrumb: [
+                    { title: 'صفحه اصلی', link: '/', active: false },
+                    { title: 'مدیریت نطرات', link: '#', active: true },
+                ]
+            }
+        case 'comments.index':
+            return {
+                title:'لیست نظرات',
                 breadcrumb: [
                     { title: 'صفحه اصلی', link: '/', active: false },
                     { title: 'مدیریت نطرات', link: '#', active: true },

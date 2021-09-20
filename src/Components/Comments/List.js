@@ -47,7 +47,7 @@ function List(props) {
             })
         }
     }
-    let header = breadcrumb('portofilo.list');
+    let header = breadcrumb('comments.index');
     return (
         <>
             <Breadcrumb header={header} />

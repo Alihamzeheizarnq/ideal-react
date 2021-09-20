@@ -54,10 +54,6 @@ function Item(props) {
                 <td className="font-w600">
                     <a >{props.name}</a>
                 </td>
-
-                <td className="d-none d-sm-table-cell">
-                    {props.type}
-                </td>
                 <td className="d-none d-sm-table-cell">
                     {props.phone}
                 </td>
@@ -120,21 +116,6 @@ function Item(props) {
                         <div>
                             <label> : تلفن</label>
                             <div> {props.phone}</div>
-                        </div>
-                        <hr />
-                        <div>
-                            <label> : ایمیل</label>
-                            <div>{props.email}</div>
-                        </div>
-                        <hr />
-                        <div>
-                            <label> : موضوع</label>
-                            <div>{props.type}</div>
-                        </div>
-                        <hr />
-                        <div>
-                            <label> : آدرس</label>
-                            <div>{props.address}</div>
                         </div>
                         <hr />
                         <div>

@@ -16,6 +16,7 @@ import NotFound from './errors/404';
 import TicketList from './Ticket/List';
 import CommentsCreate from './Comments/Create';
 import Comments from './Comments/List';
+import CommentsEdit from './Comments/Edit';
 function Index() {
     return (
         <>
@@ -36,6 +37,7 @@ function Index() {
                 <Route path="/tickets" component={TicketList} />
                 <Route path="/comments" exact  component={Comments} />
                 <Route path="/comments/create" exact component={CommentsCreate} />
+                <Route path="/comments/edit/:id" component={CommentsEdit} />
                 <Route path="/404" component={NotFound} />
                 <Route component={NotFound} />
 

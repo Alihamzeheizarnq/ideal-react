@@ -45,7 +45,7 @@ function Item(props) {
 
                 <td className="text-center">
                     <div className="btn-group">
-                        <button onClick={e => props.history.push(`/portofilo/edit/${props.id}`)} type="button" className="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title data-original-title="Edit">
+                        <button onClick={e => props.history.push(`/comments/edit/${props.id}`)} type="button" className="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title data-original-title="Edit">
                             <i className="fa fa-pencil-alt" />
                         </button>
                         <button type="button" onClick={e => handleDelete(e)} className="btn btn-sm btn-primary js-tooltip-enabled" data-toggle="tooltip" title data-original-title="Delete">

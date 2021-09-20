@@ -20,8 +20,8 @@ function ShowComment(id, callback, error) {
     }).catch(err => error(err))
 }
 function UpdateComment(id, data, callback) {
-    let { title , body, image , list_delete } = data;
-    instance.put(`comments/${id}`, { title , body, image , list_delete }).then(res => {
+    let { title , body, image } = data;
+    instance.put(`comments/${id}`, { name : title , body, image  }).then(res => {
         callback(res.data)
     })
 }
