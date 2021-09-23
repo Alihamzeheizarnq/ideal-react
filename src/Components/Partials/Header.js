@@ -48,7 +48,7 @@ function Header(props) {
                     {/* Left Section */}
                     <div>
                         {/* User Dropdown */}
-                        <div className={`dropdown d-inline-block ${profile ? 'show' : ''}`}>
+                        <div className={`mx-1 dropdown d-inline-block ${profile ? 'show' : ''}`}>
                             <button onClick={e => setProfile(!profile)} type="button" className="btn btn-dual"
                                 id="page-header-user-dropdown" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
@@ -74,7 +74,7 @@ function Header(props) {
                         </div>
                         {/* END User Dropdown */}
                         {/* Notifications Dropdown */}
-                        <div className="dropdown d-inline-block">
+                        <div className="mx-1 dropdown d-inline-block">
                             <button type="button" className="btn btn-dual" id="page-header-notifications-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i className="fa fa-fw fa-bell" />
                                 <span className="badge badge-secondary badge-pill">5</span>
@@ -150,7 +150,7 @@ function Header(props) {
                         {/* END Notifications Dropdown */}
                         {/* Toggle Side Overlay */}
                         {/* Layout API, functionality initialized in Template._uiApiLayout() */}
-                        <button onClick={(e) => props.dispatch(actions.LeftSideBar())} type="button" className="btn btn-dual" data-toggle="layout" data-action="side_overlay_toggle">
+                        <button onClick={(e) => props.dispatch(actions.LeftSideBar())} type="button" className="btn btn-dual mx-1" data-toggle="layout" data-action="side_overlay_toggle">
                             <i className="far fa-fw fa-list-alt" />
                         </button>
                         {/* END Toggle Side Overlay */}

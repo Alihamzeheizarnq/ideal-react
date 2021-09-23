@@ -139,9 +139,6 @@ function Home(props) {
                                     </div>
                                 </div>
 
-
-
-
                                 <div className="col-xl-6">
                                     <div className="block block-rounded">
                                         <div className="block-header block-header-default">
@@ -180,7 +177,7 @@ function Home(props) {
                                 </div>
                             </div>
                             <div className="row">
-                                <div className="col-xl-6">
+                                <div className="col-xl-4">
                                     <div className="block block-rounded">
                                         <div className="block-header block-header-default">
                                             <h3 className="block-title">  دسته بندی های پربازدید </h3>
@@ -218,7 +215,7 @@ function Home(props) {
                                 </div>
 
 
-                                <div className="col-xl-6">
+                                <div className="col-xl-8">
                                     <div className="block block-rounded">
                                         <div className="block-header block-header-default">
                                             <h3 className="block-title">آدرس های پربازدید</h3>
