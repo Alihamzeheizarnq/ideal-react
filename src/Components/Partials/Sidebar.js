@@ -5,8 +5,7 @@ import actions from "../../actions";
 
 function SideBar(props) {
 
-    let [SideBarToggle, setSideBarToggle] = useState(false);
-    let [theme, setTheme] = useState(localStorage.getItem('theme') |false);
+    let [SideBarToggle, setSideBarToggle] = useState(JSON.parse(localStorage.getItem('theme')));
 
     let HandleActiveSidebar = (e) => {
         e.preventDefault();
@@ -65,9 +64,8 @@ function SideBar(props) {
                             <a className="js-class-toggle text-white-75" data-target="#sidebar-style-toggler"
                                onClick={e => {
                                    setSideBarToggle(!SideBarToggle);
+                                   localStorage.setItem('theme', !SideBarToggle);
                                    props.dispatch(actions.DarkAndWhithSideBar());
-                                   localStorage.setItem('theme', !theme);
-                                   setTheme(!theme)
                                }
                                }>
                                 <i className={`fa fa-toggle-${SideBarToggle ? 'on' : 'off'}`}
@@ -252,7 +250,8 @@ function SideBar(props) {
 }
 
 let mapStateToProps = state => ({
-    ticket_count: state.tickets.count
+    ticket_count: state.tickets.count,
+
 })
 
 export default connect(mapStateToProps)(memo(SideBar));

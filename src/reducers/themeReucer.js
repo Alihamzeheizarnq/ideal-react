@@ -2,10 +2,9 @@ let initState = {
     token: false,
     sidebarRight: true,
     sidebarLeft: true,
-    sidebarStyle: true,
-    tokenUer : null
+    sidebarStyle: JSON.parse(localStorage.getItem('theme')),
+    tokenUer: null
 }
-
 function reducer(state = initState, action) {
     switch (action.type) {
         case 'RIGHT_SIDEBAR':
@@ -29,16 +28,17 @@ function reducer(state = initState, action) {
                 token: action.status
             }
 
-            case 'SET_TOKEN':
+        case 'SET_TOKEN':
 
 
             return {
                 ...state,
-                tokenUer : action.token
+                tokenUer: action.token
             }
 
         default:
             return state;
     }
 }
+
 export default reducer;

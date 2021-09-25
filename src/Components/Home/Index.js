@@ -55,7 +55,7 @@ function Home(props) {
                             <div className="spinner-border" role="status"> <span className="sr-only">Loading...</span></div>
                         </div>
                     ) : (
-                        <div className="content" style={animate.bounce}>
+                        <div className="content w-100" style={animate.bounce}>
                             <div className="row row-deck" >
                                 <div className="col-6 col-lg-3">
                                     <a className="block block-rounded block-link-shadow text-center" >
